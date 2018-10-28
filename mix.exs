@@ -4,6 +4,8 @@ defmodule AgroLib.MixProject do
   def project do
     [
       app: :agro_lib,
+      name: "AgroLib",
+      source_url: "https://github.com/agro1986/elixir-agro-lib",
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
@@ -21,6 +23,8 @@ defmodule AgroLib.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ex_doc, "~> 0.19.1"},
+      {:earmark, "~> 1.2.6"}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
