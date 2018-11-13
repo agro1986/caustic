@@ -265,7 +265,7 @@ defmodule AgroLib.Utils do
   Encodes an integer into its base58 representation. If given a string, by default it will
   interpret the string as a hex.
   
-  If given hex and it has leading zeros, then each byte of zeros will
+  If given hex and it has leading zeros, then each byte of zeros will be encoded as 1.
   
   ## Examples
   
@@ -275,6 +275,8 @@ defmodule AgroLib.Utils do
       "z"
       iex> AgroLib.Utils.base58_encode(63716817338599314535577169638518475271320430400871647684951348108655027767484127754748927)
       "5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn"
+      iex> AgroLib.Utils.base58_encode("0x000001")
+      "112"
   """
   def base58_encode(str, opts \\ [])
   def base58_encode(str, opts) when is_binary(str) do
@@ -487,10 +489,8 @@ defmodule AgroLib.Utils do
   """
   def bitcoin_private_key_to_wif(hex_str, opts \\ []) do
     opts = opts ++ [compressed: true]
-    privkey_int = hex_str |> to_integer(16)
-    suffix = if opts[:compressed], do: <<0x01>>, else: <<>>
-    payload = <<privkey_int :: size(256), suffix :: binary>>
-    base58check_encode(payload, :private_key_wif, convert_from_hex: false)
+    hex_str = if opts[:compressed], do: hex_str <> "01", else: hex_str
+    base58check_encode(hex_str, :private_key_wif)
   end
   
   @doc """
@@ -690,4 +690,15 @@ defmodule AgroLib.Utils do
       str
     end
   end
+
+  @doc """
+  ## Examples
+  
+      iex> AgroLib.Utils.mod(0, 3)
+      0
+      iex> AgroLib.Utils.mod(-27, 13)
+      12
+  """
+  def mod(x, y) when x >= 0, do: rem(x, y);
+  def mod(x, y) when x < 0, do: rem(x, y) + y;
 end
