@@ -1,14 +1,14 @@
-# AgroLib
+# Caustic Cryptocurrency Library
 
-A collection of useful methods.
+An Elixir library of useful methods used in various cryptocurrencies
+(Bitcoin, Ethereum).
 
 ## Installation
 
 ```elixir
 def deps do
   [
-    {:agro_lib, "git://github.com/agro1986/elixir-agro-lib.git"}
+    {:caustic, "git://github.com/agro1986/caustic.git"}
   ]
 end
 ```
-
