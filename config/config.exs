@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :agro_lib, key: :value
+#     config :caustic, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:agro_lib, :key)
+#     Application.get_env(:caustic, :key)
 #
 # You can also configure a 3rd-party app:
 #

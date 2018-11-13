@@ -1,4 +1,4 @@
-defmodule AgroLib.Utils do
+defmodule Caustic.Utils do
   use Bitwise
   
   @base58_table "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
@@ -21,21 +21,21 @@ defmodule AgroLib.Utils do
   
   ## Examples
     
-      iex> AgroLib.Utils.base64_encode_char(0)
+      iex> Caustic.Utils.base64_encode_char(0)
       "A"
-      iex> AgroLib.Utils.base64_encode_char(5)
+      iex> Caustic.Utils.base64_encode_char(5)
       "F"
-      iex> AgroLib.Utils.base64_encode_char(26)
+      iex> Caustic.Utils.base64_encode_char(26)
       "a"
-      iex> AgroLib.Utils.base64_encode_char(31)
+      iex> Caustic.Utils.base64_encode_char(31)
       "f"
-      iex> AgroLib.Utils.base64_encode_char(52)
+      iex> Caustic.Utils.base64_encode_char(52)
       "0"
-      iex> AgroLib.Utils.base64_encode_char(57)
+      iex> Caustic.Utils.base64_encode_char(57)
       "5"
-      iex> AgroLib.Utils.base64_encode_char(62)
+      iex> Caustic.Utils.base64_encode_char(62)
       "+"
-      iex> AgroLib.Utils.base64_encode_char(63)
+      iex> Caustic.Utils.base64_encode_char(63)
       "/"
   """
   def base64_encode_char(n) when is_integer(n) and 0 <= n and n <= 25 do
@@ -61,21 +61,21 @@ defmodule AgroLib.Utils do
   
   ## Examples
     
-      iex> AgroLib.Utils.base64_decode_char("A")
+      iex> Caustic.Utils.base64_decode_char("A")
       0
-      iex> AgroLib.Utils.base64_decode_char("F")
+      iex> Caustic.Utils.base64_decode_char("F")
       5
-      iex> AgroLib.Utils.base64_decode_char("a")
+      iex> Caustic.Utils.base64_decode_char("a")
       26
-      iex> AgroLib.Utils.base64_decode_char("f")
+      iex> Caustic.Utils.base64_decode_char("f")
       31
-      iex> AgroLib.Utils.base64_decode_char("0")
+      iex> Caustic.Utils.base64_decode_char("0")
       52
-      iex> AgroLib.Utils.base64_decode_char("5")
+      iex> Caustic.Utils.base64_decode_char("5")
       57
-      iex> AgroLib.Utils.base64_decode_char("+")
+      iex> Caustic.Utils.base64_decode_char("+")
       62
-      iex> AgroLib.Utils.base64_decode_char("/")
+      iex> Caustic.Utils.base64_decode_char("/")
       63
   """
   def base64_decode_char(<<char_code>>), do: _base64_decode_char(char_code)
@@ -102,15 +102,15 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.base64_encode("Man")
+      iex> Caustic.Utils.base64_encode("Man")
       "TWFu"
-      iex> AgroLib.Utils.base64_encode("Ma")
+      iex> Caustic.Utils.base64_encode("Ma")
       "TWE="
-      iex> AgroLib.Utils.base64_encode("M")
+      iex> Caustic.Utils.base64_encode("M")
       "TQ=="
-      iex> AgroLib.Utils.base64_encode("Man is distinguished, not only by his reason, but by this singular passion from other animals...")
+      iex> Caustic.Utils.base64_encode("Man is distinguished, not only by his reason, but by this singular passion from other animals...")
       "TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz\\r\\nIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u"
-      iex> AgroLib.Utils.base64_encode("Man is distinguished, not only by his reason, but by this singular passion from other animals...", new_line: false)
+      iex> Caustic.Utils.base64_encode("Man is distinguished, not only by his reason, but by this singular passion from other animals...", new_line: false)
       "TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u"
   """
   def base64_encode(data, opts \\ []) when is_binary(data), do: _base64_encode(data, [], 0, Keyword.get(opts, :new_line, true))
@@ -151,13 +151,13 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.base64_decode("TWFu")
+      iex> Caustic.Utils.base64_decode("TWFu")
       "Man"
-      iex> AgroLib.Utils.base64_decode("TWE=")
+      iex> Caustic.Utils.base64_decode("TWE=")
       "Ma"
-      iex> AgroLib.Utils.base64_decode("TQ==")
+      iex> Caustic.Utils.base64_decode("TQ==")
       "M"
-      iex> AgroLib.Utils.base64_decode("TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz\\r\\nIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u")
+      iex> Caustic.Utils.base64_decode("TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz\\r\\nIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u")
       "Man is distinguished, not only by his reason, but by this singular passion from other animals..."
   """
   def base64_decode(str) do
@@ -211,9 +211,9 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.bitstring_to_array "Hey"
+      iex> Caustic.Utils.bitstring_to_array "Hey"
       [0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 1]
-      iex> AgroLib.Utils.bitstring_to_array << 1 :: size(1), 0 :: size(1), 1 :: size(1) >>
+      iex> Caustic.Utils.bitstring_to_array << 1 :: size(1), 0 :: size(1), 1 :: size(1) >>
       [1, 0, 1]
   """
   def bitstring_to_array(data) when is_bitstring(data), do: _bitstring_to_array(data, [])
@@ -229,13 +229,13 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.pow(3, 9)
+      iex> Caustic.Utils.pow(3, 9)
       19683
-      iex> AgroLib.Utils.pow(2, 8)
+      iex> Caustic.Utils.pow(2, 8)
       256
-      iex> AgroLib.Utils.pow(2, 256)
+      iex> Caustic.Utils.pow(2, 256)
       115792089237316195423570985008687907853269984665640564039457584007913129639936
-      iex> AgroLib.Utils.pow(2, -2)
+      iex> Caustic.Utils.pow(2, -2)
       0.25
   """
   def pow(n, p) when is_integer(p) and p >= 0, do: _pow(n, p, 1)
@@ -252,7 +252,7 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.bitstring_to_integer(<<255, 255>>)
+      iex> Caustic.Utils.bitstring_to_integer(<<255, 255>>)
       65535
   """
   def bitstring_to_integer(data) when is_bitstring(data) and data != "" do
@@ -269,13 +269,13 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.base58_encode("801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff")
+      iex> Caustic.Utils.base58_encode("801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff")
       "5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn"
-      iex> AgroLib.Utils.base58_encode(<<57>>, convert_from_hex: false)
+      iex> Caustic.Utils.base58_encode(<<57>>, convert_from_hex: false)
       "z"
-      iex> AgroLib.Utils.base58_encode(63716817338599314535577169638518475271320430400871647684951348108655027767484127754748927)
+      iex> Caustic.Utils.base58_encode(63716817338599314535577169638518475271320430400871647684951348108655027767484127754748927)
       "5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn"
-      iex> AgroLib.Utils.base58_encode("0x000001")
+      iex> Caustic.Utils.base58_encode("0x000001")
       "112"
   """
   def base58_encode(str, opts \\ [])
@@ -336,9 +336,9 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.base58_decode("5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn")
+      iex> Caustic.Utils.base58_decode("5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn")
       "0x801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff"
-      iex> AgroLib.Utils.base58_decode("5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn", prefix: false)
+      iex> Caustic.Utils.base58_decode("5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn", prefix: false)
       "801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff"
   """
   def base58_decode(str, opts \\ []), do: base58_to_integer(str) |> to_string(16, opts)
@@ -353,17 +353,17 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.base58check_encode("0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd", :private_key_wif)
+      iex> Caustic.Utils.base58check_encode("0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd", :private_key_wif)
       "5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn"
-      iex> AgroLib.Utils.base58check_encode(<<AgroLib.Utils.to_integer("0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd")::size(256)>>, :private_key_wif, convert_from_hex: false)
+      iex> Caustic.Utils.base58check_encode(<<Caustic.Utils.to_integer("0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd")::size(256)>>, :private_key_wif, convert_from_hex: false)
       "5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn"
-      iex> AgroLib.Utils.base58check_encode(<<AgroLib.Utils.to_integer("0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd")::size(256), 0x01>>, :private_key_wif, convert_from_hex: false)
+      iex> Caustic.Utils.base58check_encode(<<Caustic.Utils.to_integer("0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd")::size(256), 0x01>>, :private_key_wif, convert_from_hex: false)
       "KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ"
-      iex> AgroLib.Utils.base58check_encode(<<AgroLib.Utils.to_integer("1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD", 16)::size(256), 0x01>>, :private_key_wif, convert_from_hex: false)
+      iex> Caustic.Utils.base58check_encode(<<Caustic.Utils.to_integer("1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD", 16)::size(256), 0x01>>, :private_key_wif, convert_from_hex: false)
       "KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ"
-      iex> AgroLib.Utils.base58check_encode("f5f2d624cfb5c3f66d06123d0829d1c9cebf770e", :address)
+      iex> Caustic.Utils.base58check_encode("f5f2d624cfb5c3f66d06123d0829d1c9cebf770e", :address)
       "1PRTTaJesdNovgne6Ehcdu1fpEdX7913CK"
-      iex> AgroLib.Utils.base58check_encode("000000cb23faea20aa20f02a02955ffd1d785518", :address)
+      iex> Caustic.Utils.base58check_encode("000000cb23faea20aa20f02a02955ffd1d785518", :address)
       "1111DVWAb9XQh88gakJRcK14e1i1onvAL" # private key is 5KjhZsxt61XSPunjrPm8XUEAH1YN6zXm6pqT5D1hZ9mLoEAqKTp
   """
   def base58check_encode(payload, version, opts \\ []) do
@@ -414,9 +414,9 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.base58check_decode "5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn"
+      iex> Caustic.Utils.base58check_decode "5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn"
       {:ok, <<196, 126, 131, 255>>, "1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd", :private_key_wif}
-      iex> AgroLib.Utils.base58check_decode "1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy"
+      iex> Caustic.Utils.base58check_decode "1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy"
       {:ok, <<55, 254, 252, 208>>, "bbc1e42a39d05a4cc61752d6963b7f69d09bb27b", :address}
   """
   def base58check_decode(str) do
@@ -482,9 +482,9 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.bitcoin_private_key_to_wif("1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd")
+      iex> Caustic.Utils.bitcoin_private_key_to_wif("1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd")
       "KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ"
-      iex> AgroLib.Utils.bitcoin_private_key_to_wif("1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd", compressed: false)
+      iex> Caustic.Utils.bitcoin_private_key_to_wif("1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd", compressed: false)
       "5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn"
   """
   def bitcoin_private_key_to_wif(hex_str, opts \\ []) do
@@ -498,11 +498,11 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.string_index_of("Hello", "H")
+      iex> Caustic.Utils.string_index_of("Hello", "H")
       0
-      iex> AgroLib.Utils.string_index_of("Hello", "h")
+      iex> Caustic.Utils.string_index_of("Hello", "h")
       nil
-      iex> AgroLib.Utils.string_index_of("Hello", "l")
+      iex> Caustic.Utils.string_index_of("Hello", "l")
       2
   """
   def string_index_of(str, c), do: _string_index_of(str, c, 0)
@@ -514,13 +514,13 @@ defmodule AgroLib.Utils do
   Find the digits of a nonnegative integer `n` in a particular `base`.
   
   ## Examples
-      iex> AgroLib.Utils.to_digits(321, 10)
+      iex> Caustic.Utils.to_digits(321, 10)
       [3, 2, 1]
-      iex> AgroLib.Utils.to_digits(5, 2)
+      iex> Caustic.Utils.to_digits(5, 2)
       [1, 0, 1]
-      iex> AgroLib.Utils.to_digits(255, 16)
+      iex> Caustic.Utils.to_digits(255, 16)
       [15, 15]
-      iex> AgroLib.Utils.to_digits(0, 8)
+      iex> Caustic.Utils.to_digits(0, 8)
       [0]
   """
   def to_digits(n, base)
@@ -544,9 +544,9 @@ defmodule AgroLib.Utils do
 #  
 #  ## Examples
 #  
-#    iex> AgroLib.Utils.to_string(8, 10)
+#    iex> Caustic.Utils.to_string(8, 10)
 #    "8"
-#    iex> AgroLib.Utils.to_string(15, 16)
+#    iex> Caustic.Utils.to_string(15, 16)
 #    "f"
 #  """
 #  def to_string(n, base)
@@ -565,11 +565,11 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.to_string(255, 16)
+      iex> Caustic.Utils.to_string(255, 16)
       "0xff"
-      iex> AgroLib.Utils.to_string(255, 16, prefix: false)
+      iex> Caustic.Utils.to_string(255, 16, prefix: false)
       "ff"
-      iex> AgroLib.Utils.to_string(5, 2)
+      iex> Caustic.Utils.to_string(5, 2)
       "0b101"
   """
   def to_string(n, base, opts \\ []) do
@@ -588,11 +588,11 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.to_integer("0xff")
+      iex> Caustic.Utils.to_integer("0xff")
       255
-      iex> AgroLib.Utils.to_integer("0b101")
+      iex> Caustic.Utils.to_integer("0b101")
       5
-      iex> AgroLib.Utils.to_integer("321")
+      iex> Caustic.Utils.to_integer("321")
       321
   """
   def to_integer(str) do
@@ -605,13 +605,13 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.to_integer("ff", 16)
+      iex> Caustic.Utils.to_integer("ff", 16)
       255
-      iex> AgroLib.Utils.to_integer("101", 2)
+      iex> Caustic.Utils.to_integer("101", 2)
       5
-      iex> AgroLib.Utils.to_integer("755", 8)
+      iex> Caustic.Utils.to_integer("755", 8)
       493
-      iex> AgroLib.Utils.to_integer("321", 10)
+      iex> Caustic.Utils.to_integer("321", 10)
       321
   """
   def to_integer(str, base) do
@@ -649,11 +649,11 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.get_base("0xabf")
+      iex> Caustic.Utils.get_base("0xabf")
       16
-      iex> AgroLib.Utils.get_base("0b101")
+      iex> Caustic.Utils.get_base("0b101")
       2
-      iex> AgroLib.Utils.get_base("321")
+      iex> Caustic.Utils.get_base("321")
       10
   """
   def get_base(str) do
@@ -676,11 +676,11 @@ defmodule AgroLib.Utils do
   
   ## Examples
   
-      iex> AgroLib.Utils.hex_remove_prefix("0xff")
+      iex> Caustic.Utils.hex_remove_prefix("0xff")
       "ff"
-      iex> AgroLib.Utils.hex_remove_prefix("0XFF")
+      iex> Caustic.Utils.hex_remove_prefix("0XFF")
       "FF"
-      iex> AgroLib.Utils.hex_remove_prefix("ff")
+      iex> Caustic.Utils.hex_remove_prefix("ff")
       "ff"
   """
   def hex_remove_prefix(str) do
@@ -694,9 +694,9 @@ defmodule AgroLib.Utils do
   @doc """
   ## Examples
   
-      iex> AgroLib.Utils.mod(0, 3)
+      iex> Caustic.Utils.mod(0, 3)
       0
-      iex> AgroLib.Utils.mod(-27, 13)
+      iex> Caustic.Utils.mod(-27, 13)
       12
   """
   def mod(x, y) when x >= 0, do: rem(x, y);

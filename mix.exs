@@ -1,11 +1,11 @@
-defmodule AgroLib.MixProject do
+defmodule Caustic.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :agro_lib,
-      name: "AgroLib",
-      source_url: "https://github.com/agro1986/elixir-agro-lib",
+      app: :caustic,
+      name: "Caustic",
+      source_url: "https://github.com/agro1986/caustic",
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
