@@ -1,6 +1,20 @@
 defmodule Caustic.Field do
   @moduledoc """
-  Methods for manipulation of finite fields.
+  Methods for creation and manipulation of finite field element.
+  
+  ## Examples
+  
+      # Represents 1 which is a member of finite field of order 5
+      iex> Caustic.Field.make(1, 5)
+      {1, 5}
+    
+      # Modulo addition 1 + 4 mod 5
+      iex> Caustic.Field.add({1, 5}, {4, 5})
+      {0, 5}
+    
+      # Test for congruence 4 * 4 ≡ 1 (mod 5)
+      iex> Caustic.Field.mul({4, 5}, {4, 5}) |> Caustic.Field.eq?({1, 5})
+      true
   """
   
   alias Caustic.Utils

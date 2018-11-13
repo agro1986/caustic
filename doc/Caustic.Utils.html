@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.19.1">
+    <title>Caustic.Utils – Caustic v0.1.0</title>
+    <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
+    <script src="dist/sidebar_items-6c14815bba.js"></script>
+    
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+    <div class="main">
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Sidebar</span>
+</button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
+<section class="sidebar">
+
+  <a href="api-reference.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+Caustic      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </a>
+
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
+  </form>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+      <h1>
+        <small class="visible-xs">Caustic v0.1.0</small>
+Caustic.Utils        
+          <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+      </h1>
+
+
+        <section id="moduledoc">
+<p>A collection of useful methods.</p>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+          
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base58_checksum/1">base58_checksum(data)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base58_decode/2">base58_decode(str, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Decode a base58-encoded string into its hexadecimal string representation</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base58_encode/2">base58_encode(str, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Encodes an integer into its base58 representation. If given a string, by default it will
+interpret the string as a hex</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base58_to_integer/1">base58_to_integer(str)</a>
+  </div>
+    <div class="summary-synopsis"><p>Same as base58_decode but outputs an integer instead of hex string</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base58_version/1">base58_version(data)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base58check_decode/1">base58check_decode(str)</a>
+  </div>
+    <div class="summary-synopsis"><p>Returns checksum, payload, and version</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base58check_encode/3">base58check_encode(payload, version, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Encodes a binary to its base58check representation</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base64_decode/1">base64_decode(str)</a>
+  </div>
+    <div class="summary-synopsis"><p>Decodes a MIME Base64 encoded string</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base64_decode_char/1">base64_decode_char(arg)</a>
+  </div>
+    <div class="summary-synopsis"><p>Gets the character code of a MIME base64 digit</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base64_encode/2">base64_encode(data, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Encodes a string into its MIME Base64 representation</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#base64_encode_char/1">base64_encode_char(n)</a>
+  </div>
+    <div class="summary-synopsis"><p>Encodes an integer codepoint 0 &lt;= <code class="inline">n</code> &lt;= 63 to its MIME Base64 character</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#bitcoin_private_key_to_wif/2">bitcoin_private_key_to_wif(hex_str, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Converts a Bitcoin 256-bit private key to the Wallet Import Format. Defaults to outputting compressed format</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#bitstring_to_array/1">bitstring_to_array(data)</a>
+  </div>
+    <div class="summary-synopsis"><p>Converts a bitstring (including binary) into array of 0s and 1s.
+For simple binary you can also use :binary.decode_unsigned</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#bitstring_to_integer/1">bitstring_to_integer(data)</a>
+  </div>
+    <div class="summary-synopsis"><p>Interprets a bitstring (including binary) as an unsigned integer. You can use :binary.decode_unsigned/1
+if it’s a normal binary</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_base/1">get_base(str)</a>
+  </div>
+    <div class="summary-synopsis"><p>Guess the base of an integer string using its prefix. Defaults to 10, and doesn’t check for validity of the digits</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#hex_remove_prefix/1">hex_remove_prefix(str)</a>
+  </div>
+    <div class="summary-synopsis"><p>Removes hexadecimal prefix from a string</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#log2i/1">log2i(n)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#mod/2">mod(x, y)</a>
+  </div>
+    <div class="summary-synopsis"><h2>Examples</h2>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pow/2">pow(n, p)</a>
+  </div>
+    <div class="summary-synopsis"><p>Calculates integer exponentiation. Exponent can be negative</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#string_index_of/2">string_index_of(str, c)</a>
+  </div>
+    <div class="summary-synopsis"><p>Finds the index of an ASCII character inside a string. Not unicode friendly!</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#to_digits/2">to_digits(n, base)</a>
+  </div>
+    <div class="summary-synopsis"><p>Find the digits of a nonnegative integer <code class="inline">n</code> in a particular <code class="inline">base</code></p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#to_integer/1">to_integer(str)</a>
+  </div>
+    <div class="summary-synopsis"><p>Parse a string which can be in any base to integer, autodetecting the base using the prefix</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#to_integer/2">to_integer(str, base)</a>
+  </div>
+    <div class="summary-synopsis"><p>Parse a string which can be in any base to integer, specifying the base</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#to_string/3">to_string(n, base, opts \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Convert an integer into its string representation in any <code class="inline">base</code></p>
+</div>
+</div>
+  </div>
+          
+        </section>
+
+
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Functions
+          </h1>
+<div class="detail" id="base58_checksum/1">
+    <div class="detail-header">
+    <a href="#base58_checksum/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base58_checksum(data)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L391" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="base58_decode/2">
+  
+    <span id="base58_decode/1"></span>
+  <div class="detail-header">
+    <a href="#base58_decode/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base58_decode(str, opts \\ [])</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L344" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Decode a base58-encoded string into its hexadecimal string representation.</p>
+<h2 id="base58_decode/2-examples" class="section-heading">
+  <a href="#base58_decode/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_decode</span><span class="p" data-group-id="5506597962-1">(</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="p" data-group-id="5506597962-1">)</span><span class="w">
+</span><span class="s">&quot;0x801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_decode</span><span class="p" data-group-id="5506597962-2">(</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">prefix</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="5506597962-2">)</span><span class="w">
+</span><span class="s">&quot;801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff&quot;</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="base58_encode/2">
+  
+    <span id="base58_encode/1"></span>
+  <div class="detail-header">
+    <a href="#base58_encode/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base58_encode(str, opts \\ [])</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L301" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Encodes an integer into its base58 representation. If given a string, by default it will
+interpret the string as a hex.</p>
+<p>If given hex and it has leading zeros, then each byte of zeros will be encoded as 1.</p>
+<h2 id="base58_encode/2-examples" class="section-heading">
+  <a href="#base58_encode/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="5335981335-1">(</span><span class="s">&quot;801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff&quot;</span><span class="p" data-group-id="5335981335-1">)</span><span class="w">
+</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="5335981335-2">(</span><span class="p" data-group-id="5335981335-3">&lt;&lt;</span><span class="mi">57</span><span class="p" data-group-id="5335981335-3">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="5335981335-2">)</span><span class="w">
+</span><span class="s">&quot;z&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="5335981335-4">(</span><span class="mi">63716817338599314535577169638518475271320430400871647684951348108655027767484127754748927</span><span class="p" data-group-id="5335981335-4">)</span><span class="w">
+</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="5335981335-5">(</span><span class="s">&quot;0x000001&quot;</span><span class="p" data-group-id="5335981335-5">)</span><span class="w">
+</span><span class="s">&quot;112&quot;</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="base58_to_integer/1">
+    <div class="detail-header">
+    <a href="#base58_to_integer/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base58_to_integer(str)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L325" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Same as base58_decode but outputs an integer instead of hex string.</p>
+  </section>
+</div>
+<div class="detail" id="base58_version/1">
+    <div class="detail-header">
+    <a href="#base58_version/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base58_version(data)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L396" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="base58check_decode/1">
+    <div class="detail-header">
+    <a href="#base58check_decode/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base58check_decode(str)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L422" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Returns checksum, payload, and version</p>
+<h2 id="base58check_decode/1-examples" class="section-heading">
+  <a href="#base58check_decode/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_decode</span><span class="w"> </span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
+</span><span class="p" data-group-id="6801406146-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6801406146-2">&lt;&lt;</span><span class="mi">196</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">131</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p" data-group-id="6801406146-2">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p" data-group-id="6801406146-1">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_decode</span><span class="w"> </span><span class="s">&quot;1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy&quot;</span><span class="w">
+</span><span class="p" data-group-id="6801406146-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6801406146-4">&lt;&lt;</span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">254</span><span class="p">,</span><span class="w"> </span><span class="mi">252</span><span class="p">,</span><span class="w"> </span><span class="mi">208</span><span class="p" data-group-id="6801406146-4">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bbc1e42a39d05a4cc61752d6963b7f69d09bb27b&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="6801406146-3">}</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="base58check_encode/3">
+  
+    <span id="base58check_encode/2"></span>
+  <div class="detail-header">
+    <a href="#base58check_encode/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base58check_encode(payload, version, opts \\ [])</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L369" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Encodes a binary to its base58check representation.</p>
+<p>Possible values for version: <code class="inline">:address</code>, <code class="inline">:address_p2sh</code>, <code class="inline">:address_testnet</code>,
+<code class="inline">private_key_wif</code>, <code class="inline">private_key_bip38_encrypted</code>, <code class="inline">public_key_bit32_extended</code></p>
+<p>Can also use custom binary version.</p>
+<h2 id="base58check_encode/3-examples" class="section-heading">
+  <a href="#base58check_encode/3-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="7537142784-1">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p" data-group-id="7537142784-1">)</span><span class="w">
+</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="7537142784-2">(</span><span class="p" data-group-id="7537142784-3">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="7537142784-4">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="7537142784-4">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="7537142784-5">(</span><span class="mi">256</span><span class="p" data-group-id="7537142784-5">)</span><span class="p" data-group-id="7537142784-3">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="7537142784-2">)</span><span class="w">
+</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="7537142784-6">(</span><span class="p" data-group-id="7537142784-7">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="7537142784-8">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="7537142784-8">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="7537142784-9">(</span><span class="mi">256</span><span class="p" data-group-id="7537142784-9">)</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01</span><span class="p" data-group-id="7537142784-7">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="7537142784-6">)</span><span class="w">
+</span><span class="s">&quot;KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="7537142784-10">(</span><span class="p" data-group-id="7537142784-11">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="7537142784-12">(</span><span class="s">&quot;1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="7537142784-12">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="7537142784-13">(</span><span class="mi">256</span><span class="p" data-group-id="7537142784-13">)</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01</span><span class="p" data-group-id="7537142784-11">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="7537142784-10">)</span><span class="w">
+</span><span class="s">&quot;KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="7537142784-14">(</span><span class="s">&quot;f5f2d624cfb5c3f66d06123d0829d1c9cebf770e&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="7537142784-14">)</span><span class="w">
+</span><span class="s">&quot;1PRTTaJesdNovgne6Ehcdu1fpEdX7913CK&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="7537142784-15">(</span><span class="s">&quot;000000cb23faea20aa20f02a02955ffd1d785518&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="7537142784-15">)</span><span class="w">
+</span><span class="s">&quot;1111DVWAb9XQh88gakJRcK14e1i1onvAL&quot;</span><span class="w"> </span><span class="c1"># private key is 5KjhZsxt61XSPunjrPm8XUEAH1YN6zXm6pqT5D1hZ9mLoEAqKTp</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="base64_decode/1">
+    <div class="detail-header">
+    <a href="#base64_decode/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base64_decode(str)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L163" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Decodes a MIME Base64 encoded string.</p>
+<p>https://en.wikipedia.org/wiki/Base64 (see Variants summary table)</p>
+<h2 id="base64_decode/1-examples" class="section-heading">
+  <a href="#base64_decode/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="8807163684-1">(</span><span class="s">&quot;TWFu&quot;</span><span class="p" data-group-id="8807163684-1">)</span><span class="w">
+</span><span class="s">&quot;Man&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="8807163684-2">(</span><span class="s">&quot;TWE=&quot;</span><span class="p" data-group-id="8807163684-2">)</span><span class="w">
+</span><span class="s">&quot;Ma&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="8807163684-3">(</span><span class="s">&quot;TQ==&quot;</span><span class="p" data-group-id="8807163684-3">)</span><span class="w">
+</span><span class="s">&quot;M&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="8807163684-4">(</span><span class="s">&quot;TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz</span><span class="se">\r</span><span class="se">\n</span><span class="s">IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u&quot;</span><span class="p" data-group-id="8807163684-4">)</span><span class="w">
+</span><span class="s">&quot;Man is distinguished, not only by his reason, but by this singular passion from other animals...&quot;</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="base64_decode_char/1">
+    <div class="detail-header">
+    <a href="#base64_decode_char/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base64_decode_char(arg)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L81" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Gets the character code of a MIME base64 digit.</p>
+<h2 id="base64_decode_char/1-examples" class="section-heading">
+  <a href="#base64_decode_char/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="1701957237-1">(</span><span class="s">&quot;A&quot;</span><span class="p" data-group-id="1701957237-1">)</span><span class="w">
+</span><span class="mi">0</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="1701957237-2">(</span><span class="s">&quot;F&quot;</span><span class="p" data-group-id="1701957237-2">)</span><span class="w">
+</span><span class="mi">5</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="1701957237-3">(</span><span class="s">&quot;a&quot;</span><span class="p" data-group-id="1701957237-3">)</span><span class="w">
+</span><span class="mi">26</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="1701957237-4">(</span><span class="s">&quot;f&quot;</span><span class="p" data-group-id="1701957237-4">)</span><span class="w">
+</span><span class="mi">31</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="1701957237-5">(</span><span class="s">&quot;0&quot;</span><span class="p" data-group-id="1701957237-5">)</span><span class="w">
+</span><span class="mi">52</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="1701957237-6">(</span><span class="s">&quot;5&quot;</span><span class="p" data-group-id="1701957237-6">)</span><span class="w">
+</span><span class="mi">57</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="1701957237-7">(</span><span class="s">&quot;+&quot;</span><span class="p" data-group-id="1701957237-7">)</span><span class="w">
+</span><span class="mi">62</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="1701957237-8">(</span><span class="s">&quot;/&quot;</span><span class="p" data-group-id="1701957237-8">)</span><span class="w">
+</span><span class="mi">63</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="base64_encode/2">
+  
+    <span id="base64_encode/1"></span>
+  <div class="detail-header">
+    <a href="#base64_encode/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base64_encode(data, opts \\ [])</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L116" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Encodes a string into its MIME Base64 representation.</p>
+<p>https://en.wikipedia.org/wiki/Base64 (see Variants summary table)</p>
+<h2 id="base64_encode/2-examples" class="section-heading">
+  <a href="#base64_encode/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="0052123286-1">(</span><span class="s">&quot;Man&quot;</span><span class="p" data-group-id="0052123286-1">)</span><span class="w">
+</span><span class="s">&quot;TWFu&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="0052123286-2">(</span><span class="s">&quot;Ma&quot;</span><span class="p" data-group-id="0052123286-2">)</span><span class="w">
+</span><span class="s">&quot;TWE=&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="0052123286-3">(</span><span class="s">&quot;M&quot;</span><span class="p" data-group-id="0052123286-3">)</span><span class="w">
+</span><span class="s">&quot;TQ==&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="0052123286-4">(</span><span class="s">&quot;Man is distinguished, not only by his reason, but by this singular passion from other animals...&quot;</span><span class="p" data-group-id="0052123286-4">)</span><span class="w">
+</span><span class="s">&quot;TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz</span><span class="se">\r</span><span class="se">\n</span><span class="s">IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="0052123286-5">(</span><span class="s">&quot;Man is distinguished, not only by his reason, but by this singular passion from other animals...&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">new_line</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="0052123286-5">)</span><span class="w">
+</span><span class="s">&quot;TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u&quot;</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="base64_encode_char/1">
+    <div class="detail-header">
+    <a href="#base64_encode_char/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">base64_encode_char(n)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L57" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Encodes an integer codepoint 0 &lt;= <code class="inline">n</code> &lt;= 63 to its MIME Base64 character.</p>
+<h2 id="base64_encode_char/1-examples" class="section-heading">
+  <a href="#base64_encode_char/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="7472895205-1">(</span><span class="mi">0</span><span class="p" data-group-id="7472895205-1">)</span><span class="w">
+</span><span class="s">&quot;A&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="7472895205-2">(</span><span class="mi">5</span><span class="p" data-group-id="7472895205-2">)</span><span class="w">
+</span><span class="s">&quot;F&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="7472895205-3">(</span><span class="mi">26</span><span class="p" data-group-id="7472895205-3">)</span><span class="w">
+</span><span class="s">&quot;a&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="7472895205-4">(</span><span class="mi">31</span><span class="p" data-group-id="7472895205-4">)</span><span class="w">
+</span><span class="s">&quot;f&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="7472895205-5">(</span><span class="mi">52</span><span class="p" data-group-id="7472895205-5">)</span><span class="w">
+</span><span class="s">&quot;0&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="7472895205-6">(</span><span class="mi">57</span><span class="p" data-group-id="7472895205-6">)</span><span class="w">
+</span><span class="s">&quot;5&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="7472895205-7">(</span><span class="mi">62</span><span class="p" data-group-id="7472895205-7">)</span><span class="w">
+</span><span class="s">&quot;+&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="7472895205-8">(</span><span class="mi">63</span><span class="p" data-group-id="7472895205-8">)</span><span class="w">
+</span><span class="s">&quot;/&quot;</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="bitcoin_private_key_to_wif/2">
+  
+    <span id="bitcoin_private_key_to_wif/1"></span>
+  <div class="detail-header">
+    <a href="#bitcoin_private_key_to_wif/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">bitcoin_private_key_to_wif(hex_str, opts \\ [])</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L490" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Converts a Bitcoin 256-bit private key to the Wallet Import Format. Defaults to outputting compressed format.</p>
+<h2 id="bitcoin_private_key_to_wif/2-examples" class="section-heading">
+  <a href="#bitcoin_private_key_to_wif/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitcoin_private_key_to_wif</span><span class="p" data-group-id="8337105923-1">(</span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="8337105923-1">)</span><span class="w">
+</span><span class="s">&quot;KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitcoin_private_key_to_wif</span><span class="p" data-group-id="8337105923-2">(</span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">compressed</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="8337105923-2">)</span><span class="w">
+</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="bitstring_to_array/1">
+    <div class="detail-header">
+    <a href="#bitstring_to_array/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">bitstring_to_array(data)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L219" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Converts a bitstring (including binary) into array of 0s and 1s.
+For simple binary you can also use :binary.decode_unsigned</p>
+<h2 id="bitstring_to_array/1-examples" class="section-heading">
+  <a href="#bitstring_to_array/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitstring_to_array</span><span class="w"> </span><span class="s">&quot;Hey&quot;</span><span class="w">
+</span><span class="p" data-group-id="6644571927-1">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="6644571927-1">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitstring_to_array</span><span class="w"> </span><span class="p" data-group-id="6644571927-2">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="6644571927-3">(</span><span class="mi">1</span><span class="p" data-group-id="6644571927-3">)</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="6644571927-4">(</span><span class="mi">1</span><span class="p" data-group-id="6644571927-4">)</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="6644571927-5">(</span><span class="mi">1</span><span class="p" data-group-id="6644571927-5">)</span><span class="w"> </span><span class="p" data-group-id="6644571927-2">&gt;&gt;</span><span class="w">
+</span><span class="p" data-group-id="6644571927-6">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="6644571927-6">]</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="bitstring_to_integer/1">
+    <div class="detail-header">
+    <a href="#bitstring_to_integer/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">bitstring_to_integer(data)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L258" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Interprets a bitstring (including binary) as an unsigned integer. You can use :binary.decode_unsigned/1
+if it’s a normal binary.</p>
+<h2 id="bitstring_to_integer/1-examples" class="section-heading">
+  <a href="#bitstring_to_integer/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitstring_to_integer</span><span class="p" data-group-id="4204441251-1">(</span><span class="p" data-group-id="4204441251-2">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p" data-group-id="4204441251-2">&gt;&gt;</span><span class="p" data-group-id="4204441251-1">)</span><span class="w">
+</span><span class="mi">65535</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="get_base/1">
+    <div class="detail-header">
+    <a href="#get_base/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">get_base(str)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L659" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Guess the base of an integer string using its prefix. Defaults to 10, and doesn’t check for validity of the digits.</p>
+<h2 id="get_base/1-examples" class="section-heading">
+  <a href="#get_base/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8868047203-1">(</span><span class="s">&quot;0xabf&quot;</span><span class="p" data-group-id="8868047203-1">)</span><span class="w">
+</span><span class="mi">16</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8868047203-2">(</span><span class="s">&quot;0b101&quot;</span><span class="p" data-group-id="8868047203-2">)</span><span class="w">
+</span><span class="mi">2</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8868047203-3">(</span><span class="s">&quot;321&quot;</span><span class="p" data-group-id="8868047203-3">)</span><span class="w">
+</span><span class="mi">10</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="hex_remove_prefix/1">
+    <div class="detail-header">
+    <a href="#hex_remove_prefix/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">hex_remove_prefix(str)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L686" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Removes hexadecimal prefix from a string.</p>
+<h2 id="hex_remove_prefix/1-examples" class="section-heading">
+  <a href="#hex_remove_prefix/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="8760113159-1">(</span><span class="s">&quot;0xff&quot;</span><span class="p" data-group-id="8760113159-1">)</span><span class="w">
+</span><span class="s">&quot;ff&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="8760113159-2">(</span><span class="s">&quot;0XFF&quot;</span><span class="p" data-group-id="8760113159-2">)</span><span class="w">
+</span><span class="s">&quot;FF&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="8760113159-3">(</span><span class="s">&quot;ff&quot;</span><span class="p" data-group-id="8760113159-3">)</span><span class="w">
+</span><span class="s">&quot;ff&quot;</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="log2i/1">
+    <div class="detail-header">
+    <a href="#log2i/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">log2i(n)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L473" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="mod/2">
+    <div class="detail-header">
+    <a href="#mod/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">mod(x, y)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L703" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<h2 id="mod/2-examples" class="section-heading">
+  <a href="#mod/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod</span><span class="p" data-group-id="0329758962-1">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="0329758962-1">)</span><span class="w">
+</span><span class="mi">0</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod</span><span class="p" data-group-id="0329758962-2">(</span><span class="o">-</span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="0329758962-2">)</span><span class="w">
+</span><span class="mi">12</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="pow/2">
+    <div class="detail-header">
+    <a href="#pow/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">pow(n, p)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L242" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Calculates integer exponentiation. Exponent can be negative.</p>
+<h2 id="pow/2-examples" class="section-heading">
+  <a href="#pow/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="3174602234-1">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p" data-group-id="3174602234-1">)</span><span class="w">
+</span><span class="mi">19683</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="3174602234-2">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="3174602234-2">)</span><span class="w">
+</span><span class="mi">256</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="3174602234-3">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p" data-group-id="3174602234-3">)</span><span class="w">
+</span><span class="mi">115792089237316195423570985008687907853269984665640564039457584007913129639936</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="3174602234-4">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p" data-group-id="3174602234-4">)</span><span class="w">
+</span><span class="mf">0.25</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="string_index_of/2">
+    <div class="detail-header">
+    <a href="#string_index_of/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">string_index_of(str, c)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L508" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Finds the index of an ASCII character inside a string. Not unicode friendly!</p>
+<h2 id="string_index_of/2-examples" class="section-heading">
+  <a href="#string_index_of/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="1279800555-1">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;H&quot;</span><span class="p" data-group-id="1279800555-1">)</span><span class="w">
+</span><span class="mi">0</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="1279800555-2">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;h&quot;</span><span class="p" data-group-id="1279800555-2">)</span><span class="w">
+</span><span class="no">nil</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="1279800555-3">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;l&quot;</span><span class="p" data-group-id="1279800555-3">)</span><span class="w">
+</span><span class="mi">2</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="to_digits/2">
+    <div class="detail-header">
+    <a href="#to_digits/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">to_digits(n, base)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L526" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Find the digits of a nonnegative integer <code class="inline">n</code> in a particular <code class="inline">base</code>.</p>
+<h2 id="to_digits/2-examples" class="section-heading">
+  <a href="#to_digits/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="4998485975-1">(</span><span class="mi">321</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p" data-group-id="4998485975-1">)</span><span class="w">
+</span><span class="p" data-group-id="4998485975-2">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="4998485975-2">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="4998485975-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="4998485975-3">)</span><span class="w">
+</span><span class="p" data-group-id="4998485975-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="4998485975-4">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="4998485975-5">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="4998485975-5">)</span><span class="w">
+</span><span class="p" data-group-id="4998485975-6">[</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p" data-group-id="4998485975-6">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="4998485975-7">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="4998485975-7">)</span><span class="w">
+</span><span class="p" data-group-id="4998485975-8">[</span><span class="mi">0</span><span class="p" data-group-id="4998485975-8">]</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="to_integer/1">
+    <div class="detail-header">
+    <a href="#to_integer/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">to_integer(str)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L598" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Parse a string which can be in any base to integer, autodetecting the base using the prefix.</p>
+<h2 id="to_integer/1-examples" class="section-heading">
+  <a href="#to_integer/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="7682787748-1">(</span><span class="s">&quot;0xff&quot;</span><span class="p" data-group-id="7682787748-1">)</span><span class="w">
+</span><span class="mi">255</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="7682787748-2">(</span><span class="s">&quot;0b101&quot;</span><span class="p" data-group-id="7682787748-2">)</span><span class="w">
+</span><span class="mi">5</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="7682787748-3">(</span><span class="s">&quot;321&quot;</span><span class="p" data-group-id="7682787748-3">)</span><span class="w">
+</span><span class="mi">321</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="to_integer/2">
+    <div class="detail-header">
+    <a href="#to_integer/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">to_integer(str, base)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L617" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Parse a string which can be in any base to integer, specifying the base.</p>
+<h2 id="to_integer/2-examples" class="section-heading">
+  <a href="#to_integer/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2219470698-1">(</span><span class="s">&quot;ff&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="2219470698-1">)</span><span class="w">
+</span><span class="mi">255</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2219470698-2">(</span><span class="s">&quot;101&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="2219470698-2">)</span><span class="w">
+</span><span class="mi">5</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2219470698-3">(</span><span class="s">&quot;755&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="2219470698-3">)</span><span class="w">
+</span><span class="mi">493</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2219470698-4">(</span><span class="s">&quot;321&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p" data-group-id="2219470698-4">)</span><span class="w">
+</span><span class="mi">321</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="to_string/3">
+  
+    <span id="to_string/2"></span>
+  <div class="detail-header">
+    <a href="#to_string/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">to_string(n, base, opts \\ [])</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L575" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<p>Convert an integer into its string representation in any <code class="inline">base</code>.</p>
+<h2 id="to_string/3-examples" class="section-heading">
+  <a href="#to_string/3-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="9841425410-1">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="9841425410-1">)</span><span class="w">
+</span><span class="s">&quot;0xff&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="9841425410-2">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="ss">prefix</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="9841425410-2">)</span><span class="w">
+</span><span class="s">&quot;ff&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="9841425410-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="9841425410-3">)</span><span class="w">
+</span><span class="s">&quot;0b101&quot;</span></code></pre>
+  </section>
+</div>
+        </section>
+
+          <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-a0c90688fa.js"></script>
+  
+  </body>
+</html>
+
