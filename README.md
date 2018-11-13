@@ -3,6 +3,10 @@
 An Elixir library of useful methods used in various cryptocurrencies
 (Bitcoin, Ethereum).
 
+# Documentation
+
+https://agro1986.github.io/caustic/doc/
+
 ## Installation
 
 ```elixir
