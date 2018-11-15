@@ -1,7 +1,7 @@
 # Caustic Cryptocurrency Library
 
 An Elixir library of useful methods used in various cryptocurrencies
-(Bitcoin, Ethereum).
+(Bitcoin, Ethereum, etc.).
 
 # Documentation
 
@@ -12,7 +12,7 @@ https://agro1986.github.io/caustic/doc/
 ```elixir
 def deps do
   [
-    {:caustic, "git://github.com/agro1986/caustic.git"}
+    {:caustic, "~> 0.1.2"}
   ]
 end
 ```
