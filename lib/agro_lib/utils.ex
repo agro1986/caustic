@@ -699,6 +699,110 @@ defmodule Caustic.Utils do
       iex> Caustic.Utils.mod(-27, 13)
       12
   """
-  def mod(x, y) when x >= 0, do: rem(x, y);
-  def mod(x, y) when x < 0, do: rem(x, y) + y;
+  def mod(x, y) when x >= 0, do: rem(x, y)
+  def mod(x, y) when x < 0, do: rem(x, y) + y
+
+  @doc """
+  Fast exponentiation modulo m. Calculates x^y mod m.
+  
+  Fi
+  
+  With x = 5, y = 12345, m = 17, and repeated 1000 times,
+  it is faster by naive method by a factor of 150 on
+  a particular benchmark machine.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.pow_mod(5, 0, 19)
+      1
+      iex> Caustic.Utils.pow_mod(5, 1, 19)
+      5
+      iex> Caustic.Utils.pow_mod(5, 117, 19)
+      1
+      iex> Caustic.Utils.pow_mod(7, 256, 13)
+      9
+      iex> Caustic.Utils.pow_mod(2, 90, 13)
+      12
+  """
+  def pow_mod(x, y, m) do
+    digits = to_digits(y, 2)
+    
+    digits
+    |> Enum.reverse()
+    |> Enum.reduce({1, mod(x, m)}, fn n, {acc, factor} ->
+      acc = if n == 0, do: acc, else: acc * factor
+      factor = factor * factor |> mod(m)
+      {acc, factor}
+    end)
+    |> elem(0)
+    |> mod(m)
+  end
+  
+  @doc """
+  Find the greatest common divisor of two integers.
+  
+  Proof: https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
+  
+  ## Examples
+  
+      iex> Caustic.Utils.gcd(270, 192)
+      6
+  """
+  def gcd(0, b), do: b
+  def gcd(a, 0), do: a
+  def gcd(a, b) do
+    q = div(a, b)
+    r = mod(a, b)
+    gcd(b, r)
+  end
+  
+  @doc """
+  Find the modular inverse.
+  
+  Using Euclidean Algorithm: https://www.math.utah.edu/~fguevara/ACCESS2013/Euclid.pdf
+  
+  ## Examples
+  
+      iex> Caustic.Utils.mod_inverse(1, 101)
+      1
+      iex> Caustic.Utils.mod_inverse(2, 3)
+      2
+      iex> Caustic.Utils.mod_inverse(50, 71)
+      27
+      iex> Caustic.Utils.mod_inverse(25, 50)
+      nil
+      iex> Caustic.Utils.mod_inverse(8, 11)
+      7
+      iex> Caustic.Utils.mod_inverse(345, 76408)
+      48281
+      iex> Caustic.Utils.mod_inverse(71, 50)
+      31
+    
+      # Bitcoin elliptic curve
+      iex> Caustic.Utils.mod_inverse(345, 115792089237316195423570985008687907853269984665640564039457584007908834671663)
+      53029420578249156164997726467746925915410601672960026429664632676085785153979
+  """
+  def mod_inverse(a, m) when a >= m or a < 0, do: mod_inverse(mod(a, m), m)
+  def mod_inverse(a, m) do
+    result = _mod_inverse(m, a)
+    if result == nil, do: nil, else: mod(result, m) # normalize to 0 < inverse < m
+  end
+
+  # instead of using sentinel values q_prev = nil and q_prev_prev = nil
+  # the equation works perfectly if we use initial values of q_prev = 1 and q_prev_prev = 0
+  def _mod_inverse(m, a, q_prev \\ 1, q_prev_prev \\ 0)
+  
+  # not coprimes, doesn't have inverse mod m
+  def _mod_inverse(m, 0, _, _), do: nil
+  
+  def _mod_inverse(m, 1, q_prev, _), do: q_prev
+  
+  def _mod_inverse(m, a, q_prev, q_prev_prev) do
+    q = div(m, a)
+    r = mod(m, a)
+
+    #IO.puts("[#{m}] = [#{a}] . #{q} + #{r}")
+    
+    _mod_inverse(a, r, q_prev_prev - q * q_prev, q_prev)
+  end
 end
