@@ -89,16 +89,16 @@ defmodule Caustic.Field do
   @doc """
   ## Examples
   
-    iex> Caustic.Field.inverse({1, 71})
-    {1, 71}
-    iex> Caustic.Field.inverse({51, 71})
-    {39, 71}
-    iex> Caustic.Field.inverse({39, 71})
-    {51, 71}
-    iex> Caustic.Field.mul({51, 71}, {39, 71})
-    {1, 71}
-    iex> Caustic.Field.inverse({0, 71})
-    nil
+      iex> Caustic.Field.inverse({1, 71})
+      {1, 71}
+      iex> Caustic.Field.inverse({51, 71})
+      {39, 71}
+      iex> Caustic.Field.inverse({39, 71})
+      {51, 71}
+      iex> Caustic.Field.mul({51, 71}, {39, 71})
+      {1, 71}
+      iex> Caustic.Field.inverse({0, 71})
+      nil
   """
   def inverse({x, prime}) do
     result = Utils.mod_inverse(x, prime)

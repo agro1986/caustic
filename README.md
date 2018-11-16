@@ -5,14 +5,14 @@ An Elixir library of useful methods used in various cryptocurrencies
 
 # Documentation
 
-https://agro1986.github.io/caustic/doc/
+https://hexdocs.pm/caustic/
 
 ## Installation
 
 ```elixir
 def deps do
   [
-    {:caustic, "~> 0.1.2"}
+    {:caustic, "~> 0.1.3"}
   ]
 end
 ```
