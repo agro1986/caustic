@@ -3,6 +3,8 @@ defmodule Caustic.ECPoint do
   Represents an elliptic curve point y^2 = x^3 + ax + b
   """
   
+  alias Caustic.Field, as: F
+  
   def make(x, y, a, b) when (x == nil and y == nil) or (y * y == x * x * x + a * x + b) do
     {x, y, a, b}
   end

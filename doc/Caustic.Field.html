@@ -5,10 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.19.1">
-    <title>Caustic.Field – Caustic v0.1.4</title>
+    <title>Caustic.Field – Caustic v0.1.5</title>
     <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-      <link rel="canonical" href="https://hexdocs.pm/caustic/Caustic.Field.html" />
-    <script src="dist/sidebar_items-5ad1691959.js"></script>
+    <script src="dist/sidebar_items-1e2bf9bd27.js"></script>
     
   </head>
   <body data-type="modules">
@@ -29,7 +28,7 @@
       <h1 class="sidebar-projectName">
 Caustic      </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.4
+        v0.1.5
       </h2>
     </div>
   </a>
@@ -58,8 +57,8 @@ Caustic      </h1>
 
 
       <h1>
-        <small class="visible-xs">Caustic v0.1.4</small>
-Caustic.Field        
+        <small class="visible-xs">Caustic v0.1.5</small>
+Caustic.Field <small>protocol</small>        
           <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
             <span class="sr-only">View Source</span>
@@ -68,23 +67,7 @@ Caustic.Field
 
 
         <section id="moduledoc">
-<p>Methods for creation and manipulation of finite field element.</p>
-<h2 id="module-examples" class="section-heading">
-  <a href="#module-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Examples
-</h2>
-
-<pre><code class="nohighlight makeup elixir"><span class="c1"># Represents 1 which is a member of finite field of order 5</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="2584633039-1">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2584633039-1">)</span><span class="w">
-</span><span class="p" data-group-id="2584633039-2">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2584633039-2">}</span><span class="w">
-
-</span><span class="c1"># Modulo addition 1 + 4 mod 5</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="2584633039-3">(</span><span class="p" data-group-id="2584633039-4">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2584633039-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2584633039-5">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2584633039-5">}</span><span class="p" data-group-id="2584633039-3">)</span><span class="w">
-</span><span class="p" data-group-id="2584633039-6">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2584633039-6">}</span><span class="w">
-
-</span><span class="c1"># Test for congruence 4 * 4 ≡ 1 (mod 5)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="2584633039-7">(</span><span class="p" data-group-id="2584633039-8">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2584633039-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2584633039-9">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2584633039-9">}</span><span class="p" data-group-id="2584633039-7">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="2584633039-10">(</span><span class="p" data-group-id="2584633039-11">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="2584633039-11">}</span><span class="p" data-group-id="2584633039-10">)</span><span class="w">
-</span><span class="no">true</span></code></pre>
+<p>Protocol on field operations. Mainly to support <a href="Caustic.FiniteField.html"><code class="inline">Caustic.FiniteField</code></a>.</p>
         </section>
 
         <section id="summary" class="details-list">
@@ -95,6 +78,16 @@ Caustic.Field
             </a>
             Summary
           </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:t/0">t()</a>
+  </div>
+</div>
+  </div>
           
   <div class="summary-functions summary">
     <h2>
@@ -102,72 +95,94 @@ Caustic.Field
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#add/2">add(arg1, arg2)</a>
+    <a href="#add/2">add(x, y)</a>
   </div>
     <div class="summary-synopsis"><h2>Examples</h2>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#div/2">div(a, b)</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#eq?/2">eq?(arg1, arg2)</a>
+    <a href="#div/2">div(x, y)</a>
   </div>
     <div class="summary-synopsis"><h2>Examples</h2>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#inverse/1">inverse(arg)</a>
+    <a href="#eq?/2">eq?(x, y)</a>
   </div>
     <div class="summary-synopsis"><h2>Examples</h2>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#make/2">make(num, prime)</a>
-  </div>
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#mul/2">mul(arg1, arg2)</a>
+    <a href="#inverse/1">inverse(x)</a>
   </div>
     <div class="summary-synopsis"><h2>Examples</h2>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#ne?/2">ne?(elem1, elem2)</a>
+    <a href="#mul/2">mul(x, y)</a>
   </div>
     <div class="summary-synopsis"><h2>Examples</h2>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#pow/2">pow(arg1, y)</a>
+    <a href="#ne?/2">ne?(x, y)</a>
   </div>
     <div class="summary-synopsis"><h2>Examples</h2>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#sub/2">sub(arg1, arg2)</a>
+    <a href="#pow/2">pow(x, y)</a>
   </div>
     <div class="summary-synopsis"><h2>Examples</h2>
 </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#to_string/1">to_string(arg)</a>
+    <a href="#sub/2">sub(x, y)</a>
   </div>
+    <div class="summary-synopsis"><h2>Examples</h2>
+</div>
 </div>
   </div>
           
         </section>
 
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Types
+          </h1>
+          <div class="types-list">
+<div class="detail" id="t:t/0">
+    <div class="detail-header">
+    <a href="#t:t/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">t()</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L1" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>t() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</div>
+          </div>
+        </section>
 
 
         <section id="functions" class="details-list">
@@ -184,8 +199,8 @@ Caustic.Field
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">add(arg1, arg2)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L57" class="view-source" rel="help" title="View Source">
+    <span class="signature">add(x, y)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L14" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -196,8 +211,8 @@ Caustic.Field
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="5512893324-1">(</span><span class="p" data-group-id="5512893324-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="5512893324-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5512893324-3">{</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="5512893324-3">}</span><span class="p" data-group-id="5512893324-1">)</span><span class="w">
-</span><span class="p" data-group-id="5512893324-4">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="5512893324-4">}</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="2733735437-1">(</span><span class="p" data-group-id="2733735437-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2733735437-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2733735437-3">{</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2733735437-3">}</span><span class="p" data-group-id="2733735437-1">)</span><span class="w">
+</span><span class="p" data-group-id="2733735437-4">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2733735437-4">}</span></code></pre>
   </section>
 </div>
 <div class="detail" id="div/2">
@@ -206,13 +221,22 @@ Caustic.Field
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">div(a, b)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L78" class="view-source" rel="help" title="View Source">
+    <span class="signature">div(x, y)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L42" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
           </div>
   <section class="docstring">
+<h2 id="div/2-examples" class="section-heading">
+  <a href="#div/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">div</span><span class="p" data-group-id="3458596136-1">(</span><span class="p" data-group-id="3458596136-2">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="3458596136-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3458596136-3">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="3458596136-3">}</span><span class="p" data-group-id="3458596136-1">)</span><span class="w">
+</span><span class="p" data-group-id="3458596136-4">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="3458596136-4">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">div</span><span class="p" data-group-id="3458596136-5">(</span><span class="p" data-group-id="3458596136-6">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="3458596136-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3458596136-7">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="3458596136-7">}</span><span class="p" data-group-id="3458596136-5">)</span><span class="w">
+</span><span class="p" data-group-id="3458596136-8">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="3458596136-8">}</span></code></pre>
   </section>
 </div>
 <div class="detail" id="eq?/2">
@@ -221,8 +245,8 @@ Caustic.Field
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">eq?(arg1, arg2)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L37" class="view-source" rel="help" title="View Source">
+    <span class="signature">eq?(x, y)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L54" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -233,11 +257,11 @@ Caustic.Field
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="2041126857-1">(</span><span class="p" data-group-id="2041126857-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2041126857-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2041126857-3">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2041126857-3">}</span><span class="p" data-group-id="2041126857-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="1761003690-1">(</span><span class="p" data-group-id="1761003690-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="1761003690-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1761003690-3">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="1761003690-3">}</span><span class="p" data-group-id="1761003690-1">)</span><span class="w">
 </span><span class="no">true</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="2041126857-4">(</span><span class="p" data-group-id="2041126857-5">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2041126857-5">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2041126857-6">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2041126857-6">}</span><span class="p" data-group-id="2041126857-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="1761003690-4">(</span><span class="p" data-group-id="1761003690-5">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="1761003690-5">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1761003690-6">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="1761003690-6">}</span><span class="p" data-group-id="1761003690-4">)</span><span class="w">
 </span><span class="no">false</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="2041126857-7">(</span><span class="p" data-group-id="2041126857-8">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2041126857-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2041126857-9">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p" data-group-id="2041126857-9">}</span><span class="p" data-group-id="2041126857-7">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="1761003690-7">(</span><span class="p" data-group-id="1761003690-8">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="1761003690-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1761003690-9">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p" data-group-id="1761003690-9">}</span><span class="p" data-group-id="1761003690-7">)</span><span class="w">
 </span><span class="no">false</span></code></pre>
   </section>
 </div>
@@ -247,8 +271,8 @@ Caustic.Field
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">inverse(arg)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L106" class="view-source" rel="help" title="View Source">
+    <span class="signature">inverse(x)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L93" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -259,31 +283,16 @@ Caustic.Field
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">inverse</span><span class="p" data-group-id="5456025934-1">(</span><span class="p" data-group-id="5456025934-2">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-2">}</span><span class="p" data-group-id="5456025934-1">)</span><span class="w">
-</span><span class="p" data-group-id="5456025934-3">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-3">}</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">inverse</span><span class="p" data-group-id="5456025934-4">(</span><span class="p" data-group-id="5456025934-5">{</span><span class="mi">51</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-5">}</span><span class="p" data-group-id="5456025934-4">)</span><span class="w">
-</span><span class="p" data-group-id="5456025934-6">{</span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-6">}</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">inverse</span><span class="p" data-group-id="5456025934-7">(</span><span class="p" data-group-id="5456025934-8">{</span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-8">}</span><span class="p" data-group-id="5456025934-7">)</span><span class="w">
-</span><span class="p" data-group-id="5456025934-9">{</span><span class="mi">51</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-9">}</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="5456025934-10">(</span><span class="p" data-group-id="5456025934-11">{</span><span class="mi">51</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-11">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5456025934-12">{</span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-12">}</span><span class="p" data-group-id="5456025934-10">)</span><span class="w">
-</span><span class="p" data-group-id="5456025934-13">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-13">}</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">inverse</span><span class="p" data-group-id="5456025934-14">(</span><span class="p" data-group-id="5456025934-15">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5456025934-15">}</span><span class="p" data-group-id="5456025934-14">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">inverse</span><span class="p" data-group-id="1363346904-1">(</span><span class="p" data-group-id="1363346904-2">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-2">}</span><span class="p" data-group-id="1363346904-1">)</span><span class="w">
+</span><span class="p" data-group-id="1363346904-3">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-3">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">inverse</span><span class="p" data-group-id="1363346904-4">(</span><span class="p" data-group-id="1363346904-5">{</span><span class="mi">51</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-5">}</span><span class="p" data-group-id="1363346904-4">)</span><span class="w">
+</span><span class="p" data-group-id="1363346904-6">{</span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-6">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">inverse</span><span class="p" data-group-id="1363346904-7">(</span><span class="p" data-group-id="1363346904-8">{</span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-8">}</span><span class="p" data-group-id="1363346904-7">)</span><span class="w">
+</span><span class="p" data-group-id="1363346904-9">{</span><span class="mi">51</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-9">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="1363346904-10">(</span><span class="p" data-group-id="1363346904-11">{</span><span class="mi">51</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-11">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1363346904-12">{</span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-12">}</span><span class="p" data-group-id="1363346904-10">)</span><span class="w">
+</span><span class="p" data-group-id="1363346904-13">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-13">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">inverse</span><span class="p" data-group-id="1363346904-14">(</span><span class="p" data-group-id="1363346904-15">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="1363346904-15">}</span><span class="p" data-group-id="1363346904-14">)</span><span class="w">
 </span><span class="no">nil</span></code></pre>
-  </section>
-</div>
-<div class="detail" id="make/2">
-    <div class="detail-header">
-    <a href="#make/2" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">make(num, prime)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L23" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
   </section>
 </div>
 <div class="detail" id="mul/2">
@@ -292,8 +301,8 @@ Caustic.Field
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">mul(arg1, arg2)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L76" class="view-source" rel="help" title="View Source">
+    <span class="signature">mul(x, y)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L32" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -304,11 +313,10 @@ Caustic.Field
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="9086016213-1">(</span><span class="p" data-group-id="9086016213-2">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="9086016213-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9086016213-3">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="9086016213-3">}</span><span class="p" data-group-id="9086016213-1">)</span><span class="w">
-</span><span class="p" data-group-id="9086016213-4">{</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="9086016213-4">}</span><span class="w">
-
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="9086016213-5">(</span><span class="p" data-group-id="9086016213-6">{</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="9086016213-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9086016213-7">{</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="9086016213-7">}</span><span class="p" data-group-id="9086016213-5">)</span><span class="w">
-</span><span class="p" data-group-id="9086016213-8">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="9086016213-8">}</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="5656118823-1">(</span><span class="p" data-group-id="5656118823-2">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5656118823-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5656118823-3">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5656118823-3">}</span><span class="p" data-group-id="5656118823-1">)</span><span class="w">
+</span><span class="p" data-group-id="5656118823-4">{</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5656118823-4">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="5656118823-5">(</span><span class="p" data-group-id="5656118823-6">{</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5656118823-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5656118823-7">{</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5656118823-7">}</span><span class="p" data-group-id="5656118823-5">)</span><span class="w">
+</span><span class="p" data-group-id="5656118823-8">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5656118823-8">}</span></code></pre>
   </section>
 </div>
 <div class="detail" id="ne?/2">
@@ -317,8 +325,8 @@ Caustic.Field
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">ne?(elem1, elem2)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L49" class="view-source" rel="help" title="View Source">
+    <span class="signature">ne?(x, y)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L66" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -329,11 +337,11 @@ Caustic.Field
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">ne?</span><span class="p" data-group-id="2374181543-1">(</span><span class="p" data-group-id="2374181543-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2374181543-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2374181543-3">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2374181543-3">}</span><span class="p" data-group-id="2374181543-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">ne?</span><span class="p" data-group-id="9282606792-1">(</span><span class="p" data-group-id="9282606792-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="9282606792-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9282606792-3">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="9282606792-3">}</span><span class="p" data-group-id="9282606792-1">)</span><span class="w">
 </span><span class="no">false</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">ne?</span><span class="p" data-group-id="2374181543-4">(</span><span class="p" data-group-id="2374181543-5">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2374181543-5">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2374181543-6">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2374181543-6">}</span><span class="p" data-group-id="2374181543-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">ne?</span><span class="p" data-group-id="9282606792-4">(</span><span class="p" data-group-id="9282606792-5">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="9282606792-5">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9282606792-6">{</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="9282606792-6">}</span><span class="p" data-group-id="9282606792-4">)</span><span class="w">
 </span><span class="no">true</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">ne?</span><span class="p" data-group-id="2374181543-7">(</span><span class="p" data-group-id="2374181543-8">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2374181543-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2374181543-9">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p" data-group-id="2374181543-9">}</span><span class="p" data-group-id="2374181543-7">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">ne?</span><span class="p" data-group-id="9282606792-7">(</span><span class="p" data-group-id="9282606792-8">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="9282606792-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9282606792-9">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p" data-group-id="9282606792-9">}</span><span class="p" data-group-id="9282606792-7">)</span><span class="w">
 </span><span class="no">true</span></code></pre>
   </section>
 </div>
@@ -343,8 +351,8 @@ Caustic.Field
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">pow(arg1, y)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L90" class="view-source" rel="help" title="View Source">
+    <span class="signature">pow(x, y)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L77" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -355,11 +363,11 @@ Caustic.Field
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="0368988991-1">(</span><span class="p" data-group-id="0368988991-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0368988991-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0368988991-3">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0368988991-3">}</span><span class="p" data-group-id="0368988991-1">)</span><span class="w">
-</span><span class="p" data-group-id="0368988991-4">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0368988991-4">}</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="8398520942-1">(</span><span class="p" data-group-id="8398520942-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="8398520942-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="8398520942-3">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="8398520942-3">}</span><span class="p" data-group-id="8398520942-1">)</span><span class="w">
+</span><span class="p" data-group-id="8398520942-4">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="8398520942-4">}</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="0368988991-5">(</span><span class="p" data-group-id="0368988991-6">{</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0368988991-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0368988991-7">{</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0368988991-7">}</span><span class="p" data-group-id="0368988991-5">)</span><span class="w">
-</span><span class="p" data-group-id="0368988991-8">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0368988991-8">}</span></code></pre>
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="8398520942-5">(</span><span class="p" data-group-id="8398520942-6">{</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="8398520942-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="8398520942-7">{</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="8398520942-7">}</span><span class="p" data-group-id="8398520942-5">)</span><span class="w">
+</span><span class="p" data-group-id="8398520942-8">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="8398520942-8">}</span></code></pre>
   </section>
 </div>
 <div class="detail" id="sub/2">
@@ -368,8 +376,8 @@ Caustic.Field
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">sub(arg1, arg2)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L65" class="view-source" rel="help" title="View Source">
+    <span class="signature">sub(x, y)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L22" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -380,23 +388,8 @@ Caustic.Field
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">sub</span><span class="p" data-group-id="2708287904-1">(</span><span class="p" data-group-id="2708287904-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2708287904-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2708287904-3">{</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2708287904-3">}</span><span class="p" data-group-id="2708287904-1">)</span><span class="w">
-</span><span class="p" data-group-id="2708287904-4">{</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2708287904-4">}</span></code></pre>
-  </section>
-</div>
-<div class="detail" id="to_string/1">
-    <div class="detail-header">
-    <a href="#to_string/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <span class="signature">to_string(arg)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/field.ex#L24" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
-       <span class="sr-only">View Source</span>
-     </a>
-          </div>
-  <section class="docstring">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">sub</span><span class="p" data-group-id="1057710954-1">(</span><span class="p" data-group-id="1057710954-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="1057710954-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1057710954-3">{</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="1057710954-3">}</span><span class="p" data-group-id="1057710954-1">)</span><span class="w">
+</span><span class="p" data-group-id="1057710954-4">{</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="1057710954-4">}</span></code></pre>
   </section>
 </div>
         </section>
