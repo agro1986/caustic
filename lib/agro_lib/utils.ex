@@ -705,8 +705,6 @@ defmodule Caustic.Utils do
   @doc """
   Fast exponentiation modulo m. Calculates x^y mod m.
   
-  Fi
-  
   With x = 5, y = 12345, m = 17, and repeated 1000 times,
   it is faster by naive method by a factor of 150 on
   a particular benchmark machine.
@@ -723,7 +721,16 @@ defmodule Caustic.Utils do
       9
       iex> Caustic.Utils.pow_mod(2, 90, 13)
       12
+      iex> Caustic.Utils.pow_mod(50, -1, 71)
+      27
+      iex> Caustic.Utils.pow_mod(7, -3, 13)
+      8
   """
+  def pow_mod(x, -1, m), do: mod_inverse(x, m)
+  def pow_mod(x, y, m) when y < -1 do
+    inverse = pow_mod(x, -1, m)
+    pow_mod(inverse, -y, m)
+  end
   def pow_mod(x, y, m) do
     digits = to_digits(y, 2)
     

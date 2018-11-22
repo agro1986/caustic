@@ -74,6 +74,8 @@ defmodule Caustic.Field do
       {3, 19}
   """
   def mul({x, prime}, {y, prime}), do: {mod(x * y, prime), prime}
+  
+  def div(a = {x, prime}, b = {y, prime}), do: mul(a, inverse(b))
 
   @doc """
   ## Examples
@@ -84,7 +86,8 @@ defmodule Caustic.Field do
       iex> Caustic.Field.pow({9, 19}, {12, 19})
       {7, 19}
   """
-  def pow({x, prime}, {y, prime}), do: {mod(Utils.pow(x, y), prime), prime}
+  def pow({x, prime}, {y, prime}), do: {Utils.pow_mod(x, y, prime), prime}
+  def pow({x, prime}, y), do: {Utils.pow_mod(x, y, prime), prime}
 
   @doc """
   ## Examples
