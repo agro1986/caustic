@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.19.1">
     <title>Caustic.ECPoint – Caustic v0.1.5</title>
     <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-    <script src="dist/sidebar_items-1e2bf9bd27.js"></script>
+    <script src="dist/sidebar_items-93d31133b5.js"></script>
     
   </head>
   <body data-type="modules">
@@ -85,7 +85,7 @@ Caustic.ECPoint
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#add/2">add(p, inf)</a>
+    <a href="#add/2">add(p1, p2)</a>
   </div>
     <div class="summary-synopsis"><p>Addition of points in an elliptic curve</p>
 </div>
@@ -94,6 +94,8 @@ Caustic.ECPoint
   <div class="summary-signature">
     <a href="#eq?/2">eq?(arg1, arg2)</a>
   </div>
+    <div class="summary-synopsis"><p>Check whether two points in an elliptic field is equal</p>
+</div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
@@ -106,16 +108,29 @@ Caustic.ECPoint
   <div class="summary-signature">
     <a href="#infinity/2">infinity(a, b)</a>
   </div>
+    <div class="summary-synopsis"><p>Create point of infinity in an elliptic curve y^2 = x^3 + ax + b</p>
+</div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#make/4">make(x, y, a, b)</a>
   </div>
+    <div class="summary-synopsis"><p>Create a point in an elliptic field</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#mul/2">mul(k, p)</a>
+  </div>
+    <div class="summary-synopsis"><h2>Examples</h2>
+</div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#ne?/2">ne?(p1, p2)</a>
   </div>
+    <div class="summary-synopsis"><p>Check whether two points in an elliptic field is not equal</p>
+</div>
 </div>
   </div>
           
@@ -137,8 +152,8 @@ Caustic.ECPoint
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">add(p, inf)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L40" class="view-source" rel="help" title="View Source">
+    <span class="signature">add(p1, p2)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L104" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -150,12 +165,31 @@ Caustic.ECPoint
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7907173330-1">(</span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7907173330-2">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-2">)</span><span class="p">,</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">infinity</span><span class="p" data-group-id="7907173330-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-3">)</span><span class="p" data-group-id="7907173330-1">)</span><span class="w">
-</span><span class="p" data-group-id="7907173330-4">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-4">}</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7907173330-5">(</span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">infinity</span><span class="p" data-group-id="7907173330-6">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-6">)</span><span class="p">,</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7907173330-7">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-7">)</span><span class="p" data-group-id="7907173330-5">)</span><span class="w">
-</span><span class="p" data-group-id="7907173330-8">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-8">}</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7907173330-9">(</span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7907173330-10">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-10">)</span><span class="p">,</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7907173330-11">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-11">)</span><span class="p" data-group-id="7907173330-9">)</span><span class="w">
-</span><span class="p" data-group-id="7907173330-12">{</span><span class="no">nil</span><span class="p">,</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7907173330-12">}</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7037039665-1">(</span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7037039665-2">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-2">)</span><span class="p">,</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">infinity</span><span class="p" data-group-id="7037039665-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-3">)</span><span class="p" data-group-id="7037039665-1">)</span><span class="w">
+</span><span class="p" data-group-id="7037039665-4">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-4">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7037039665-5">(</span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">infinity</span><span class="p" data-group-id="7037039665-6">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-6">)</span><span class="p">,</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7037039665-7">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-7">)</span><span class="p" data-group-id="7037039665-5">)</span><span class="w">
+</span><span class="p" data-group-id="7037039665-8">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-8">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7037039665-9">(</span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7037039665-10">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-10">)</span><span class="p">,</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7037039665-11">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-11">)</span><span class="p" data-group-id="7037039665-9">)</span><span class="w">
+</span><span class="p" data-group-id="7037039665-12">{</span><span class="no">nil</span><span class="p">,</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7037039665-12">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">223</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-13">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-13">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-14">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-14">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-15">{</span><span class="mi">192</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-15">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">y1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-16">{</span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-16">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-17">{</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-17">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">y2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-18">{</span><span class="mi">56</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-18">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7037039665-19">(</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p" data-group-id="7037039665-19">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7037039665-20">(</span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">y2</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p" data-group-id="7037039665-20">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7037039665-21">(</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="n">p2</span><span class="p" data-group-id="7037039665-21">)</span><span class="w">
+</span><span class="p" data-group-id="7037039665-22">{</span><span class="p" data-group-id="7037039665-23">{</span><span class="mi">170</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7037039665-23">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7037039665-24">{</span><span class="mi">142</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7037039665-24">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7037039665-25">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7037039665-25">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7037039665-26">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7037039665-26">}</span><span class="p" data-group-id="7037039665-22">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">223</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-27">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-27">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-28">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-28">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-29">{</span><span class="mi">47</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-29">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7037039665-30">{</span><span class="mi">71</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-30">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7037039665-31">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p" data-group-id="7037039665-31">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="7037039665-32">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7037039665-32">)</span><span class="w">
+</span><span class="p" data-group-id="7037039665-33">{</span><span class="p" data-group-id="7037039665-34">{</span><span class="mi">36</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7037039665-34">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7037039665-35">{</span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7037039665-35">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7037039665-36">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7037039665-36">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7037039665-37">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7037039665-37">}</span><span class="p" data-group-id="7037039665-33">}</span></code></pre>
   </section>
 </div>
 <div class="detail" id="eq?/2">
@@ -165,12 +199,20 @@ Caustic.ECPoint
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">eq?(arg1, arg2)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L13" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L42" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
           </div>
   <section class="docstring">
+<p>Check whether two points in an elliptic field is equal.</p>
+<h2 id="eq?/2-examples" class="section-heading">
+  <a href="#eq?/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="8263019178-1">(</span><span class="p" data-group-id="8263019178-2">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="8263019178-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="8263019178-3">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="8263019178-3">}</span><span class="p" data-group-id="8263019178-1">)</span><span class="w">
+</span><span class="no">true</span></code></pre>
   </section>
 </div>
 <div class="detail" id="find_points/3">
@@ -180,7 +222,7 @@ Caustic.ECPoint
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">find_points(x, a, b)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L58" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L144" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -192,10 +234,10 @@ Caustic.ECPoint
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">find_points</span><span class="p" data-group-id="7238338109-1">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7238338109-1">)</span><span class="w">
-</span><span class="p" data-group-id="7238338109-2">[</span><span class="p" data-group-id="7238338109-2">]</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">find_points</span><span class="p" data-group-id="7238338109-3">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7238338109-3">)</span><span class="w">
-</span><span class="p" data-group-id="7238338109-4">[</span><span class="p" data-group-id="7238338109-5">{</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7238338109-5">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7238338109-6">{</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="7238338109-6">}</span><span class="p" data-group-id="7238338109-4">]</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">find_points</span><span class="p" data-group-id="6879613025-1">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="6879613025-1">)</span><span class="w">
+</span><span class="p" data-group-id="6879613025-2">[</span><span class="p" data-group-id="6879613025-2">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">find_points</span><span class="p" data-group-id="6879613025-3">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="6879613025-3">)</span><span class="w">
+</span><span class="p" data-group-id="6879613025-4">[</span><span class="p" data-group-id="6879613025-5">{</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="6879613025-5">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6879613025-6">{</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="6879613025-6">}</span><span class="p" data-group-id="6879613025-4">]</span></code></pre>
   </section>
 </div>
 <div class="detail" id="infinity/2">
@@ -205,12 +247,20 @@ Caustic.ECPoint
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">infinity(a, b)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L17" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L62" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
           </div>
   <section class="docstring">
+<p>Create point of infinity in an elliptic curve y^2 = x^3 + ax + b.</p>
+<h2 id="infinity/2-examples" class="section-heading">
+  <a href="#infinity/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">infinity</span><span class="p" data-group-id="1377443810-1">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="1377443810-1">)</span><span class="w">
+</span><span class="p" data-group-id="1377443810-2">{</span><span class="no">nil</span><span class="p">,</span><span class="w"> </span><span class="no">nil</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="1377443810-2">}</span></code></pre>
   </section>
 </div>
 <div class="detail" id="make/4">
@@ -220,12 +270,56 @@ Caustic.ECPoint
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">make(x, y, a, b)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L8" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L24" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
           </div>
   <section class="docstring">
+<p>Create a point in an elliptic field.</p>
+<h2 id="make/4-examples" class="section-heading">
+  <a href="#make/4-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="9931052396-1">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="9931052396-1">)</span><span class="w">
+</span><span class="p" data-group-id="9931052396-2">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="9931052396-2">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="9931052396-3">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="9931052396-3">)</span><span class="w">
+</span><span class="p" data-group-id="9931052396-4">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="9931052396-4">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="9931052396-5">(</span><span class="p" data-group-id="9931052396-6">{</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p" data-group-id="9931052396-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-7">{</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p" data-group-id="9931052396-7">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-8">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p" data-group-id="9931052396-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-9">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p" data-group-id="9931052396-9">}</span><span class="p" data-group-id="9931052396-5">)</span><span class="w">
+</span><span class="p" data-group-id="9931052396-10">{</span><span class="p" data-group-id="9931052396-11">{</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p" data-group-id="9931052396-11">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-12">{</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p" data-group-id="9931052396-12">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-13">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p" data-group-id="9931052396-13">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-14">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p" data-group-id="9931052396-14">}</span><span class="p" data-group-id="9931052396-10">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="9931052396-15">(</span><span class="p" data-group-id="9931052396-16">{</span><span class="mi">192</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-16">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-17">{</span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-17">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-18">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-18">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-19">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-19">}</span><span class="p" data-group-id="9931052396-15">)</span><span class="w">
+</span><span class="p" data-group-id="9931052396-20">{</span><span class="p" data-group-id="9931052396-21">{</span><span class="mi">192</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-21">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-22">{</span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-22">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-23">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-23">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-24">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-24">}</span><span class="p" data-group-id="9931052396-20">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="9931052396-25">(</span><span class="p" data-group-id="9931052396-26">{</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-26">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-27">{</span><span class="mi">56</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-27">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-28">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-28">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-29">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-29">}</span><span class="p" data-group-id="9931052396-25">)</span><span class="w">
+</span><span class="p" data-group-id="9931052396-30">{</span><span class="p" data-group-id="9931052396-31">{</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-31">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-32">{</span><span class="mi">56</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-32">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-33">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-33">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9931052396-34">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="9931052396-34">}</span><span class="p" data-group-id="9931052396-30">}</span></code></pre>
+  </section>
+</div>
+<div class="detail" id="mul/2">
+    <div class="detail-header">
+    <a href="#mul/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">mul(k, p)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L129" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+<h2 id="mul/2-examples" class="section-heading">
+  <a href="#mul/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">223</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7843852069-1">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7843852069-1">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7843852069-2">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7843852069-2">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7843852069-3">{</span><span class="mi">47</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7843852069-3">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="7843852069-4">{</span><span class="mi">71</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7843852069-4">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="7843852069-5">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p" data-group-id="7843852069-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="7843852069-6">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p" data-group-id="7843852069-6">)</span><span class="w">
+</span><span class="p" data-group-id="7843852069-7">{</span><span class="p" data-group-id="7843852069-8">{</span><span class="mi">36</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7843852069-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7843852069-9">{</span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7843852069-9">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7843852069-10">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7843852069-10">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7843852069-11">{</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">223</span><span class="p" data-group-id="7843852069-11">}</span><span class="p" data-group-id="7843852069-7">}</span></code></pre>
   </section>
 </div>
 <div class="detail" id="ne?/2">
@@ -235,12 +329,20 @@ Caustic.ECPoint
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">ne?(p1, p2)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L15" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/ec_point.ex#L52" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
           </div>
   <section class="docstring">
+<p>Check whether two points in an elliptic field is not equal.</p>
+<h2 id="ne?/2-examples" class="section-heading">
+  <a href="#ne?/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples
+</h2>
+
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.ECPoint</span><span class="o">.</span><span class="n">ne?</span><span class="p" data-group-id="9726354948-1">(</span><span class="p" data-group-id="9726354948-2">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="9726354948-2">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9726354948-3">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p" data-group-id="9726354948-3">}</span><span class="p" data-group-id="9726354948-1">)</span><span class="w">
+</span><span class="no">true</span></code></pre>
   </section>
 </div>
         </section>

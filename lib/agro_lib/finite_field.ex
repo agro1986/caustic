@@ -31,9 +31,9 @@ defimpl Caustic.Field, for: Tuple do
   def sub({x, prime}, {y, prime}), do: {mod(x - y, prime), prime}
   
   def mul({x, prime}, {y, prime}), do: {mod(x * y, prime), prime}
+  def mul({x, prime}, y), do: mul({x, prime}, {mod(y, prime), prime})
 
   def div(a = {_x, prime}, b = {_y, prime}), do: mul(a, inverse(b))
-  
   
   def eq?({num1, prime1}, {num1, prime1}), do: true
   def eq?({_num1, _prime1}, {_num2, _prime2}), do: false
@@ -42,9 +42,17 @@ defimpl Caustic.Field, for: Tuple do
   
   def pow({x, prime}, {y, prime}), do: {Utils.pow_mod(x, y, prime), prime}
   def pow({x, prime}, y), do: {Utils.pow_mod(x, y, prime), prime}
+
+  def neg({x, prime}), do: sub({0, prime}, {x, prime})
   
   def inverse({x, prime}) do
     result = Utils.mod_inverse(x, prime)
     if result === nil, do: nil, else: {result, prime}
+  end
+  
+  def zero?(a = {_x, prime}), do: eq?(a, {0, prime})
+
+  def sqrt({x, prime}) do
+    raise "Unimplemented"
   end
 end

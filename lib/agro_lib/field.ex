@@ -76,6 +76,8 @@ defprotocol Caustic.Field do
   """
   def pow(x, y)
 
+  def neg(x)
+
   @doc """
   ## Examples
   
@@ -91,6 +93,22 @@ defprotocol Caustic.Field do
       nil
   """
   def inverse(x)
+  
+  @doc """
+  Check if it is the additive identity.
+  
+  ## Examples
+  
+      iex> Caustic.Field.zero?(0)
+      true
+      iex> Caustic.Field.zero?(0.0)
+      true
+      iex> Caustic.Field.zero?({0, 5})
+      true
+  """
+  def zero?(x)
+
+  def sqrt(x)
 end
 
 defimpl Caustic.Field, for: Any do
@@ -101,5 +119,10 @@ defimpl Caustic.Field, for: Any do
   def eq?(x, y), do: x == y
   def ne?(x, y), do: x != y
   def pow(x, y), do: :math.pow(x, y)
+  def neg(x), do: -x
   def inverse(x), do: 1 / x
+  def zero?(x), do: x == 0
+  def sqrt(x) do
+    if x < 0, do: nil, else: :math.sqrt(x)
+  end
 end
