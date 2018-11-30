@@ -72,6 +72,7 @@ defmodule Caustic.ECPoint do
       {-1, -1, 5, 7}
       iex> Caustic.ECPoint.add(Caustic.ECPoint.make(-1, 1, 5, 7), Caustic.ECPoint.make(-1, -1, 5, 7))
       {nil, nil, 5, 7}
+
       iex> p = 223
       iex> a = {0, p}
       iex> b = {7, p}
@@ -83,6 +84,7 @@ defmodule Caustic.ECPoint do
       iex> p2 = Caustic.ECPoint.make(x2, y2, a, b)
       iex> Caustic.ECPoint.add(p1, p2)
       {{170, 223}, {142, 223}, {0, 223}, {7, 223}}
+
       iex> p = 223
       iex> a = {0, p}
       iex> b = {7, p}
@@ -94,7 +96,6 @@ defmodule Caustic.ECPoint do
   """
   def add(p1, p2 = _inf = {nil, nil, _a, _b}), do: add(p2, p1)
   def add({nil, nil, a, b}, {x, y, a, b}), do: {x, y, a, b}
-  def add({x, y1, a, b}, {x, y2, a, b}) when y1 == -y2, do: infinity(a, b)
   def add({x, y, a, b}, {x, y, a, b}) do
     s = F.div(F.add(F.mul(F.mul(x, x), 3), a), F.mul(y, 2)) # (3 * x * x + a) / (2 * y)
     x3 = F.sub(F.mul(s, s), F.mul(x, 2)) # s * s - 2 * x
@@ -102,11 +103,15 @@ defmodule Caustic.ECPoint do
     {x3, y3, a, b}
   end
   def add({x1, y1, a, b}, {x2, y2, a, b}) do
-    # https://github.com/jimmysong/programmingbitcoin/blob/master/ch02.asciidoc
-    s = F.div(F.sub(y2, y1), F.sub(x2, x1)) # (y2 - y1) / (x2 - x1)
-    x3 = F.sub(F.sub(F.mul(s, s), x1), x2) # s * s - x1 - x2
-    y3 = F.sub(F.mul(s, F.sub(x1, x3)), y1) # s * (x1 - x3) - y1
-    {x3, y3, a, b}
+    if F.eq?(y1, F.neg(y2)) do
+      infinity(a, b)
+    else
+      # https://github.com/jimmysong/programmingbitcoin/blob/master/ch02.asciidoc
+      s = F.div(F.sub(y2, y1), F.sub(x2, x1)) # (y2 - y1) / (x2 - x1)
+      x3 = F.sub(F.sub(F.mul(s, s), x1), x2) # s * s - x1 - x2
+      y3 = F.sub(F.mul(s, F.sub(x1, x3)), y1) # s * (x1 - x3) - y1
+      {x3, y3, a, b}
+    end
   end
 
   @doc """

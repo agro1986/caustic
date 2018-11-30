@@ -12,7 +12,7 @@ https://hexdocs.pm/caustic/
 ```elixir
 def deps do
   [
-    {:caustic, "~> 0.1.3"}
+    {:caustic, "~> 0.1.7"}
   ]
 end
 ```
