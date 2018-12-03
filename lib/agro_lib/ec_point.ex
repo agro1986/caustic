@@ -93,8 +93,14 @@ defmodule Caustic.ECPoint do
       iex> p = Caustic.ECPoint.make(x, y, a, b)
       iex> Caustic.ECPoint.add(p, p)
       {{36, 223}, {111, 223}, {0, 223}, {7, 223}}
+
+      iex> a = {0, 223}
+      iex> b = {7, 223}
+      iex> i = Caustic.ECPoint.infinity(a, b)
+      iex> Caustic.ECPoint.add(i, i)
+      {nil, nil, {0, 223}, {7, 223}}
   """
-  def add(p1, p2 = _inf = {nil, nil, _a, _b}), do: add(p2, p1)
+  def add({x, y, a, b}, {nil, nil, a, b}), do: {x, y, a, b}
   def add({nil, nil, a, b}, {x, y, a, b}), do: {x, y, a, b}
   def add({x, y, a, b}, {x, y, a, b}) do
     s = F.div(F.add(F.mul(F.mul(x, x), 3), a), F.mul(y, 2)) # (3 * x * x + a) / (2 * y)
@@ -103,7 +109,7 @@ defmodule Caustic.ECPoint do
     {x3, y3, a, b}
   end
   def add({x1, y1, a, b}, {x2, y2, a, b}) do
-    if F.eq?(y1, F.neg(y2)) do
+    if F.eq?(x1, x2) and F.eq?(y1, F.neg(y2)) do
       infinity(a, b)
     else
       # https://github.com/jimmysong/programmingbitcoin/blob/master/ch02.asciidoc

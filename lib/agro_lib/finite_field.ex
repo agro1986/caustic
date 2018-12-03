@@ -53,6 +53,10 @@ defimpl Caustic.Field, for: Tuple do
   def zero?(a = {_x, prime}), do: eq?(a, {0, prime})
 
   def sqrt({x, prime}) do
-    raise "Unimplemented"
+    _sqrt(0, x, prime)
   end
+
+  defp _sqrt(prime, _, prime), do: nil
+  defp _sqrt(root, x, prime) when rem(root * root, prime) == x, do: {root, prime}
+  defp _sqrt(root, x, prime), do: _sqrt(root + 1, x, prime)
 end

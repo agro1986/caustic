@@ -758,7 +758,7 @@ defmodule Caustic.Utils do
   def gcd(0, b), do: b
   def gcd(a, 0), do: a
   def gcd(a, b) do
-    q = div(a, b)
+    #q = div(a, b)
     r = mod(a, b)
     gcd(b, r)
   end
@@ -800,9 +800,9 @@ defmodule Caustic.Utils do
   def _mod_inverse(m, a, q_prev \\ 1, q_prev_prev \\ 0)
   
   # not coprimes, doesn't have inverse mod m
-  def _mod_inverse(m, 0, _, _), do: nil
+  def _mod_inverse(_m, 0, _, _), do: nil
   
-  def _mod_inverse(m, 1, q_prev, _), do: q_prev
+  def _mod_inverse(_m, 1, q_prev, _), do: q_prev
   
   def _mod_inverse(m, a, q_prev, q_prev_prev) do
     q = div(m, a)

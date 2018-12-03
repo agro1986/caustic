@@ -31,4 +31,11 @@ defmodule Caustic.ECPointTest do
     assert ECPoint.infinity(a, b) == ECPoint.mul(priv_key_max + 1, g)
     assert g == ECPoint.mul(priv_key_max + 2, g)
   end
+
+  test "correct addition" do
+    g = {{15, 223}, {86, 223}, {0, 223}, {7, 223}}
+    g3 = {{69, 223}, {137, 223}, {0, 223}, {7, 223}}
+    g4 = {{69, 223}, {86, 223}, {0, 223}, {7, 223}}
+    assert ECPoint.add(g, g3) == g4
+  end
 end
