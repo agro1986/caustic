@@ -573,8 +573,10 @@ defmodule Caustic.Utils do
       "0b101"
   """
   def to_string(n, base, opts \\ []) do
-    opts = opts ++ [prefix: true]
+    opts = opts ++ [prefix: true, padding: 0]
     str = to_digits(n, base) |> Enum.map_join(&_to_string(&1, base))
+
+    str = String.pad_leading(str, opts[:padding], "0")
     
     prefix = if opts[:prefix], do: Map.get(@base_prefixes, base, ""), else: "" 
     prefix <> str

@@ -2,6 +2,8 @@ defmodule Caustic.ECPointTest do
   use ExUnit.Case
   alias Caustic.ECPoint
   alias Caustic.Field
+  alias Caustic.FiniteField
+  alias Caustic.Utils
 
   doctest ECPoint
 
@@ -13,6 +15,26 @@ defmodule Caustic.ECPointTest do
     invalid_points |> Enum.each(fn {x, y} ->
       assert_raise RuntimeError, fn -> ECPoint.make({x, p}, {y, p}, a, b) end
     end)
+  end
+
+  test "secp256k1 sanity test" do
+    p = Utils.pow(2, 256) - Utils.pow(2, 32) - 977
+    a = FiniteField.make(0, p)
+    b = FiniteField.make(7, p)
+    g_x = FiniteField.make Utils.to_integer("0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"), p
+    g_y = FiniteField.make Utils.to_integer("0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8"), p
+
+    {g, is_point} = try do
+      g = ECPoint.make(g_x, g_y, a, b)
+      {g, true}
+    rescue
+      _ -> {nil, false}
+    end
+
+    assert is_point
+
+    n = Utils.to_integer("0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141") # order of private key group
+    assert ECPoint.mul(n, g) == ECPoint.infinity(a, b)
   end
 
   test "secp256k1 extreme values" do

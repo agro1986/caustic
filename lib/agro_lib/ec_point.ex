@@ -142,8 +142,8 @@ defmodule Caustic.ECPoint do
     _mul(k, inf, p)
   end
 
-  def _mul(0, acc, _), do: acc
-  def _mul(k, acc, factor) do
+  defp _mul(0, acc, _), do: acc
+  defp _mul(k, acc, factor) do
     acc = if (k &&& 1) == 1, do: add(acc, factor), else: acc
     k = k >>> 1
     factor = add(factor, factor)
