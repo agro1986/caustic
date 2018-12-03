@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.19.1">
-    <title>Caustic.Utils – Caustic v0.1.8</title>
+    <title>Caustic.Utils – Caustic v0.1.9</title>
     <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-    <script src="dist/sidebar_items-93d31133b5.js"></script>
+    <script src="dist/sidebar_items-bc28b3bf0c.js"></script>
     
   </head>
   <body data-type="modules">
@@ -28,7 +28,7 @@
       <h1 class="sidebar-projectName">
 Caustic      </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.8
+        v0.1.9
       </h2>
     </div>
   </a>
@@ -57,7 +57,7 @@ Caustic      </h1>
 
 
       <h1>
-        <small class="visible-xs">Caustic v0.1.8</small>
+        <small class="visible-xs">Caustic v0.1.9</small>
 Caustic.Utils        
           <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
@@ -319,9 +319,9 @@ if it’s a normal binary</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_decode</span><span class="p" data-group-id="7280424676-1">(</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="p" data-group-id="7280424676-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_decode</span><span class="p" data-group-id="3963436489-1">(</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="p" data-group-id="3963436489-1">)</span><span class="w">
 </span><span class="s">&quot;0x801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_decode</span><span class="p" data-group-id="7280424676-2">(</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">prefix</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="7280424676-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_decode</span><span class="p" data-group-id="3963436489-2">(</span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">prefix</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="3963436489-2">)</span><span class="w">
 </span><span class="s">&quot;801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff&quot;</span></code></pre>
   </section>
 </div>
@@ -348,13 +348,13 @@ interpret the string as a hex.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="3436223485-1">(</span><span class="s">&quot;801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff&quot;</span><span class="p" data-group-id="3436223485-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="3951617784-1">(</span><span class="s">&quot;801e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aeddc47e83ff&quot;</span><span class="p" data-group-id="3951617784-1">)</span><span class="w">
 </span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="3436223485-2">(</span><span class="p" data-group-id="3436223485-3">&lt;&lt;</span><span class="mi">57</span><span class="p" data-group-id="3436223485-3">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="3436223485-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="3951617784-2">(</span><span class="p" data-group-id="3951617784-3">&lt;&lt;</span><span class="mi">57</span><span class="p" data-group-id="3951617784-3">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="3951617784-2">)</span><span class="w">
 </span><span class="s">&quot;z&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="3436223485-4">(</span><span class="mi">63716817338599314535577169638518475271320430400871647684951348108655027767484127754748927</span><span class="p" data-group-id="3436223485-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="3951617784-4">(</span><span class="mi">63716817338599314535577169638518475271320430400871647684951348108655027767484127754748927</span><span class="p" data-group-id="3951617784-4">)</span><span class="w">
 </span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="3436223485-5">(</span><span class="s">&quot;0x000001&quot;</span><span class="p" data-group-id="3436223485-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58_encode</span><span class="p" data-group-id="3951617784-5">(</span><span class="s">&quot;0x000001&quot;</span><span class="p" data-group-id="3951617784-5">)</span><span class="w">
 </span><span class="s">&quot;112&quot;</span></code></pre>
   </section>
 </div>
@@ -409,9 +409,9 @@ interpret the string as a hex.</p>
 </h2>
 
 <pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_decode</span><span class="w"> </span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
-</span><span class="p" data-group-id="8732275602-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="8732275602-2">&lt;&lt;</span><span class="mi">196</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">131</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p" data-group-id="8732275602-2">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p" data-group-id="8732275602-1">}</span><span class="w">
+</span><span class="p" data-group-id="2027926426-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2027926426-2">&lt;&lt;</span><span class="mi">196</span><span class="p">,</span><span class="w"> </span><span class="mi">126</span><span class="p">,</span><span class="w"> </span><span class="mi">131</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p" data-group-id="2027926426-2">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p" data-group-id="2027926426-1">}</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_decode</span><span class="w"> </span><span class="s">&quot;1J7mdg5rbQyUHENYdx39WVWK7fsLpEoXZy&quot;</span><span class="w">
-</span><span class="p" data-group-id="8732275602-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="8732275602-4">&lt;&lt;</span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">254</span><span class="p">,</span><span class="w"> </span><span class="mi">252</span><span class="p">,</span><span class="w"> </span><span class="mi">208</span><span class="p" data-group-id="8732275602-4">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bbc1e42a39d05a4cc61752d6963b7f69d09bb27b&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="8732275602-3">}</span></code></pre>
+</span><span class="p" data-group-id="2027926426-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2027926426-4">&lt;&lt;</span><span class="mi">55</span><span class="p">,</span><span class="w"> </span><span class="mi">254</span><span class="p">,</span><span class="w"> </span><span class="mi">252</span><span class="p">,</span><span class="w"> </span><span class="mi">208</span><span class="p" data-group-id="2027926426-4">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bbc1e42a39d05a4cc61752d6963b7f69d09bb27b&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="2027926426-3">}</span></code></pre>
   </section>
 </div>
 <div class="detail" id="base58check_encode/3">
@@ -438,17 +438,17 @@ interpret the string as a hex.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="4959667830-1">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p" data-group-id="4959667830-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="6629927457-1">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p" data-group-id="6629927457-1">)</span><span class="w">
 </span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="4959667830-2">(</span><span class="p" data-group-id="4959667830-3">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="4959667830-4">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="4959667830-4">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="4959667830-5">(</span><span class="mi">256</span><span class="p" data-group-id="4959667830-5">)</span><span class="p" data-group-id="4959667830-3">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="4959667830-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="6629927457-2">(</span><span class="p" data-group-id="6629927457-3">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="6629927457-4">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="6629927457-4">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="6629927457-5">(</span><span class="mi">256</span><span class="p" data-group-id="6629927457-5">)</span><span class="p" data-group-id="6629927457-3">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="6629927457-2">)</span><span class="w">
 </span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="4959667830-6">(</span><span class="p" data-group-id="4959667830-7">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="4959667830-8">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="4959667830-8">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="4959667830-9">(</span><span class="mi">256</span><span class="p" data-group-id="4959667830-9">)</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01</span><span class="p" data-group-id="4959667830-7">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="4959667830-6">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="6629927457-6">(</span><span class="p" data-group-id="6629927457-7">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="6629927457-8">(</span><span class="s">&quot;0x1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="6629927457-8">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="6629927457-9">(</span><span class="mi">256</span><span class="p" data-group-id="6629927457-9">)</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01</span><span class="p" data-group-id="6629927457-7">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="6629927457-6">)</span><span class="w">
 </span><span class="s">&quot;KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="4959667830-10">(</span><span class="p" data-group-id="4959667830-11">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="4959667830-12">(</span><span class="s">&quot;1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="4959667830-12">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="4959667830-13">(</span><span class="mi">256</span><span class="p" data-group-id="4959667830-13">)</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01</span><span class="p" data-group-id="4959667830-11">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="4959667830-10">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="6629927457-10">(</span><span class="p" data-group-id="6629927457-11">&lt;&lt;</span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="6629927457-12">(</span><span class="s">&quot;1E99423A4ED27608A15A2616A2B0E9E52CED330AC530EDCC32C8FFC6A526AEDD&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="6629927457-12">)</span><span class="o">::</span><span class="n">size</span><span class="p" data-group-id="6629927457-13">(</span><span class="mi">256</span><span class="p" data-group-id="6629927457-13">)</span><span class="p">,</span><span class="w"> </span><span class="mh">0x01</span><span class="p" data-group-id="6629927457-11">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="ss">:private_key_wif</span><span class="p">,</span><span class="w"> </span><span class="ss">convert_from_hex</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="6629927457-10">)</span><span class="w">
 </span><span class="s">&quot;KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="4959667830-14">(</span><span class="s">&quot;f5f2d624cfb5c3f66d06123d0829d1c9cebf770e&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="4959667830-14">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="6629927457-14">(</span><span class="s">&quot;f5f2d624cfb5c3f66d06123d0829d1c9cebf770e&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="6629927457-14">)</span><span class="w">
 </span><span class="s">&quot;1PRTTaJesdNovgne6Ehcdu1fpEdX7913CK&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="4959667830-15">(</span><span class="s">&quot;000000cb23faea20aa20f02a02955ffd1d785518&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="4959667830-15">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base58check_encode</span><span class="p" data-group-id="6629927457-15">(</span><span class="s">&quot;000000cb23faea20aa20f02a02955ffd1d785518&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:address</span><span class="p" data-group-id="6629927457-15">)</span><span class="w">
 </span><span class="s">&quot;1111DVWAb9XQh88gakJRcK14e1i1onvAL&quot;</span><span class="w"> </span><span class="c1"># private key is 5KjhZsxt61XSPunjrPm8XUEAH1YN6zXm6pqT5D1hZ9mLoEAqKTp</span></code></pre>
   </section>
 </div>
@@ -472,13 +472,13 @@ interpret the string as a hex.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="7028757074-1">(</span><span class="s">&quot;TWFu&quot;</span><span class="p" data-group-id="7028757074-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="1458139619-1">(</span><span class="s">&quot;TWFu&quot;</span><span class="p" data-group-id="1458139619-1">)</span><span class="w">
 </span><span class="s">&quot;Man&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="7028757074-2">(</span><span class="s">&quot;TWE=&quot;</span><span class="p" data-group-id="7028757074-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="1458139619-2">(</span><span class="s">&quot;TWE=&quot;</span><span class="p" data-group-id="1458139619-2">)</span><span class="w">
 </span><span class="s">&quot;Ma&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="7028757074-3">(</span><span class="s">&quot;TQ==&quot;</span><span class="p" data-group-id="7028757074-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="1458139619-3">(</span><span class="s">&quot;TQ==&quot;</span><span class="p" data-group-id="1458139619-3">)</span><span class="w">
 </span><span class="s">&quot;M&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="7028757074-4">(</span><span class="s">&quot;TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz</span><span class="se">\r</span><span class="se">\n</span><span class="s">IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u&quot;</span><span class="p" data-group-id="7028757074-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode</span><span class="p" data-group-id="1458139619-4">(</span><span class="s">&quot;TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz</span><span class="se">\r</span><span class="se">\n</span><span class="s">IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u&quot;</span><span class="p" data-group-id="1458139619-4">)</span><span class="w">
 </span><span class="s">&quot;Man is distinguished, not only by his reason, but by this singular passion from other animals...&quot;</span></code></pre>
   </section>
 </div>
@@ -501,21 +501,21 @@ interpret the string as a hex.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="4649867838-1">(</span><span class="s">&quot;A&quot;</span><span class="p" data-group-id="4649867838-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="9489706208-1">(</span><span class="s">&quot;A&quot;</span><span class="p" data-group-id="9489706208-1">)</span><span class="w">
 </span><span class="mi">0</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="4649867838-2">(</span><span class="s">&quot;F&quot;</span><span class="p" data-group-id="4649867838-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="9489706208-2">(</span><span class="s">&quot;F&quot;</span><span class="p" data-group-id="9489706208-2">)</span><span class="w">
 </span><span class="mi">5</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="4649867838-3">(</span><span class="s">&quot;a&quot;</span><span class="p" data-group-id="4649867838-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="9489706208-3">(</span><span class="s">&quot;a&quot;</span><span class="p" data-group-id="9489706208-3">)</span><span class="w">
 </span><span class="mi">26</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="4649867838-4">(</span><span class="s">&quot;f&quot;</span><span class="p" data-group-id="4649867838-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="9489706208-4">(</span><span class="s">&quot;f&quot;</span><span class="p" data-group-id="9489706208-4">)</span><span class="w">
 </span><span class="mi">31</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="4649867838-5">(</span><span class="s">&quot;0&quot;</span><span class="p" data-group-id="4649867838-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="9489706208-5">(</span><span class="s">&quot;0&quot;</span><span class="p" data-group-id="9489706208-5">)</span><span class="w">
 </span><span class="mi">52</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="4649867838-6">(</span><span class="s">&quot;5&quot;</span><span class="p" data-group-id="4649867838-6">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="9489706208-6">(</span><span class="s">&quot;5&quot;</span><span class="p" data-group-id="9489706208-6">)</span><span class="w">
 </span><span class="mi">57</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="4649867838-7">(</span><span class="s">&quot;+&quot;</span><span class="p" data-group-id="4649867838-7">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="9489706208-7">(</span><span class="s">&quot;+&quot;</span><span class="p" data-group-id="9489706208-7">)</span><span class="w">
 </span><span class="mi">62</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="4649867838-8">(</span><span class="s">&quot;/&quot;</span><span class="p" data-group-id="4649867838-8">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_decode_char</span><span class="p" data-group-id="9489706208-8">(</span><span class="s">&quot;/&quot;</span><span class="p" data-group-id="9489706208-8">)</span><span class="w">
 </span><span class="mi">63</span></code></pre>
   </section>
 </div>
@@ -541,15 +541,15 @@ interpret the string as a hex.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="4641220947-1">(</span><span class="s">&quot;Man&quot;</span><span class="p" data-group-id="4641220947-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="2323192856-1">(</span><span class="s">&quot;Man&quot;</span><span class="p" data-group-id="2323192856-1">)</span><span class="w">
 </span><span class="s">&quot;TWFu&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="4641220947-2">(</span><span class="s">&quot;Ma&quot;</span><span class="p" data-group-id="4641220947-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="2323192856-2">(</span><span class="s">&quot;Ma&quot;</span><span class="p" data-group-id="2323192856-2">)</span><span class="w">
 </span><span class="s">&quot;TWE=&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="4641220947-3">(</span><span class="s">&quot;M&quot;</span><span class="p" data-group-id="4641220947-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="2323192856-3">(</span><span class="s">&quot;M&quot;</span><span class="p" data-group-id="2323192856-3">)</span><span class="w">
 </span><span class="s">&quot;TQ==&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="4641220947-4">(</span><span class="s">&quot;Man is distinguished, not only by his reason, but by this singular passion from other animals...&quot;</span><span class="p" data-group-id="4641220947-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="2323192856-4">(</span><span class="s">&quot;Man is distinguished, not only by his reason, but by this singular passion from other animals...&quot;</span><span class="p" data-group-id="2323192856-4">)</span><span class="w">
 </span><span class="s">&quot;TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz</span><span class="se">\r</span><span class="se">\n</span><span class="s">IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="4641220947-5">(</span><span class="s">&quot;Man is distinguished, not only by his reason, but by this singular passion from other animals...&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">new_line</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="4641220947-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode</span><span class="p" data-group-id="2323192856-5">(</span><span class="s">&quot;Man is distinguished, not only by his reason, but by this singular passion from other animals...&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">new_line</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="2323192856-5">)</span><span class="w">
 </span><span class="s">&quot;TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLi4u&quot;</span></code></pre>
   </section>
 </div>
@@ -572,21 +572,21 @@ interpret the string as a hex.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="2787041911-1">(</span><span class="mi">0</span><span class="p" data-group-id="2787041911-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="8329450312-1">(</span><span class="mi">0</span><span class="p" data-group-id="8329450312-1">)</span><span class="w">
 </span><span class="s">&quot;A&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="2787041911-2">(</span><span class="mi">5</span><span class="p" data-group-id="2787041911-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="8329450312-2">(</span><span class="mi">5</span><span class="p" data-group-id="8329450312-2">)</span><span class="w">
 </span><span class="s">&quot;F&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="2787041911-3">(</span><span class="mi">26</span><span class="p" data-group-id="2787041911-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="8329450312-3">(</span><span class="mi">26</span><span class="p" data-group-id="8329450312-3">)</span><span class="w">
 </span><span class="s">&quot;a&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="2787041911-4">(</span><span class="mi">31</span><span class="p" data-group-id="2787041911-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="8329450312-4">(</span><span class="mi">31</span><span class="p" data-group-id="8329450312-4">)</span><span class="w">
 </span><span class="s">&quot;f&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="2787041911-5">(</span><span class="mi">52</span><span class="p" data-group-id="2787041911-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="8329450312-5">(</span><span class="mi">52</span><span class="p" data-group-id="8329450312-5">)</span><span class="w">
 </span><span class="s">&quot;0&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="2787041911-6">(</span><span class="mi">57</span><span class="p" data-group-id="2787041911-6">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="8329450312-6">(</span><span class="mi">57</span><span class="p" data-group-id="8329450312-6">)</span><span class="w">
 </span><span class="s">&quot;5&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="2787041911-7">(</span><span class="mi">62</span><span class="p" data-group-id="2787041911-7">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="8329450312-7">(</span><span class="mi">62</span><span class="p" data-group-id="8329450312-7">)</span><span class="w">
 </span><span class="s">&quot;+&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="2787041911-8">(</span><span class="mi">63</span><span class="p" data-group-id="2787041911-8">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">base64_encode_char</span><span class="p" data-group-id="8329450312-8">(</span><span class="mi">63</span><span class="p" data-group-id="8329450312-8">)</span><span class="w">
 </span><span class="s">&quot;/&quot;</span></code></pre>
   </section>
 </div>
@@ -611,9 +611,9 @@ interpret the string as a hex.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitcoin_private_key_to_wif</span><span class="p" data-group-id="0693152644-1">(</span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="0693152644-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitcoin_private_key_to_wif</span><span class="p" data-group-id="4812568352-1">(</span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p" data-group-id="4812568352-1">)</span><span class="w">
 </span><span class="s">&quot;KxFC1jmwwCoACiCAWZ3eXa96mBM6tb3TYzGmf6YwgdGWZgawvrtJ&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitcoin_private_key_to_wif</span><span class="p" data-group-id="0693152644-2">(</span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">compressed</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="0693152644-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitcoin_private_key_to_wif</span><span class="p" data-group-id="4812568352-2">(</span><span class="s">&quot;1e99423a4ed27608a15a2616a2b0e9e52ced330ac530edcc32c8ffc6a526aedd&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">compressed</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="4812568352-2">)</span><span class="w">
 </span><span class="s">&quot;5J3mBbAH58CpQ3Y5RNJpUKPE62SQ5tfcvU2JpbnkeyhfsYB1Jcn&quot;</span></code></pre>
   </section>
 </div>
@@ -638,9 +638,9 @@ For simple binary you can also use :binary.decode_unsigned</p>
 </h2>
 
 <pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitstring_to_array</span><span class="w"> </span><span class="s">&quot;Hey&quot;</span><span class="w">
-</span><span class="p" data-group-id="6021048822-1">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="6021048822-1">]</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitstring_to_array</span><span class="w"> </span><span class="p" data-group-id="6021048822-2">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="6021048822-3">(</span><span class="mi">1</span><span class="p" data-group-id="6021048822-3">)</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="6021048822-4">(</span><span class="mi">1</span><span class="p" data-group-id="6021048822-4">)</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="6021048822-5">(</span><span class="mi">1</span><span class="p" data-group-id="6021048822-5">)</span><span class="w"> </span><span class="p" data-group-id="6021048822-2">&gt;&gt;</span><span class="w">
-</span><span class="p" data-group-id="6021048822-6">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="6021048822-6">]</span></code></pre>
+</span><span class="p" data-group-id="9915057927-1">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="9915057927-1">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitstring_to_array</span><span class="w"> </span><span class="p" data-group-id="9915057927-2">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="9915057927-3">(</span><span class="mi">1</span><span class="p" data-group-id="9915057927-3">)</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="9915057927-4">(</span><span class="mi">1</span><span class="p" data-group-id="9915057927-4">)</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="n">size</span><span class="p" data-group-id="9915057927-5">(</span><span class="mi">1</span><span class="p" data-group-id="9915057927-5">)</span><span class="w"> </span><span class="p" data-group-id="9915057927-2">&gt;&gt;</span><span class="w">
+</span><span class="p" data-group-id="9915057927-6">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="9915057927-6">]</span></code></pre>
   </section>
 </div>
 <div class="detail" id="bitstring_to_integer/1">
@@ -663,7 +663,7 @@ if it’s a normal binary.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitstring_to_integer</span><span class="p" data-group-id="4342840120-1">(</span><span class="p" data-group-id="4342840120-2">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p" data-group-id="4342840120-2">&gt;&gt;</span><span class="p" data-group-id="4342840120-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">bitstring_to_integer</span><span class="p" data-group-id="5712415939-1">(</span><span class="p" data-group-id="5712415939-2">&lt;&lt;</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p" data-group-id="5712415939-2">&gt;&gt;</span><span class="p" data-group-id="5712415939-1">)</span><span class="w">
 </span><span class="mi">65535</span></code></pre>
   </section>
 </div>
@@ -674,7 +674,7 @@ if it’s a normal binary.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">gcd(a, b)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L760" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L763" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -687,7 +687,7 @@ if it’s a normal binary.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">gcd</span><span class="p" data-group-id="8809267348-1">(</span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="mi">192</span><span class="p" data-group-id="8809267348-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">gcd</span><span class="p" data-group-id="5206308425-1">(</span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="mi">192</span><span class="p" data-group-id="5206308425-1">)</span><span class="w">
 </span><span class="mi">6</span></code></pre>
   </section>
 </div>
@@ -710,11 +710,11 @@ if it’s a normal binary.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8572646451-1">(</span><span class="s">&quot;0xabf&quot;</span><span class="p" data-group-id="8572646451-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8675425842-1">(</span><span class="s">&quot;0xabf&quot;</span><span class="p" data-group-id="8675425842-1">)</span><span class="w">
 </span><span class="mi">16</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8572646451-2">(</span><span class="s">&quot;0b101&quot;</span><span class="p" data-group-id="8572646451-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8675425842-2">(</span><span class="s">&quot;0b101&quot;</span><span class="p" data-group-id="8675425842-2">)</span><span class="w">
 </span><span class="mi">2</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8572646451-3">(</span><span class="s">&quot;321&quot;</span><span class="p" data-group-id="8572646451-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">get_base</span><span class="p" data-group-id="8675425842-3">(</span><span class="s">&quot;321&quot;</span><span class="p" data-group-id="8675425842-3">)</span><span class="w">
 </span><span class="mi">10</span></code></pre>
   </section>
 </div>
@@ -737,11 +737,11 @@ if it’s a normal binary.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="8537989030-1">(</span><span class="s">&quot;0xff&quot;</span><span class="p" data-group-id="8537989030-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="2426958370-1">(</span><span class="s">&quot;0xff&quot;</span><span class="p" data-group-id="2426958370-1">)</span><span class="w">
 </span><span class="s">&quot;ff&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="8537989030-2">(</span><span class="s">&quot;0XFF&quot;</span><span class="p" data-group-id="8537989030-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="2426958370-2">(</span><span class="s">&quot;0XFF&quot;</span><span class="p" data-group-id="2426958370-2">)</span><span class="w">
 </span><span class="s">&quot;FF&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="8537989030-3">(</span><span class="s">&quot;ff&quot;</span><span class="p" data-group-id="8537989030-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">hex_remove_prefix</span><span class="p" data-group-id="2426958370-3">(</span><span class="s">&quot;ff&quot;</span><span class="p" data-group-id="2426958370-3">)</span><span class="w">
 </span><span class="s">&quot;ff&quot;</span></code></pre>
   </section>
 </div>
@@ -778,9 +778,9 @@ if it’s a normal binary.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod</span><span class="p" data-group-id="4790981872-1">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="4790981872-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod</span><span class="p" data-group-id="2942833809-1">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="2942833809-1">)</span><span class="w">
 </span><span class="mi">0</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod</span><span class="p" data-group-id="4790981872-2">(</span><span class="o">-</span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="4790981872-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod</span><span class="p" data-group-id="2942833809-2">(</span><span class="o">-</span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="2942833809-2">)</span><span class="w">
 </span><span class="mi">12</span></code></pre>
   </section>
 </div>
@@ -791,7 +791,7 @@ if it’s a normal binary.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">mod_inverse(a, m)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L793" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L796" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -804,23 +804,23 @@ if it’s a normal binary.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="2624996647-1">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p" data-group-id="2624996647-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="9475627743-1">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p" data-group-id="9475627743-1">)</span><span class="w">
 </span><span class="mi">1</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="2624996647-2">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="2624996647-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="9475627743-2">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p" data-group-id="9475627743-2">)</span><span class="w">
 </span><span class="mi">2</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="2624996647-3">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="2624996647-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="9475627743-3">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="9475627743-3">)</span><span class="w">
 </span><span class="mi">27</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="2624996647-4">(</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p" data-group-id="2624996647-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="9475627743-4">(</span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p" data-group-id="9475627743-4">)</span><span class="w">
 </span><span class="no">nil</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="2624996647-5">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p" data-group-id="2624996647-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="9475627743-5">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p" data-group-id="9475627743-5">)</span><span class="w">
 </span><span class="mi">7</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="2624996647-6">(</span><span class="mi">345</span><span class="p">,</span><span class="w"> </span><span class="mi">76408</span><span class="p" data-group-id="2624996647-6">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="9475627743-6">(</span><span class="mi">345</span><span class="p">,</span><span class="w"> </span><span class="mi">76408</span><span class="p" data-group-id="9475627743-6">)</span><span class="w">
 </span><span class="mi">48281</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="2624996647-7">(</span><span class="mi">71</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p" data-group-id="2624996647-7">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="9475627743-7">(</span><span class="mi">71</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p" data-group-id="9475627743-7">)</span><span class="w">
 </span><span class="mi">31</span><span class="w">
 
 </span><span class="c1"># Bitcoin elliptic curve</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="2624996647-8">(</span><span class="mi">345</span><span class="p">,</span><span class="w"> </span><span class="mi">115792089237316195423570985008687907853269984665640564039457584007908834671663</span><span class="p" data-group-id="2624996647-8">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">mod_inverse</span><span class="p" data-group-id="9475627743-8">(</span><span class="mi">345</span><span class="p">,</span><span class="w"> </span><span class="mi">115792089237316195423570985008687907853269984665640564039457584007908834671663</span><span class="p" data-group-id="9475627743-8">)</span><span class="w">
 </span><span class="mi">53029420578249156164997726467746925915410601672960026429664632676085785153979</span></code></pre>
   </section>
 </div>
@@ -843,13 +843,13 @@ if it’s a normal binary.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="2082644673-1">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p" data-group-id="2082644673-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="2434796885-1">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p" data-group-id="2434796885-1">)</span><span class="w">
 </span><span class="mi">19683</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="2082644673-2">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="2082644673-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="2434796885-2">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="2434796885-2">)</span><span class="w">
 </span><span class="mi">256</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="2082644673-3">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p" data-group-id="2082644673-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="2434796885-3">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p" data-group-id="2434796885-3">)</span><span class="w">
 </span><span class="mi">115792089237316195423570985008687907853269984665640564039457584007913129639936</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="2082644673-4">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p" data-group-id="2082644673-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow</span><span class="p" data-group-id="2434796885-4">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span><span class="p" data-group-id="2434796885-4">)</span><span class="w">
 </span><span class="mf">0.25</span></code></pre>
   </section>
 </div>
@@ -860,7 +860,7 @@ if it’s a normal binary.</p>
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">pow_mod(x, y, m)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L734" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/utils.ex#L737" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -870,24 +870,26 @@ if it’s a normal binary.</p>
 <p>With x = 5, y = 12345, m = 17, and repeated 1000 times,
 it is faster by naive method by a factor of 150 on
 a particular benchmark machine.</p>
+<p>https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-exponentiation
+https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/fast-modular-exponentiation</p>
 <h2 id="pow_mod/3-examples" class="section-heading">
   <a href="#pow_mod/3-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="0776368549-1">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0776368549-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="5390918827-1">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5390918827-1">)</span><span class="w">
 </span><span class="mi">1</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="0776368549-2">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0776368549-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="5390918827-2">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5390918827-2">)</span><span class="w">
 </span><span class="mi">5</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="0776368549-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">117</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="0776368549-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="5390918827-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">117</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p" data-group-id="5390918827-3">)</span><span class="w">
 </span><span class="mi">1</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="0776368549-4">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="0776368549-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="5390918827-4">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="5390918827-4">)</span><span class="w">
 </span><span class="mi">9</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="0776368549-5">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="0776368549-5">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="5390918827-5">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="5390918827-5">)</span><span class="w">
 </span><span class="mi">12</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="0776368549-6">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="0776368549-6">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="5390918827-6">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">71</span><span class="p" data-group-id="5390918827-6">)</span><span class="w">
 </span><span class="mi">27</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="0776368549-7">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="0776368549-7">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">pow_mod</span><span class="p" data-group-id="5390918827-7">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p" data-group-id="5390918827-7">)</span><span class="w">
 </span><span class="mi">8</span></code></pre>
   </section>
 </div>
@@ -910,11 +912,11 @@ a particular benchmark machine.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="5440640993-1">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;H&quot;</span><span class="p" data-group-id="5440640993-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="4417362139-1">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;H&quot;</span><span class="p" data-group-id="4417362139-1">)</span><span class="w">
 </span><span class="mi">0</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="5440640993-2">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;h&quot;</span><span class="p" data-group-id="5440640993-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="4417362139-2">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;h&quot;</span><span class="p" data-group-id="4417362139-2">)</span><span class="w">
 </span><span class="no">nil</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="5440640993-3">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;l&quot;</span><span class="p" data-group-id="5440640993-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">string_index_of</span><span class="p" data-group-id="4417362139-3">(</span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;l&quot;</span><span class="p" data-group-id="4417362139-3">)</span><span class="w">
 </span><span class="mi">2</span></code></pre>
   </section>
 </div>
@@ -937,14 +939,14 @@ a particular benchmark machine.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="5627852013-1">(</span><span class="mi">321</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p" data-group-id="5627852013-1">)</span><span class="w">
-</span><span class="p" data-group-id="5627852013-2">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="5627852013-2">]</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="5627852013-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="5627852013-3">)</span><span class="w">
-</span><span class="p" data-group-id="5627852013-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="5627852013-4">]</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="5627852013-5">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="5627852013-5">)</span><span class="w">
-</span><span class="p" data-group-id="5627852013-6">[</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p" data-group-id="5627852013-6">]</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="5627852013-7">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="5627852013-7">)</span><span class="w">
-</span><span class="p" data-group-id="5627852013-8">[</span><span class="mi">0</span><span class="p" data-group-id="5627852013-8">]</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="0885933307-1">(</span><span class="mi">321</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p" data-group-id="0885933307-1">)</span><span class="w">
+</span><span class="p" data-group-id="0885933307-2">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="0885933307-2">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="0885933307-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0885933307-3">)</span><span class="w">
+</span><span class="p" data-group-id="0885933307-4">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p" data-group-id="0885933307-4">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="0885933307-5">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="0885933307-5">)</span><span class="w">
+</span><span class="p" data-group-id="0885933307-6">[</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p" data-group-id="0885933307-6">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_digits</span><span class="p" data-group-id="0885933307-7">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="0885933307-7">)</span><span class="w">
+</span><span class="p" data-group-id="0885933307-8">[</span><span class="mi">0</span><span class="p" data-group-id="0885933307-8">]</span></code></pre>
   </section>
 </div>
 <div class="detail" id="to_integer/1">
@@ -966,11 +968,11 @@ a particular benchmark machine.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2297728999-1">(</span><span class="s">&quot;0xff&quot;</span><span class="p" data-group-id="2297728999-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2493922191-1">(</span><span class="s">&quot;0xff&quot;</span><span class="p" data-group-id="2493922191-1">)</span><span class="w">
 </span><span class="mi">255</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2297728999-2">(</span><span class="s">&quot;0b101&quot;</span><span class="p" data-group-id="2297728999-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2493922191-2">(</span><span class="s">&quot;0b101&quot;</span><span class="p" data-group-id="2493922191-2">)</span><span class="w">
 </span><span class="mi">5</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2297728999-3">(</span><span class="s">&quot;321&quot;</span><span class="p" data-group-id="2297728999-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="2493922191-3">(</span><span class="s">&quot;321&quot;</span><span class="p" data-group-id="2493922191-3">)</span><span class="w">
 </span><span class="mi">321</span></code></pre>
   </section>
 </div>
@@ -993,13 +995,13 @@ a particular benchmark machine.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="6149026017-1">(</span><span class="s">&quot;ff&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="6149026017-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="1441379997-1">(</span><span class="s">&quot;ff&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="1441379997-1">)</span><span class="w">
 </span><span class="mi">255</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="6149026017-2">(</span><span class="s">&quot;101&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="6149026017-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="1441379997-2">(</span><span class="s">&quot;101&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="1441379997-2">)</span><span class="w">
 </span><span class="mi">5</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="6149026017-3">(</span><span class="s">&quot;755&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="6149026017-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="1441379997-3">(</span><span class="s">&quot;755&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p" data-group-id="1441379997-3">)</span><span class="w">
 </span><span class="mi">493</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="6149026017-4">(</span><span class="s">&quot;321&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p" data-group-id="6149026017-4">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_integer</span><span class="p" data-group-id="1441379997-4">(</span><span class="s">&quot;321&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p" data-group-id="1441379997-4">)</span><span class="w">
 </span><span class="mi">321</span></code></pre>
   </section>
 </div>
@@ -1024,11 +1026,11 @@ a particular benchmark machine.</p>
   Examples
 </h2>
 
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="4531341463-1">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="4531341463-1">)</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="6939974067-1">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p" data-group-id="6939974067-1">)</span><span class="w">
 </span><span class="s">&quot;0xff&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="4531341463-2">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="ss">prefix</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="4531341463-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="6939974067-2">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="ss">prefix</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="6939974067-2">)</span><span class="w">
 </span><span class="s">&quot;ff&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="4531341463-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="4531341463-3">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Utils</span><span class="o">.</span><span class="n">to_string</span><span class="p" data-group-id="6939974067-3">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="6939974067-3">)</span><span class="w">
 </span><span class="s">&quot;0b101&quot;</span></code></pre>
   </section>
 </div>

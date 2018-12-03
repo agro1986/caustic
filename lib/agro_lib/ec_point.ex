@@ -4,6 +4,7 @@ defmodule Caustic.ECPoint do
   """
   
   alias Caustic.Field, as: F
+  use Bitwise
   
   @doc """
   Create a point in an elliptic field.
@@ -128,18 +129,25 @@ defmodule Caustic.ECPoint do
       iex> b = {7, p}
       iex> x = {47, p}
       iex> y = {71, p}
-      iex> p = Caustic.ECPoint.make(x, y, a, b)
-      iex> Caustic.ECPoint.mul(2, p)
+      iex> g = Caustic.ECPoint.make(x, y, a, b)
+      iex> Caustic.ECPoint.mul(2, g)
       {{36, 223}, {111, 223}, {0, 223}, {7, 223}}
+
+      iex> g = {{15, 223}, {86, 223}, {0, 223}, {7, 223}}
+      iex> Caustic.ECPoint.mul(0, g)
+      {nil, nil, {0, 223}, {7, 223}}
   """
-  def mul(1, p), do: p
-  def mul(k, p) when rem(k, 2) == 0 do
-    half = mul(div(k, 2), p)
-    add(half, half)
+  def mul(k, p = {_, _, a, b}) do
+    inf = infinity(a, b)
+    _mul(k, inf, p)
   end
-  def mul(k, p) do
-    half = mul(div(k, 2), p)
-    add(add(half, half), p)
+
+  def _mul(0, acc, _), do: acc
+  def _mul(k, acc, factor) do
+    acc = if (k &&& 1) == 1, do: add(acc, factor), else: acc
+    k = k >>> 1
+    factor = add(factor, factor)
+    _mul(k, acc, factor)
   end
 
   @doc """

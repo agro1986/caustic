@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.19.1">
-    <title>Caustic.Benchmark – Caustic v0.1.8</title>
+    <title>Caustic.Benchmark – Caustic v0.1.9</title>
     <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-    <script src="dist/sidebar_items-93d31133b5.js"></script>
+    <script src="dist/sidebar_items-bc28b3bf0c.js"></script>
     
   </head>
   <body data-type="modules">
@@ -28,7 +28,7 @@
       <h1 class="sidebar-projectName">
 Caustic      </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.8
+        v0.1.9
       </h2>
     </div>
   </a>
@@ -57,7 +57,7 @@ Caustic      </h1>
 
 
       <h1>
-        <small class="visible-xs">Caustic v0.1.8</small>
+        <small class="visible-xs">Caustic v0.1.9</small>
 Caustic.Benchmark        
           <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
@@ -85,7 +85,22 @@ Caustic.Benchmark
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
+    <a href="#benchmark_ecpoint_mul/3">benchmark_ecpoint_mul(g \\ {{15, 223}, {86, 223}, {0, 223}, {7, 223}}, n_max \\ 9999, times \\ 10)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#benchmark_ecpoint_mul_simple/3">benchmark_ecpoint_mul_simple(g \\ {{15, 223}, {86, 223}, {0, 223}, {7, 223}}, n_max \\ 9999999998000000000189999999988600000000484499999984496000000387599999992248000000125969999998320400000018475599999832040000001259699999992248000000038759999999844960000000484499999998860000000001899999999998000000000001, times \\ 10)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#benchmark_pow_mod/4">benchmark_pow_mod(x \\ 5, y \\ 12345, m \\ 17, times \\ 1000)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ecpoint_mul_fine/2">ecpoint_mul_fine(k, p)</a>
   </div>
 </div>
 <div class="summary-row">
@@ -117,6 +132,48 @@ Caustic.Benchmark
             </a>
             Functions
           </h1>
+<div class="detail" id="benchmark_ecpoint_mul/3">
+  
+    <span id="benchmark_ecpoint_mul/0"></span>
+
+    <span id="benchmark_ecpoint_mul/1"></span>
+
+    <span id="benchmark_ecpoint_mul/2"></span>
+  <div class="detail-header">
+    <a href="#benchmark_ecpoint_mul/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">benchmark_ecpoint_mul(g \\ {{15, 223}, {86, 223}, {0, 223}, {7, 223}}, n_max \\ 9999, times \\ 10)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L15" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="benchmark_ecpoint_mul_simple/3">
+  
+    <span id="benchmark_ecpoint_mul_simple/0"></span>
+
+    <span id="benchmark_ecpoint_mul_simple/1"></span>
+
+    <span id="benchmark_ecpoint_mul_simple/2"></span>
+  <div class="detail-header">
+    <a href="#benchmark_ecpoint_mul_simple/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">benchmark_ecpoint_mul_simple(g \\ {{15, 223}, {86, 223}, {0, 223}, {7, 223}}, n_max \\ 9999999998000000000189999999988600000000484499999984496000000387599999992248000000125969999998320400000018475599999832040000001259699999992248000000038759999999844960000000484499999998860000000001899999999998000000000001, times \\ 10)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L30" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
 <div class="detail" id="benchmark_pow_mod/4">
   
     <span id="benchmark_pow_mod/0"></span>
@@ -132,7 +189,22 @@ Caustic.Benchmark
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">benchmark_pow_mod(x \\ 5, y \\ 12345, m \\ 17, times \\ 1000)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L15" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L40" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+          </div>
+  <section class="docstring">
+  </section>
+</div>
+<div class="detail" id="ecpoint_mul_fine/2">
+    <div class="detail-header">
+    <a href="#ecpoint_mul_fine/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <span class="signature">ecpoint_mul_fine(k, p)</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L94" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -147,7 +219,7 @@ Caustic.Benchmark
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">pow_mod_fine(x, y, m)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L42" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L67" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
@@ -162,7 +234,7 @@ Caustic.Benchmark
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">pow_mod_slow(x, y, m)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L61" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/benchmark.ex#L86" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>

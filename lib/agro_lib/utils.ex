@@ -708,6 +708,9 @@ defmodule Caustic.Utils do
   With x = 5, y = 12345, m = 17, and repeated 1000 times,
   it is faster by naive method by a factor of 150 on
   a particular benchmark machine.
+
+  https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-exponentiation
+  https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/fast-modular-exponentiation
   
   ## Examples
   

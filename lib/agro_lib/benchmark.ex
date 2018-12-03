@@ -12,6 +12,31 @@ defmodule Caustic.Benchmark do
     repeat(f, n - 1)
   end
 
+  def benchmark_ecpoint_mul(g \\ {{15, 223}, {86, 223}, {0, 223}, {7, 223}}, n_max \\ 9999, times \\ 10) do
+    the_benchmark = fn f ->
+      fn ->
+        1..n_max
+        |> Enum.each(&f.(&1, g))
+      end
+    end
+
+    {t1, _} = :timer.tc(Benchmark, :_benchmark, [the_benchmark.(&Caustic.ECPoint.mul/2), times])
+    IO.puts("Optimized: #{t1}")
+
+    {t2, _} = :timer.tc(Benchmark, :_benchmark, [the_benchmark.(&Caustic.Benchmark.ecpoint_mul_fine/2), times])
+    IO.puts("Original : #{t2}")
+  end
+
+  def benchmark_ecpoint_mul_simple(g \\ {{15, 223}, {86, 223}, {0, 223}, {7, 223}},
+        n_max \\ 9999999998000000000189999999988600000000484499999984496000000387599999992248000000125969999998320400000018475599999832040000001259699999992248000000038759999999844960000000484499999998860000000001899999999998000000000001,
+        times \\ 10) do
+    {t1, _} = :timer.tc(Benchmark, :_benchmark, [&Caustic.ECPoint.mul/2, n_max, g, times])
+    IO.puts("Optimized: #{t1}")
+
+    {t2, _} = :timer.tc(Benchmark, :_benchmark, [&Caustic.Benchmark.ecpoint_mul_fine/2, n_max, g, times])
+    IO.puts("Original : #{t2}")
+  end
+
   def benchmark_pow_mod(x \\ 5, y \\ 12345, m \\ 17, times \\ 1000) do
     {t1, _} = :timer.tc(Benchmark, :_benchmark, [&Utils.pow_mod/3, x, y, m, times])
     IO.puts("Optimized: #{t1}")
@@ -59,4 +84,15 @@ defmodule Caustic.Benchmark do
   end
 
   def pow_mod_slow(x, y, m), do: Utils.pow(x, y) |> Utils.mod(m)
+
+  def ecpoint_mul_fine(0, {_, _, a, b}), do: Caustic.ECPoint.infinity(a, b)
+  def ecpoint_mul_fine(1, p), do: p
+  def ecpoint_mul_fine(k, p) when rem(k, 2) == 0 do
+    half = ecpoint_mul_fine(div(k, 2), p)
+    Caustic.ECPoint.add(half, half)
+  end
+  def ecpoint_mul_fine(k, p) do
+    half = ecpoint_mul_fine(div(k, 2), p)
+    Caustic.ECPoint.add(Caustic.ECPoint.add(half, half), p)
+  end
 end
