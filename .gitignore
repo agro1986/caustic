@@ -24,3 +24,6 @@ agro_lib-*.tar
 
 /.idea
 /agro_lib.iml
+
+# Output of mix docs
+/doc/
