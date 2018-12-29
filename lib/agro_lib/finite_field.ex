@@ -17,6 +17,10 @@ defmodule Caustic.FiniteField do
       iex> Caustic.Field.mul({4, 5}, {4, 5}) |> Caustic.Field.eq?({1, 5})
       true
   """
+
+  @type finite_field_elem() :: {integer(), integer()}
+
+  @spec make(integer(), integer()) :: finite_field_elem()
   def make(num, prime) when is_integer(num) and is_integer(prime) and 0 <= num and num < prime, do: {num, prime}
   
   def to_string({num, prime}), do: "FieldElement_#{prime}(#{num})"

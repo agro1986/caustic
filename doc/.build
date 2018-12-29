@@ -4,7 +4,7 @@ fonts/icomoon.eot
 fonts/icomoon.svg
 fonts/icomoon.ttf
 fonts/icomoon.woff
-dist/sidebar_items-bc28b3bf0c.js
+dist/sidebar_items-a0a2971319.js
 api-reference.html
 search.html
 404.html
@@ -12,5 +12,6 @@ Caustic.Benchmark.html
 Caustic.ECPoint.html
 Caustic.Field.html
 Caustic.FiniteField.html
+Caustic.Secp256k1.html
 Caustic.Utils.html
 index.html

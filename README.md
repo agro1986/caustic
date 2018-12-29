@@ -3,6 +3,9 @@
 An Elixir library of useful methods used in various cryptocurrencies
 (Bitcoin, Ethereum, etc.).
 
+Warning: This library is developed for learning purposes. Please do not
+use for production.
+
 # Documentation
 
 https://hexdocs.pm/caustic/

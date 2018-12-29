@@ -1,6 +1,4 @@
 defprotocol Caustic.Field do
-  @fallback_to_any true
-  
   @moduledoc """
   Protocol on field operations. Mainly to support `Caustic.FiniteField`.
   """
@@ -111,7 +109,7 @@ defprotocol Caustic.Field do
   def sqrt(x)
 end
 
-defimpl Caustic.Field, for: Any do
+defimpl Caustic.Field, for: [Integer, Float] do
   def add(x, y), do: x + y
   def sub(x, y), do: x - y
   def mul(x, y), do: x * y

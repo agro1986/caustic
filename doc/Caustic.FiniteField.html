@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.19.1">
-    <title>Caustic.FiniteField – Caustic v0.1.10</title>
+    <title>Caustic.FiniteField – Caustic v0.1.12</title>
     <link rel="stylesheet" href="dist/app-240d7fc7e5.css" />
-    <script src="dist/sidebar_items-bc28b3bf0c.js"></script>
+    <script src="dist/sidebar_items-a0a2971319.js"></script>
     
   </head>
   <body data-type="modules">
@@ -28,7 +28,7 @@
       <h1 class="sidebar-projectName">
 Caustic      </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.10
+        v0.1.12
       </h2>
     </div>
   </a>
@@ -57,7 +57,7 @@ Caustic      </h1>
 
 
       <h1>
-        <small class="visible-xs">Caustic v0.1.10</small>
+        <small class="visible-xs">Caustic v0.1.12</small>
 Caustic.FiniteField        
           <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/finite_field.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
@@ -75,15 +75,15 @@ see <a href="Caustic.Field.html"><code class="inline">Caustic.Field</code></a>.<
 </h2>
 
 <pre><code class="nohighlight makeup elixir"><span class="c1"># Represents 1 which is a member of finite field of order 5</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.FiniteField</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="1702149796-1">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="1702149796-1">)</span><span class="w">
-</span><span class="p" data-group-id="1702149796-2">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="1702149796-2">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.FiniteField</span><span class="o">.</span><span class="n">make</span><span class="p" data-group-id="6891253182-1">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6891253182-1">)</span><span class="w">
+</span><span class="p" data-group-id="6891253182-2">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6891253182-2">}</span><span class="w">
 
 </span><span class="c1"># Modulo addition 1 + 4 mod 5</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="1702149796-3">(</span><span class="p" data-group-id="1702149796-4">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="1702149796-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1702149796-5">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="1702149796-5">}</span><span class="p" data-group-id="1702149796-3">)</span><span class="w">
-</span><span class="p" data-group-id="1702149796-6">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="1702149796-6">}</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">add</span><span class="p" data-group-id="6891253182-3">(</span><span class="p" data-group-id="6891253182-4">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6891253182-4">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6891253182-5">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6891253182-5">}</span><span class="p" data-group-id="6891253182-3">)</span><span class="w">
+</span><span class="p" data-group-id="6891253182-6">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6891253182-6">}</span><span class="w">
 
 </span><span class="c1"># Test for congruence 4 * 4 ≡ 1 (mod 5)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="1702149796-7">(</span><span class="p" data-group-id="1702149796-8">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="1702149796-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1702149796-9">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="1702149796-9">}</span><span class="p" data-group-id="1702149796-7">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="1702149796-10">(</span><span class="p" data-group-id="1702149796-11">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="1702149796-11">}</span><span class="p" data-group-id="1702149796-10">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">mul</span><span class="p" data-group-id="6891253182-7">(</span><span class="p" data-group-id="6891253182-8">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6891253182-8">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6891253182-9">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6891253182-9">}</span><span class="p" data-group-id="6891253182-7">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Caustic.Field</span><span class="o">.</span><span class="n">eq?</span><span class="p" data-group-id="6891253182-10">(</span><span class="p" data-group-id="6891253182-11">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p" data-group-id="6891253182-11">}</span><span class="p" data-group-id="6891253182-10">)</span><span class="w">
 </span><span class="no">true</span></code></pre>
         </section>
 
@@ -95,6 +95,16 @@ see <a href="Caustic.Field.html"><code class="inline">Caustic.Field</code></a>.<
             </a>
             Summary
           </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:finite_field_elem/0">finite_field_elem()</a>
+  </div>
+</div>
+  </div>
           
   <div class="summary-functions summary">
     <h2>
@@ -114,6 +124,36 @@ see <a href="Caustic.Field.html"><code class="inline">Caustic.Field</code></a>.<
           
         </section>
 
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Types
+          </h1>
+          <div class="types-list">
+<div class="detail" id="t:finite_field_elem/0">
+    <div class="detail-header">
+    <a href="#t:finite_field_elem/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">finite_field_elem()</span>
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/finite_field.ex#L21" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+        
+      <div class="specs">
+          <pre>finite_field_elem() :: {<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</div>
+          </div>
+        </section>
 
 
         <section id="functions" class="details-list">
@@ -131,11 +171,15 @@ see <a href="Caustic.Field.html"><code class="inline">Caustic.Field</code></a>.<
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">make(num, prime)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/finite_field.ex#L20" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/finite_field.ex#L24" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>
-          </div>
+        
+      <div class="specs">
+          <pre>make(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()) :: <a href="#t:finite_field_elem/0">finite_field_elem</a>()</pre>
+      </div>
+  </div>
   <section class="docstring">
   </section>
 </div>
@@ -146,7 +190,7 @@ see <a href="Caustic.Field.html"><code class="inline">Caustic.Field</code></a>.<
       <span class="sr-only">Link to this function</span>
     </a>
     <span class="signature">to_string(arg)</span>
-      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/finite_field.ex#L22" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/agro1986/caustic/blob/master/lib/agro_lib/finite_field.ex#L26" class="view-source" rel="help" title="View Source">
        <span class="icon-code" aria-hidden="true"></span>
        <span class="sr-only">View Source</span>
      </a>

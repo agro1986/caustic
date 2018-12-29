@@ -14,4 +14,18 @@ defmodule Caustic.UtilsTest do
     assert Utils.base64_encode(@lorem_ipsum, new_line: false) == @lorem_ipsum_base64_no_newline
     assert Utils.base64_encode(@leviathan, new_line: false) == @leviathan_base64_no_newline
   end
+
+  test "primality testing" do
+    primes = Utils.primes_first_500()
+    last = primes |> List.last()
+    primes_test = 1..last |> Enum.filter(&Utils.prime?/1)
+    assert primes_test == primes
+  end
+
+  test "primality testing using sieve of Eratosthenes" do
+    primes = Utils.primes_first_500()
+    last = primes |> List.last()
+    primes_test = 1..last |> Enum.filter(&Utils.prime?/1)
+    assert primes_test == primes
+  end
 end
