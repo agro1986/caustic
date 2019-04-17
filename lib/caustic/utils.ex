@@ -700,9 +700,11 @@ defmodule Caustic.Utils do
       0
       iex> Caustic.Utils.mod(-27, 13)
       12
+      iex> Caustic.Utils.mod(-3, 3)
+      0
   """
   def mod(x, y) when x >= 0, do: rem(x, y)
-  def mod(x, y) when x < 0, do: rem(x, y) + y
+  def mod(x, y) when x < 0, do: rem(rem(x, y) + y, y)
 
   @doc """
   Fast exponentiation modulo m. Calculates x^y mod m.
@@ -912,4 +914,30 @@ defmodule Caustic.Utils do
   Calculate the document hash, used for ECDSA.
   """
   def hash256(str), do: :crypto.hash(:sha256, :crypto.hash(:sha256, str))
+
+  @doc """
+  Calculate the md5 hash.
+  """
+  def md5(str), do: :crypto.hash(:md5, str)
+
+  @doc """
+  If an integer can be written as the sum of the squares of two positive integers,
+  return those two integers {a, b} where a <= b.
+
+  ## Examples
+
+      iex> Caustic.Utils.to_sum_of_two_squares(17)
+      {1, 4}
+      iex> Caustic.Utils.to_sum_of_two_squares(1)
+      nil
+  """
+  def to_sum_of_two_squares(i) when is_integer(i) and i > 0 do
+    sqrt = trunc(:math.sqrt(i))
+    _to_sum_of_two_squares(i, 1, 1, sqrt)
+  end
+
+  def _to_sum_of_two_squares(i, a, b, _) when a * a + b * b == i, do: {a, b}
+  def _to_sum_of_two_squares(i, a, b, sqrt) when b + 1 <= sqrt, do: _to_sum_of_two_squares(i, a, b + 1, sqrt)
+  def _to_sum_of_two_squares(i, a, b, sqrt) when a + 1 <= sqrt, do: _to_sum_of_two_squares(i, a + 1, a + 1, sqrt)
+  def _to_sum_of_two_squares(_, _, _, _), do: nil
 end

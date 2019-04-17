@@ -87,7 +87,45 @@ defmodule Caustic.Secp256k1 do
   def g(), do: make_point(g_x(), g_y())
 
   @doc """
+  Signs a message using ECDSA.
+
+  ## Arguments
+
+  * `z`: The hash of the signed message. Use `Caustic.Utils.hash256` to hash your message.
+  * `e`: The private key.
+
+  ## Examples
+
+      iex> message = "Hello, world!!!"
+      iex> z = Caustic.Utils.hash256(message)
+      iex> e = Caustic.Secp256k1.generate_private_key()
+      iex> signature = Caustic.Secp256k1.ecdsa_sign(z, e)
+      iex> pubkey = Caustic.Secp256k1.public_key(e)
+      iex> Caustic.Secp256k1.ecdsa_verify?(pubkey, z, signature)
+      true
+  """
+  def ecdsa_sign(<<z::size(256)>>, e), do: ecdsa_sign(z, e)
+  def ecdsa_sign(z, e) do
+    k = generate_private_key()
+    {r, _y} = public_key(k)
+
+    e_f = FiniteField.make(e, @n)
+    r_f = FiniteField.make(r, @n)
+    z_f = FiniteField.make(z, @n)
+    k_f = FiniteField.make(k, @n)
+    k_inv_f = Field.inverse(k_f)
+    {s, _} = Field.mul(r_f, e_f) |> Field.add(z_f) |> Field.mul(k_inv_f) # (z + re) / k
+    {r, s}
+  end
+
+  @doc """
   Verifies whether a given ECDSA signature is correct.
+
+  ## Arguments
+
+  * `pubkey`: The public key.
+  * `z`: The hash of the signed message. Use `Caustic.Utils.hash256` to hash your message.
+  * `sig`: The signature in the format of `{r, s}`.
 
   ## Examples
 
@@ -101,7 +139,9 @@ defmodule Caustic.Secp256k1 do
       true
   """
   def ecdsa_verify?(pubkey, _z = <<z::size(256)>>, sig), do: ecdsa_verify?(pubkey, z, sig)
-  def ecdsa_verify?(pubkey, z, _sig = {r, s}) when is_integer(z) and is_integer(r) and is_integer(r),
+  def ecdsa_verify?(_pubkey = {p_x, p_y}, z, sig) when is_integer(p_x) and is_integer(p_y),
+    do: ecdsa_verify?(make_point(p_x, p_y), z, sig)
+  def ecdsa_verify?(pubkey, z, _sig = {r, s}) when is_integer(r) and is_integer(r),
     do: ecdsa_verify?(pubkey, FiniteField.make(z, @n), {FiniteField.make(r, @n), FiniteField.make(s, @n)})
   def ecdsa_verify?(pubkey, z, _sig = {r, s}) do
     s_inv = Field.inverse(s)
@@ -112,6 +152,19 @@ defmodule Caustic.Secp256k1 do
     {r_2, _n} = r
 
     r_1 == r_2
+  end
+
+  @doc """
+  Generate a random private key `k` with `1 <= k <= priv_key_max`.
+  """
+  def generate_private_key(), do: :rand.uniform(@priv_key_max)
+
+  @doc """
+  Calculate the public key of a private key `k`.
+  """
+  def public_key(e) when is_integer(e) do
+    {{x, _}, {y, _}, _, _} = ECPoint.mul(e, g())
+    {x, y}
   end
 
   # format as 256-bit hex

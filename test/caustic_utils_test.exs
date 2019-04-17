@@ -28,4 +28,13 @@ defmodule Caustic.UtilsTest do
     primes_test = 1..last |> Enum.filter(&Utils.prime?/1)
     assert primes_test == primes
   end
+
+  test "sum of two squares" do
+    assert Utils.to_sum_of_two_squares(1) == nil
+    assert Utils.to_sum_of_two_squares(2) == {1, 1}
+    assert Utils.to_sum_of_two_squares(3) == nil
+    assert Utils.to_sum_of_two_squares(5) == {1, 2}
+    assert Utils.to_sum_of_two_squares(17) == {1, 4}
+    assert Utils.to_sum_of_two_squares(12349) == {30, 107}
+  end
 end
