@@ -761,15 +761,80 @@ defmodule Caustic.Utils do
   
       iex> Caustic.Utils.gcd(270, 192)
       6
+
+      iex> Caustic.Utils.gcd(-270, 192)
+      6
+
+      iex> Caustic.Utils.gcd(270, -192)
+      6
+
+      iex> Caustic.Utils.gcd(-270, -192)
+      6
   """
-  def gcd(0, b), do: b
-  def gcd(a, 0), do: a
-  def gcd(a, b) do
+  def gcd(a, b) when a < 0, do: gcd(-a, b)
+  def gcd(a, b) when b < 0, do: gcd(a, -b)
+  def gcd(a, b) when a != 0 and b != 0, do: _gcd(a, b)
+  def _gcd(0, b), do: b
+  def _gcd(a, 0), do: a
+  def _gcd(a, b) do
     #q = div(a, b)
     r = mod(a, b)
-    gcd(b, r)
+    _gcd(b, r)
   end
-  
+
+  @doc """
+  Find the greatest common divisor `d` of two integers `a` and `b, while also finding
+  the coefficients `x` and `y` such that `ax + by = d`.
+
+  ## Examples
+      iex> Caustic.Utils.gcd_with_coefficients(3, 0)
+      {3, 1, 0}
+
+      iex> Caustic.Utils.gcd_with_coefficients(6, 3)
+      {3, 0, 1}
+
+      iex> Caustic.Utils.gcd_with_coefficients(270, 192)
+      {6, 5, -7}
+
+      iex> Caustic.Utils.gcd_with_coefficients(-270, 192)
+      {6, -5, -7}
+
+      iex> Caustic.Utils.gcd_with_coefficients(270, -192)
+      {6, 5, 7}
+
+      iex> Caustic.Utils.gcd_with_coefficients(-270, -192)
+      {6, -5, 7}
+
+      iex> Caustic.Utils.gcd_with_coefficients(314, 159)
+      {1, -40, 79}
+  """
+  def gcd_with_coefficients(a, b) when a < 0 do
+    {d, x, y} = gcd_with_coefficients(-a, b)
+    {d, -x, y}
+  end
+
+  def gcd_with_coefficients(a, b) when b < 0 do
+    {d, x, y} = gcd_with_coefficients(a, -b)
+    {d, x, -y}
+  end
+
+  def gcd_with_coefficients(a, b) when a < b do
+    {d, x, y} = gcd_with_coefficients(b, a)
+    {d, y, x}
+  end
+
+  def gcd_with_coefficients(a, b) when a != 0, do: _gcd_with_coefficients(a, b, 1, 0, 0, 1)
+
+  def _gcd_with_coefficients(a, 0, x, y, _, _), do: {a, x, y}
+
+  def _gcd_with_coefficients(a, b, x_prev_prev, y_prev_prev, x_prev, y_prev) do
+    q = div(a, b)
+    r = mod(a, b)
+    x = x_prev_prev - q * x_prev
+    y = y_prev_prev - q * y_prev
+    _gcd_with_coefficients(b, r, x_prev, y_prev, x, y)
+  end
+
   @doc """
   Find the modular inverse.
   
@@ -940,4 +1005,24 @@ defmodule Caustic.Utils do
   def _to_sum_of_two_squares(i, a, b, sqrt) when b + 1 <= sqrt, do: _to_sum_of_two_squares(i, a, b + 1, sqrt)
   def _to_sum_of_two_squares(i, a, b, sqrt) when a + 1 <= sqrt, do: _to_sum_of_two_squares(i, a + 1, a + 1, sqrt)
   def _to_sum_of_two_squares(_, _, _, _), do: nil
+
+  @doc """
+  Checks whether `a` divides `b`.
+  See https://math.stackexchange.com/questions/666103/why-would-some-elementary-number-theory-notes-exclude-00 and
+  https://math.stackexchange.com/questions/2174535/does-zero-divide-zero
+
+  ## Examples
+
+      iex> Caustic.Utils.divides(2, 8)
+      true
+      iex> Caustic.Utils.divides(2, 3)
+      false
+      iex> Caustic.Utils.divides(2, 0)
+      true
+      iex> Caustic.Utils.divides(0, 0)
+      true
+  """
+  def divides(a, 0) when is_integer(a), do: true
+  def divides(0, b) when is_integer(b), do: false
+  def divides(a, b) when is_integer(a) and is_integer(b), do: rem(b, a) == 0
 end
