@@ -758,6 +758,12 @@ defmodule Caustic.Utils do
   Proof: https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
   
   ## Examples
+
+      iex> Caustic.Utils.gcd(1, 0)
+      1
+
+      iex> Caustic.Utils.gcd(-1, 0)
+      1
   
       iex> Caustic.Utils.gcd(270, 192)
       6
@@ -773,7 +779,7 @@ defmodule Caustic.Utils do
   """
   def gcd(a, b) when a < 0, do: gcd(-a, b)
   def gcd(a, b) when b < 0, do: gcd(a, -b)
-  def gcd(a, b) when a != 0 and b != 0, do: _gcd(a, b)
+  def gcd(a, b) when a != 0 or b != 0, do: _gcd(a, b)
   def _gcd(0, b), do: b
   def _gcd(a, 0), do: a
   def _gcd(a, b) do
@@ -783,7 +789,7 @@ defmodule Caustic.Utils do
   end
 
   @doc """
-  Find the greatest common divisor `d` of two integers `a` and `b, while also finding
+  Find the greatest common divisor `d` of two integers `a` and `b`, while also finding
   the coefficients `x` and `y` such that `ax + by = d`.
 
   ## Examples
@@ -885,15 +891,86 @@ defmodule Caustic.Utils do
     _mod_inverse(a, r, q_prev_prev - q * q_prev, q_prev)
   end
 
+  # 1 is a unit
   def prime?(n) when n <= 1, do: false
   def prime?(n), do: _prime?(n, 2)
 
+  # if a number n is composite, then it is divisible by a prime
+  # less than or equal to sqrt(n)
+  # TODO: Optimize using the first n primes
   defp _prime?(n, factor) when factor * factor > n, do: true
   defp _prime?(n, factor) when rem(n, factor) == 0, do: false
   defp _prime?(n, factor), do: _prime?(n, factor + 1)
 
+  # 1 is a unit
   @doc """
-  Check whether an integer is a prime using Sieve of Eratosthenes algorithm.
+  Checks whether an integer `n > 1` is a composite number. 1 is a unit,
+  neither a prime nor composite. Will return false on `n <= 1`.
+
+  ## Examples
+
+      iex> Caustic.Utils.composite?(4)
+      true
+      iex> Caustic.Utils.composite?(2)
+      false
+      iex> Caustic.Utils.composite?(3)
+      false
+      iex> Caustic.Utils.composite?(1)
+      false
+  """
+  def composite?(n) when n <= 1, do: false
+  def composite?(n), do: not prime?(n)
+
+  @doc """
+  ## Examples
+
+      iex> Caustic.Utils.factorize(72)
+      [2, 2, 2, 3, 3]
+      iex> Caustic.Utils.factorize(480)
+      [2, 2, 2, 2, 2, 3, 5]
+      iex> Caustic.Utils.factorize(357171293798123)
+      [7, 181, 1459, 193216691]
+      iex> Caustic.Utils.factorize(100000001)
+      [17, 5882353]
+      iex> Caustic.Utils.factorize(9223372036854775807) # largest 64-bit integer
+      [7, 7, 73, 127, 337, 92737, 649657]
+      iex> Caustic.Utils.factorize(18446744073709551615) # largest 64-bit unsigned integer
+      [3, 5, 17, 257, 641, 65537, 6700417]
+      iex> Caustic.Utils.factorize(18446744073709551615 * 3571 * 5901331)
+      [3, 5, 17, 257, 641, 3571, 65537, 5901331, 6700417]
+      iex> Caustic.Utils.factorize(1)
+      []
+  """
+  def factorize(n) when n <= 1, do: []
+  def factorize(n), do: _factorize(n, [])
+
+  defp _factorize(1, factors), do: factors |> Enum.reverse()
+  defp _factorize(n, factors) do
+    p = smallest_prime_divisor(n)
+    _factorize(div(n, p), [p | factors])
+  end
+
+#  defp _factorize(n, factors) do
+#    sqrt = floor(:math.sqrt(n))
+#    divisors = 2..sqrt |> Enum.filter(& rem(n, &1) == 0)
+#    smallest_prime_divisor = divisors |> Enum.filter(&prime?/1) |> List.first()
+#    smallest_prime_divisor = if smallest_prime_divisor === nil, do: n, else: smallest_prime_divisor
+#    factors = [smallest_prime_divisor | factors]
+#    _factorize(div(n, smallest_prime_divisor), factors)
+#  end
+
+  def smallest_prime_divisor(n) when n <= 1, do: nil
+  def smallest_prime_divisor(n), do: _smallest_prime_divisor(n, 2)
+
+  defp _smallest_prime_divisor(n, factor) when factor * factor > n, do: n
+  defp _smallest_prime_divisor(n, factor) when rem(n, factor) == 0, do: factor
+  defp _smallest_prime_divisor(n, factor), do: _smallest_prime_divisor(n, factor + 1)
+#
+#    if prime?(factor), do: factor, else: _smallest_prime_divisor(n, factor + 1)
+#  end
+
+  @doc """
+  Checks whether an integer is a prime using Sieve of Eratosthenes algorithm.
   Don't use on very large numbers.
   """
   def prime_sieve?(n) when n <= 1, do: false
@@ -918,6 +995,88 @@ defmodule Caustic.Utils do
   defp _sieve_sweep(sieve, next, factor) do
     sieve = put_elem(sieve, next, false)
     _sieve_sweep(sieve, next + factor, factor)
+  end
+
+  # {time, res} = :timer.tc(Utils, :prime_sieve_up_to, [10_000_000])
+  # {time, :ok} = :timer.tc Utils, :write_to_file, [Enum.to_list(1..10_000_000), "/tmp/elixir_test_out_2.txt", 10] # 2 minutes
+  @doc """
+  ## Examples
+      iex> Caustic.Utils.prime_sieve_up_to(10)
+      [2, 3, 5, 7]
+
+      iex> Caustic.Utils.prime_sieve_up_to(30)
+      [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+
+      iex> Caustic.Utils.prime_sieve_up_to(100)
+      [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+  """
+  def prime_sieve_up_to(n) when n >= 2 do
+#    easy_primes = [ 2,  3,  5,  7, 11,
+#                   13, 17, 19, 23, 29]
+    easy_primes = primes_first_500()
+    first_sieves = 2..n |> Enum.filter(&_potentially_prime?(&1, easy_primes))
+    check_limit = trunc(:math.sqrt(n))
+
+    {left, right} = list_split first_sieves, Enum.count(easy_primes)
+    left = left |> Enum.filter(& &1 <= n)
+    if Enum.count(right) == 0 do
+      left
+    else
+      _prime_sieve_up_to(check_limit, Enum.reverse(left), right)
+    end
+  end
+
+  @doc """
+  Splits a list into its first `n` elements and the rest.
+
+  ## Examples
+
+      iex> Caustic.Utils.list_split([1, 2, 3, 4, 5], 2)
+      {[1, 2], [3, 4, 5]}
+
+      iex> Caustic.Utils.list_split([1, 2, 3], 5)
+      {[1, 2, 3], []}
+  """
+  def list_split(objs, n) when n >= 0, do: _list_split([], objs, n)
+
+  defp _list_split(left, right, 0), do: {Enum.reverse(left), right}
+  defp _list_split(left, [], _), do: _list_split(left, [], 0)
+  defp _list_split(left, [o | rest], n), do: _list_split([o | left], rest, n - 1)
+
+  defp _prime_sieve_up_to(check_limit, left, right = [p | _]) when p > check_limit do
+    Enum.reverse(left) ++ right
+  end
+  defp _prime_sieve_up_to(check_limit, left, [p | rest]) do
+    rest = rest |> Enum.filter(& rem(&1, p) != 0)
+    _prime_sieve_up_to(check_limit, [p | left], rest)
+  end
+
+  defp _potentially_prime?(n, []), do: true
+  defp _potentially_prime?(n, [d | rest]) do
+    if d < n and rem(n, d) == 0 do
+      false
+    else
+      _potentially_prime?(n, rest)
+    end
+  end
+
+  def write_to_file(list, path, item_per_line) do
+    {:ok, file} = File.open path, [:write] # or :append
+    :ok = _write_to_file file, list, item_per_line, 0
+    File.close file
+  end
+
+  defp _write_to_file(file, [], _, _), do: :ok
+  defp _write_to_file(file, [item | rest], item_per_line, i) do
+    IO.binwrite file, "#{item}"
+
+    if rem(i, item_per_line) === item_per_line - 1 do
+      IO.binwrite file, "\n"
+    else
+      IO.binwrite file, " "
+    end
+
+    _write_to_file file, rest, item_per_line, i + 1
   end
 
   def primes_first_500() do
