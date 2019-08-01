@@ -1,4 +1,8 @@
 defmodule Caustic.Md5 do
+  @moduledoc """
+  Implementation of the MD5 hash.
+  """
+  
   alias Caustic.Utils
 
   use Bitwise

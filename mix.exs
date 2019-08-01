@@ -6,13 +6,17 @@ defmodule Caustic.MixProject do
       app: :caustic,
       name: "Caustic",
       source_url: "https://github.com/agro1986/caustic",
-      version: "0.1.16",
+      version: "0.1.17",
       elixir: "~> 1.7",
       description: description(),
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env() == :prod,
       package: package(),
-      deps: deps()
+      deps: deps(),
+      docs: [
+        main: "readme",
+        extras: ["README.md"]
+      ]
     ]
   end
 

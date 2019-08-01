@@ -1,6 +1,6 @@
 defmodule Caustic.ECPoint do
   @moduledoc """
-  Represents an elliptic curve point y^2 = x^3 + ax + b
+  Represents an elliptic curve point `y^2 = x^3 + ax + b`.
   """
   
   alias Caustic.Field, as: F

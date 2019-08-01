@@ -694,6 +694,8 @@ defmodule Caustic.Utils do
   end
 
   @doc """
+  Finds the least residue of a number modulo `m`.
+  
   ## Examples
   
       iex> Caustic.Utils.mod(0, 3)
@@ -703,8 +705,8 @@ defmodule Caustic.Utils do
       iex> Caustic.Utils.mod(-3, 3)
       0
   """
-  def mod(x, y) when x >= 0, do: rem(x, y)
-  def mod(x, y) when x < 0, do: rem(rem(x, y) + y, y)
+  def mod(x, m) when x >= 0, do: rem(x, m)
+  def mod(x, m) when x < 0, do: rem(rem(x, m) + m, m)
 
   @doc """
   Fast exponentiation modulo m. Calculates x^y mod m.
@@ -922,6 +924,8 @@ defmodule Caustic.Utils do
   def composite?(n), do: not prime?(n)
 
   @doc """
+  Find the prime factors of an integer.
+  
   ## Examples
 
       iex> Caustic.Utils.factorize(72)
@@ -1000,6 +1004,8 @@ defmodule Caustic.Utils do
   # {time, res} = :timer.tc(Utils, :prime_sieve_up_to, [10_000_000])
   # {time, :ok} = :timer.tc Utils, :write_to_file, [Enum.to_list(1..10_000_000), "/tmp/elixir_test_out_2.txt", 10] # 2 minutes
   @doc """
+  Find all primes `p ≤ n` using Sieve of Eratosthenes method.
+  
   ## Examples
       iex> Caustic.Utils.prime_sieve_up_to(10)
       [2, 3, 5, 7]
@@ -1184,4 +1190,262 @@ defmodule Caustic.Utils do
   def divides(a, 0) when is_integer(a), do: true
   def divides(0, b) when is_integer(b), do: false
   def divides(a, b) when is_integer(a) and is_integer(b), do: rem(b, a) == 0
+  
+  @doc """
+  Solves the linear congruence ax = b (mod m).
+  
+  ## Examples
+  
+      iex> Caustic.Utils.linear_congruence_solve(1, 3, 4)
+      [3]
+      iex> Caustic.Utils.linear_congruence_solve(2, 1, 4)
+      []
+      iex> Caustic.Utils.linear_congruence_solve(2, 6, 4)
+      [1, 3]
+      iex> Caustic.Utils.linear_congruence_solve(0, 0, 3)
+      [0, 1, 2]
+      iex> Caustic.Utils.linear_congruence_solve(0, 1, 3)
+      []
+      iex> Caustic.Utils.linear_congruence_solve(0, 2, 3)
+      []
+      iex> Caustic.Utils.linear_congruence_solve(0, 3, 3)
+      [0, 1, 2]
+    
+  """
+  def linear_congruence_solve(a, b, m) when is_integer(a) and is_integer(m) and m > 0 do
+    b = mod(b, m)
+    d = gcd(a, m)
+    if divides(d, b) do
+      _linear_congruence_solve a, b, m, m
+    else
+      []
+    end
+  end
+
+  defp _linear_congruence_solve(1, b, m, m_orig) do
+    _linear_congruence_solutions [b], m, m_orig
+  end
+  
+  defp _linear_congruence_solve(0, 0, m, m_orig) do
+    _linear_congruence_solutions [0], 1, m_orig
+  end
+  
+  defp _linear_congruence_solve(a, b, m, m_orig) do
+    d = gcd(a, b)
+    if d == 1 do
+      _linear_congruence_solve a, b + m, m, m_orig
+    else
+      m = gcd(d, m)
+      _linear_congruence_solve div(a, d), div(b, d), m, m_orig
+    end
+  end
+  
+  defp _linear_congruence_solutions(ns = [n | _], m, m_orig) when n + m >= m_orig do
+    Enum.reverse(ns)
+  end
+  
+  defp _linear_congruence_solutions(ns = [n | _], m, m_orig) do
+    _linear_congruence_solutions [n + m | ns], m, m_orig
+  end
+  
+  def linear_congruence_solve_explain(a, b, m) do
+    result = linear_congruence_solve a, b, m
+    a_str = if a == 1, do: "", else: "#{a}"
+    eq_str = "#{a_str}x = #{b} (mod #{m})"
+    if result == [] do
+      IO.puts "The equation #{eq_str} has no solutions."
+    else if length(result) == 1 do
+      [n] = result
+      IO.puts "The only solution of #{eq_str} is x = #{n}."
+    else
+      sol_str = Enum.join result, ", "
+      IO.puts "The solutions of #{eq_str} are x = #{sol_str}."
+    end end
+  end
+  
+  def multiplication_table_mod_print(m) do
+    table = multiplication_table_mod m
+    
+    row_labels = 0..(m - 1) |> Enum.to_list()
+    col_labels = row_labels
+    
+    print_table(table, row_labels, col_labels)
+  end
+  
+  def multiplication_table_mod(m) when is_integer(m) and m > 0 do
+    0..(m - 1)
+    |> Enum.map(fn n ->
+      0..(m - 1)
+      |> Enum.map(& mod(n * &1, m))
+    end)
+  end
+  
+  def exponentiation_table_mod(m) when is_integer(m) and m > 0 do
+    residues = 0..(m - 1)
+    
+    residues
+    |> Enum.map(fn n ->
+      residues
+      |> Enum.map(fn
+        e when n == 0 and e == 0 -> "?"
+        e -> pow_mod(n, e, m)
+      end)
+    end)
+  end
+
+  def exponentiation_table_mod_print(m) do
+    table = exponentiation_table_mod m
+
+    row_labels = 0..(m - 1) |> Enum.to_list()
+    col_labels = row_labels
+
+    print_table(table, row_labels, col_labels)
+  end
+  
+  def print_table(table, row_labels, col_labels) do
+    table_with_row_label = Enum.zip(row_labels, table)
+    |> Enum.map(fn {row_label, row} -> [row_label | row] end)
+    
+    col_labels = ["" | col_labels]
+    table_with_label = [col_labels | table_with_row_label]
+    
+    col_widths = List.zip(table_with_label)
+    |> Enum.map(fn row ->
+      row
+      |> Tuple.to_list()
+      |> Enum.map(&String.length(to_string(&1)))
+      |> Enum.max()
+    end)
+    
+    table_str = table_with_label
+    |> Enum.map(fn row ->
+      Enum.zip(row, col_widths)
+      |> Enum.map(fn {col, width} -> String.pad_leading(to_string(col), width) end)
+      |> Enum.join(" | ")
+    end)
+    |> Enum.join("\n")
+    
+    IO.puts(table_str)
+  end
+  
+  @doc """
+  Gets all the positive divisors of a number.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.positive_divisors(1)
+      [1]
+      iex> Caustic.Utils.positive_divisors(3)
+      [1, 3]
+      iex> Caustic.Utils.positive_divisors(6)
+      [1, 2, 3, 6]
+      iex> Caustic.Utils.positive_divisors(-4)
+      [1, 2, 4]
+  """
+  def positive_divisors(n) when n > 0 do
+    factorize(n)
+    |> subsets()
+    |> Enum.map(fn factors -> Enum.reduce(factors, 1, &*/2) end)
+    |> Enum.uniq()
+  end
+  
+  def positive_divisors(n) when n < 0, do: positive_divisors(-n)
+  
+  @doc """
+  Counts how many positive divisors an integer has. `d(n)`.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.positive_divisors_count(1)
+      1
+      iex> Caustic.Utils.positive_divisors_count(3)
+      2
+      iex> Caustic.Utils.positive_divisors_count(6)
+      4
+  """
+  def positive_divisors_count(n), do: length(positive_divisors(n))
+
+  @doc """
+  Sums the positive divisors of an integer. `σ(n)`.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.positive_divisors_sum(1)
+      1
+      iex> Caustic.Utils.positive_divisors_sum(3)
+      4
+      iex> Caustic.Utils.positive_divisors_sum(6)
+      12
+  """
+  def positive_divisors_sum(n), do: Enum.reduce(positive_divisors(n), 0, &+/2)
+
+  @doc """
+  Finds all subsets of a set (represented by a keyword list).
+
+  ## Examples
+
+      iex> Caustic.Utils.subsets([:a])
+      [[], [:a]]
+      iex> Caustic.Utils.subsets([:a, :b, :c])
+      [[], [:a], [:b], [:c], [:a, :b], [:a, :c], [:b, :c], [:a, :b, :c]]
+  """
+  def subsets(s) do
+    (0..length(s))
+    |> Enum.flat_map(& subsets(s, &1))
+  end
+
+  @doc """
+  Finds all subsets with cardinality `n` of a set (represented by a keyword list).
+
+  ## Examples
+
+      iex> members = ["nakai", "kusanagi", "mori", "kimura", "katori", "inagaki"]
+      iex> Caustic.Utils.subsets(members, 3)
+      [
+        ["nakai", "kusanagi", "mori"],
+        ["nakai", "kusanagi", "kimura"],
+        ["nakai", "kusanagi", "katori"],
+        ["nakai", "kusanagi", "inagaki"],
+        ["nakai", "mori", "kimura"],
+        ["nakai", "mori", "katori"],
+        ["nakai", "mori", "inagaki"],
+        ["nakai", "kimura", "katori"],
+        ["nakai", "kimura", "inagaki"],
+        ["nakai", "katori", "inagaki"],
+        ["kusanagi", "mori", "kimura"],
+        ["kusanagi", "mori", "katori"],
+        ["kusanagi", "mori", "inagaki"],
+        ["kusanagi", "kimura", "katori"],
+        ["kusanagi", "kimura", "inagaki"],
+        ["kusanagi", "katori", "inagaki"],
+        ["mori", "kimura", "katori"],
+        ["mori", "kimura", "inagaki"],
+        ["mori", "katori", "inagaki"],
+        ["kimura", "katori", "inagaki"]
+      ]
+  """
+  def subsets(s, n) when n >= 0 do
+    _subsets([], [{[], s, n}])
+  end
+
+  def _subsets(result, []), do: Enum.reverse(result)
+
+  def _subsets(result, [{_chosen, candidates, n} | pattern_rest]) when n > length(candidates) do
+    _subsets(result, pattern_rest)
+  end
+
+  def _subsets(result, [{chosen, candidates, n} | pattern_rest]) when n == length(candidates) do
+    _subsets([Enum.reverse(chosen) ++ candidates | result], pattern_rest)
+  end
+
+  def _subsets(result, [{chosen, _candidates, n} | pattern_rest]) when n == 0 do
+    _subsets([Enum.reverse(chosen) | result], pattern_rest)
+  end
+
+  def _subsets(result, [{chosen, [candidate | candidates_rest], n} | pattern_rest]) do
+    pattern_1 = {[candidate | chosen], candidates_rest, n - 1}
+    pattern_2 = {chosen, candidates_rest, n}
+    _subsets(result, [pattern_1, pattern_2] ++ pattern_rest)
+  end
+  
 end

@@ -2,6 +2,7 @@ defmodule Caustic.Benchmark do
   @moduledoc """
   To compare speed of native implementation vs optimized implementation.
   """
+  @moduledoc false
   
   alias Caustic.Utils
   alias Caustic.Benchmark
