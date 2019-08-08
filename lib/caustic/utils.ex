@@ -1302,6 +1302,19 @@ defmodule Caustic.Utils do
     print_table(table, row_labels, col_labels)
   end
   
+  def print_fn(n, f) do
+    f_n = n |> Enum.map(& f.(&1))
+    n = if is_list(n), do: n, else: Enum.to_list(n)
+    print_table([f_n], ["f(n)"], n)
+  end
+
+  def print_fn(n, f, g) do
+    f_n = n |> Enum.map(& f.(&1))
+    g_n = n |> Enum.map(& g.(&1))
+    n = if is_list(n), do: n, else: Enum.to_list(n)
+    print_table([f_n, g_n], ["f(n)", "g(n)"], n)
+  end
+  
   def print_table(table, row_labels, col_labels) do
     table_with_row_label = Enum.zip(row_labels, table)
     |> Enum.map(fn {row_label, row} -> [row_label | row] end)
@@ -1342,14 +1355,14 @@ defmodule Caustic.Utils do
       iex> Caustic.Utils.positive_divisors(-4)
       [1, 2, 4]
   """
-  def positive_divisors(n) when n > 0 do
+  def positive_divisors(n) when is_number(n) and n > 0 do
     factorize(n)
     |> subsets()
     |> Enum.map(fn factors -> Enum.reduce(factors, 1, &*/2) end)
     |> Enum.uniq()
   end
   
-  def positive_divisors(n) when n < 0, do: positive_divisors(-n)
+  def positive_divisors(n) when is_number(n) and n < 0, do: positive_divisors(-n)
   
   @doc """
   Counts how many positive divisors an integer has. `d(n)`.
