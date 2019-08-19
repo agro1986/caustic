@@ -1,6 +1,7 @@
 defmodule Caustic.UtilsTest do
   use ExUnit.Case
   alias Caustic.Utils
+  alias Caustic.Naive
   
   doctest Caustic.Utils
   
@@ -36,5 +37,20 @@ defmodule Caustic.UtilsTest do
     assert Utils.to_sum_of_two_squares(5) == {1, 2}
     assert Utils.to_sum_of_two_squares(17) == {1, 4}
     assert Utils.to_sum_of_two_squares(12349) == {30, 107}
+  end
+  
+  test "Euler's totient function" do
+    1..2000
+    |> Enum.each(fn n ->
+      assert Utils.totient(n) == Naive.totient(n)
+    end)
+  end
+end
+
+defmodule Caustic.Naive do
+  alias Caustic.Utils
+  
+  def totient(m) when is_integer(m) and m > 0 do
+    0..(m - 1) |> Enum.filter(&(Utils.gcd(m, &1) == 1)) |> Enum.count()
   end
 end

@@ -953,6 +953,17 @@ defmodule Caustic.Utils do
     p = smallest_prime_divisor(n)
     _factorize(div(n, p), [p | factors])
   end
+  
+  def factorize_grouped(n) do
+    factorize(n)
+    |> Enum.reduce([], fn
+      n, [{n, count} | rest] ->
+        [{n, count + 1} | rest]
+      n, acc ->
+        [{n, 1} | acc]
+    end)
+    |> Enum.reverse()
+  end
 
 #  defp _factorize(n, factors) do
 #    sqrt = floor(:math.sqrt(n))
@@ -1031,6 +1042,38 @@ defmodule Caustic.Utils do
       _prime_sieve_up_to(check_limit, Enum.reverse(left), right)
     end
   end
+  
+  @doc """
+  Determines whether an integer is a perfect number.
+  A number n is perfect iff σ(n) - n = n
+  """
+  def perfect?(n) when is_number(n) and n > 0 do
+    sum = positive_divisors(n) |> Enum.reduce(0, &+/2)
+    sum - n == n
+  end
+  
+  @doc """
+  Euler's totient function `φ(n)`.
+  The amount of positive integers less than or equal to `m`
+  and relatively prime to `m`.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.totient(5)
+      4
+    
+      iex> Caustic.Utils.totient(6)
+      2
+    
+      iex> Caustic.Utils.totient(9)
+      6
+  """
+  def totient(m) do
+    factorize_grouped(m)
+    |> Enum.reduce(1, fn {p, e}, acc -> acc * _totient_prime(p, e) end)
+  end
+  
+  def _totient_prime(p, e), do: pow(p, e - 1) * (p - 1)
 
   @doc """
   Splits a list into its first `n` elements and the rest.
@@ -1083,6 +1126,16 @@ defmodule Caustic.Utils do
     end
 
     _write_to_file file, rest, item_per_line, i + 1
+  end
+  
+  def mersenne_primes_first_25(), do: mersenne_primes_first(25)
+  
+  def mersenne_primes_first(n) when is_integer(n) and n >= 1 and n <= 25 do
+    [
+         2,    3,    5,      7,    13,   17,   19,   31,   61,   89,
+       107,  127,   521,   607,  1279, 2203, 2281, 3217, 4253, 4423,
+      9689, 9941, 11213, 19937, 21701
+    ] |> Enum.take(n) |> Enum.map(& {&1, pow(2, &1) - 1})
   end
 
   def primes_first_500() do
@@ -1282,10 +1335,17 @@ defmodule Caustic.Utils do
   
   def exponentiation_table_mod(m) when is_integer(m) and m > 0 do
     residues = 0..(m - 1)
-    
-    residues
+    exponentiation_table_mod(m, residues, residues)
+  end
+
+  # technically with m=1, any number is congruent to 0
+  # but rather than displaying 1^1=0 (mod 1) it's cleaner to display 1^1=1 (mod 1)
+  def exponentiation_table_mod(1, [1], [1]), do: [[1]]
+
+  def exponentiation_table_mod(m, rows, cols) when is_integer(m) and m > 0 do
+    rows
     |> Enum.map(fn n ->
-      residues
+      cols
       |> Enum.map(fn
         e when n == 0 and e == 0 -> "?"
         e -> pow_mod(n, e, m)
@@ -1293,13 +1353,40 @@ defmodule Caustic.Utils do
     end)
   end
 
-  def exponentiation_table_mod_print(m) do
-    table = exponentiation_table_mod m
+  def exponentiation_table_mod_print(m, opts \\ [relatively_prime_only: false]) do
+    rows = if opts[:relatively_prime_only] do
+      max = if m == 1, do: 1, else: m - 1
+      1..max |> Enum.filter(& gcd(&1, m) == 1) |> Enum.to_list()
+    else
+      0..(m - 1) |> Enum.to_list()
+    end
 
-    row_labels = 0..(m - 1) |> Enum.to_list()
-    col_labels = row_labels
+    cols = if opts[:relatively_prime_only] do
+      1..totient(m) |> Enum.to_list()
+    else
+      max = if m == 1, do: 1, else: m - 1
+      0..max |> Enum.to_list()
+    end
+    
+    table = exponentiation_table_mod m, rows, cols
+    table = if opts[:relatively_prime_only] do
+      _mark_primitive_root table
+    else
+      table
+    end
 
-    print_table(table, row_labels, col_labels)
+    print_table table, rows, cols ++ ["√"]
+  end
+  
+  defp _mark_primitive_root table do
+    table
+    |> Enum.map(fn row ->
+      one_count = row
+      |> Enum.filter(& &1 == 1)
+      |> Enum.count()
+      is_root = one_count == 1
+      row ++ [(if is_root, do: "*", else: " ")]
+    end)
   end
   
   def print_fn(n, f) do
