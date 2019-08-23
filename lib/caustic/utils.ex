@@ -994,7 +994,7 @@ defmodule Caustic.Utils do
     _prime_sieve?(n, 2, sieve)
   end
 
-  defp _prime_sieve?(n, factor, sieve) when factor * factor > n, do: true
+  defp _prime_sieve?(n, factor, _sieve) when factor * factor > n, do: true
   defp _prime_sieve?(n, factor, sieve) do
     is_prime = elem(sieve, factor)
     if is_prime do
@@ -1005,8 +1005,8 @@ defmodule Caustic.Utils do
     end
   end
 
-  defp _sieve_sweep(sieve, next, factor) when next == tuple_size(sieve) - 1, do: {sieve, true}
-  defp _sieve_sweep(sieve, next, factor) when next >= tuple_size(sieve), do: {sieve, false}
+  defp _sieve_sweep(sieve, next, _factor) when next == tuple_size(sieve) - 1, do: {sieve, true}
+  defp _sieve_sweep(sieve, next, _factor) when next >= tuple_size(sieve), do: {sieve, false}
   defp _sieve_sweep(sieve, next, factor) do
     sieve = put_elem(sieve, next, false)
     _sieve_sweep(sieve, next + factor, factor)
@@ -1100,7 +1100,7 @@ defmodule Caustic.Utils do
     _prime_sieve_up_to(check_limit, [p | left], rest)
   end
 
-  defp _potentially_prime?(n, []), do: true
+  defp _potentially_prime?(_n, []), do: true
   defp _potentially_prime?(n, [d | rest]) do
     if d < n and rem(n, d) == 0 do
       false
@@ -1115,7 +1115,7 @@ defmodule Caustic.Utils do
     File.close file
   end
 
-  defp _write_to_file(file, [], _, _), do: :ok
+  defp _write_to_file(_file, [], _, _), do: :ok
   defp _write_to_file(file, [item | rest], item_per_line, i) do
     IO.binwrite file, "#{item}"
 
@@ -1221,7 +1221,7 @@ defmodule Caustic.Utils do
 
   def _to_sum_of_two_squares(i, a, b, _) when a * a + b * b == i, do: {a, b}
   def _to_sum_of_two_squares(i, a, b, sqrt) when b + 1 <= sqrt, do: _to_sum_of_two_squares(i, a, b + 1, sqrt)
-  def _to_sum_of_two_squares(i, a, b, sqrt) when a + 1 <= sqrt, do: _to_sum_of_two_squares(i, a + 1, a + 1, sqrt)
+  def _to_sum_of_two_squares(i, a, _b, sqrt) when a + 1 <= sqrt, do: _to_sum_of_two_squares(i, a + 1, a + 1, sqrt)
   def _to_sum_of_two_squares(_, _, _, _), do: nil
 
   @doc """
@@ -1279,7 +1279,7 @@ defmodule Caustic.Utils do
     _linear_congruence_solutions [b], m, m_orig
   end
   
-  defp _linear_congruence_solve(0, 0, m, m_orig) do
+  defp _linear_congruence_solve(0, 0, _, m_orig) do
     _linear_congruence_solutions [0], 1, m_orig
   end
   
@@ -1443,13 +1443,44 @@ defmodule Caustic.Utils do
       [1, 2, 4]
   """
   def positive_divisors(n) when is_number(n) and n > 0 do
-    factorize(n)
-    |> subsets()
-    |> Enum.map(fn factors -> Enum.reduce(factors, 1, &*/2) end)
-    |> Enum.uniq()
+    {factors, exponents} = Enum.unzip factorize_grouped n
+
+    result = exponents
+    |> Enum.map(&Enum.to_list(0..&1))
+    |> select()
+    |> Enum.map(fn e ->
+      Enum.zip(factors, e)
+      |> Enum.map(fn {a, e} -> pow(a, e) end)
+      |> Enum.reduce(1, &*/2)
+    end)
+    |> Enum.sort()
+    
+    if result == [], do: [1], else: result
   end
   
   def positive_divisors(n) when is_number(n) and n < 0, do: positive_divisors(-n)
+  
+  @doc """
+  ## Examples
+  
+      iex> Caustic.Utils.select([[:a, :b], [1, 2, 3]])
+      [[:a, 1], [:a, 2], [:a, 3], [:b, 1], [:b, 2], [:b, 3]]
+    
+      iex> Caustic.Utils.select([[["hello"], ["bye"]], ["world"]])
+      [[["hello"], "world"], [["bye"], "world"]]
+  """
+  def select([]), do: []
+  def select([first | rest]) do
+    _select rest, Enum.map(first, & [&1])
+  end
+  
+  defp _select([], result), do: Enum.map(result, & Enum.reverse(&1))
+  defp _select([next | rest], []), do: _select(rest, [next])
+  defp _select([next | rest], result) do
+    result = result
+    |> Enum.flat_map(& Enum.map(next, fn n -> [n | &1] end))
+    _select(rest, result)
+  end
   
   @doc """
   Counts how many positive divisors an integer has. `d(n)`.
@@ -1478,6 +1509,42 @@ defmodule Caustic.Utils do
       12
   """
   def positive_divisors_sum(n), do: Enum.reduce(positive_divisors(n), 0, &+/2)
+  
+  @doc """
+  The smallest number `t` such that `a^t = 1 (mod m)`.
+  """
+  def order_multiplicative(n, m) do
+    if gcd(n, m) != 1, do: nil, else: _order_multiplicative(n, m)
+  end
+  
+  defp _order_multiplicative(n, m) do
+    totient(m)
+    |> positive_divisors()
+    |> Enum.reduce(nil, fn
+      candidate, nil -> if pow_mod(n, candidate, m) == 1, do: candidate, else: nil
+      _, result -> result
+    end)
+  end
+  
+  @doc """
+  Finds the primitive roots of a positive integer `m`.
+  `a` is a primitive root of an integer `m` if `a` is a least residue
+  and has order (`mod m`) of `t = φ(n)`.
+  This means that `t` is the smallest number such that `a^t = 1 (mod m)`.
+  """
+  def primitive_roots(m) do
+    1..m
+    |> Enum.filter(&primitive_root?(&1, m))
+  end
+  
+  def primitive_root?(n, m) when is_integer(m) and m > 0 do
+    _primitive_root?(n, m)
+  end
+  
+  # must be least residue
+  def _primitive_root?(n, m) when n < 0 or n >= m, do: false
+  
+  def _primitive_root?(n, m), do: order_multiplicative(n, m) == totient(m)
 
   @doc """
   Finds all subsets of a set (represented by a keyword list).
