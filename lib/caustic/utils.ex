@@ -1054,7 +1054,7 @@ defmodule Caustic.Utils do
   
   @doc """
   Euler's totient function `φ(n)`.
-  The amount of positive integers less than or equal to `m`
+  The number of positive integers less than or equal to `m`
   and relatively prime to `m`.
   
   ## Examples
@@ -1067,6 +1067,12 @@ defmodule Caustic.Utils do
     
       iex> Caustic.Utils.totient(9)
       6
+    
+      iex> Caustic.Utils.totient(1)
+      1
+    
+      iex> Caustic.Utils.totient(4200)
+      960
   """
   def totient(m) do
     factorize_grouped(m)
@@ -1074,6 +1080,27 @@ defmodule Caustic.Utils do
   end
   
   def _totient_prime(p, e), do: pow(p, e - 1) * (p - 1)
+  
+  @doc """
+  Positive integers less than or equal to `m` and relatively prime to `m`.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.totient_members(1)
+      [1]
+    
+      iex> Caustic.Utils.totient_members(6)
+      [1, 5]
+    
+      iex> Caustic.Utils.totient_members(9)
+      [1, 2, 4, 5, 7, 8]
+    
+      iex> Caustic.Utils.totient_members(10)
+      [1, 3, 7, 9]
+  """
+  def totient_members(m) when is_integer(m) and m > 0 do
+    1..m |> Enum.filter(&gcd(m, &1) === 1)
+  end 
 
   @doc """
   Splits a list into its first `n` elements and the rest.
