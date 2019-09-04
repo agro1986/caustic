@@ -40,9 +40,23 @@ defmodule Caustic.UtilsTest do
   end
   
   test "Euler's totient function" do
-    1..2000
+    1..4000
     |> Enum.each(fn n ->
       assert Utils.totient(n) == Naive.totient(n)
+    end)
+  end
+  
+  test "positive divisor count" do
+    1..5000
+    |> Enum.each(fn n ->
+      assert Utils.positive_divisors_count(n) == Naive.positive_divisors_count(n)
+    end)
+  end
+
+  test "positive divisor sum" do
+    1..5000
+    |> Enum.each(fn n ->
+      assert Utils.positive_divisors_sum(n) == Naive.positive_divisors_sum(n)
     end)
   end
 end
@@ -53,4 +67,8 @@ defmodule Caustic.Naive do
   def totient(m) when is_integer(m) and m > 0 do
     0..(m - 1) |> Enum.filter(&(Utils.gcd(m, &1) == 1)) |> Enum.count()
   end
+
+  def positive_divisors_count(n), do: length(Utils.positive_divisors(n))
+
+  def positive_divisors_sum(n), do: Enum.reduce(Utils.positive_divisors(n), 0, &+/2)
 end

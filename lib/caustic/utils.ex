@@ -844,7 +844,7 @@ defmodule Caustic.Utils do
   end
 
   @doc """
-  Find the modular inverse.
+  Find the modular inverse (modular multiplicative inverse).
   
   Using Euclidean Algorithm: https://www.math.utah.edu/~fguevara/ACCESS2013/Euclid.pdf
   
@@ -1080,6 +1080,56 @@ defmodule Caustic.Utils do
   end
   
   def _totient_prime(p, e), do: pow(p, e - 1) * (p - 1)
+  
+  def totient_explain(1) do
+    IO.puts "The only positive number less than or equal to 1 which is relatively prime to 1 is 1 itself."
+    IO.puts "Therefore, φ(1) = 1"
+  end
+  
+  def totient_explain(m) do
+    factors = factorize_grouped(m)
+    factor_count = Enum.count(factors)
+    factors_str = factors
+    |> Enum.map(fn
+      {a, 1} -> "#{a}"
+      {a, e} -> "#{a}^#{e}"
+    end)
+    factors_str_joined = factors_str |> Enum.join(" . ")
+    totient_expanded = factors_str |> Enum.map(&"φ(#{&1})") |> Enum.join(" ")
+
+    big_bracket_opening = if factor_count > 1, do: "[", else: ""
+    big_bracket_closing = if factor_count > 1, do: "]", else: ""
+
+    totient_expanded_2 = factors |> Enum.map(fn
+      {a, 1} -> "(#{a}-1)"
+      {a, e} -> "#{big_bracket_opening}#{a}^(#{e}-1) . (#{a}-1)#{big_bracket_closing}"
+    end) |> Enum.join(" . ")
+
+    totient_expanded_3 = factors |> Enum.map(fn
+      {a, 1} -> "#{a - 1}"
+      {a, e} -> "#{big_bracket_opening}#{a}^#{e - 1} . #{a - 1}#{big_bracket_closing}"
+    end) |> Enum.join(" . ")
+    
+    if factor_count > 1 do
+      IO.puts "φ(m) is multiplicative, so φ(ab) = φ(a) φ(b) if a and b are relatively prime."
+    end
+    
+    IO.puts "#{if factor_count > 1, do: "Also, ", else: ""}φ(p^n) = p^(n-1) . (p-1) for any prime p and positive integer n."
+    IO.puts "#{m} can be factorized as #{factors_str_joined}. Therefore,"
+    intro = "φ(#{m})"
+    steps = Enum.uniq([intro, "φ(#{factors_str_joined})", totient_expanded, totient_expanded_2, totient_expanded_3, "#{totient(m)}"])
+    print_equations steps
+  end
+  
+  def print_equations eqs do
+    [first | [second | rest]] = eqs
+    first_line = "#{first} = #{second}"
+    spaces = String.duplicate " ", String.length(first)
+    prefix = spaces <> " = "
+    lines = rest |> Enum.map(&prefix <> &1)
+    lines = [first_line | lines]
+    lines |> Enum.each(&IO.puts/1)
+  end
   
   @doc """
   Positive integers less than or equal to `m` and relatively prime to `m`.
@@ -1521,7 +1571,10 @@ defmodule Caustic.Utils do
       iex> Caustic.Utils.positive_divisors_count(6)
       4
   """
-  def positive_divisors_count(n), do: length(positive_divisors(n))
+  def positive_divisors_count(n) do
+    factorize_grouped(n)
+    |> Enum.reduce(1, fn {_, e}, acc -> acc * (e + 1) end)
+  end
 
   @doc """
   Sums the positive divisors of an integer. `σ(n)`.
@@ -1535,7 +1588,10 @@ defmodule Caustic.Utils do
       iex> Caustic.Utils.positive_divisors_sum(6)
       12
   """
-  def positive_divisors_sum(n), do: Enum.reduce(positive_divisors(n), 0, &+/2)
+  def positive_divisors_sum(n) do
+    factorize_grouped(n)
+    |> Enum.reduce(1, fn {p, e}, acc -> acc * div((pow(p, e + 1) - 1), (p - 1)) end)
+  end
   
   @doc """
   The smallest number `t` such that `a^t = 1 (mod m)`.
@@ -1641,5 +1697,8 @@ defmodule Caustic.Utils do
     pattern_2 = {chosen, candidates_rest, n}
     _subsets(result, [pattern_1, pattern_2] ++ pattern_rest)
   end
+  
+  def factorial(0), do: 1
+  def factorial(n), do: n * factorial(n - 1)
   
 end
