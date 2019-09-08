@@ -29,10 +29,8 @@ defmodule Caustic.MixProject do
 
   defp description do
     """
-    An Elixir cryptocurrency library which contains
-    algorithms used in Bitcoin, Ethereum, and other blockchains.
-    Includes a rich cryptography, number theory,
-    and general mathematics class library.
+    An Elixir cryptocurrency library which contains algorithms used in Bitcoin, Ethereum, and other blockchains.
+    Includes a rich cryptography, number theory, and general mathematics class library.
     """
   end
 
