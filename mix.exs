@@ -6,7 +6,7 @@ defmodule Caustic.MixProject do
       app: :caustic,
       name: "Caustic",
       source_url: "https://github.com/agro1986/caustic",
-      version: "0.1.21",
+      version: "0.1.22",
       elixir: "~> 1.7",
       description: description(),
       build_embedded: Mix.env == :prod,
@@ -29,7 +29,10 @@ defmodule Caustic.MixProject do
 
   defp description do
     """
-    An Elixir library of useful methods used in various cryptocurrencies (Bitcoin, Ethereum, etc.).
+    An Elixir cryptocurrency library which contains
+    algorithms used in Bitcoin, Ethereum, and other blockchains.
+    Includes a rich cryptography, number theory,
+    and general mathematics class library.
     """
   end
 

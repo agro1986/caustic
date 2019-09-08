@@ -1,6 +1,6 @@
 defmodule Caustic.Alt do
   @moduledoc """
-  Alternative implementation of functions in Caustic.Utils.
+  Alternative implementation of functions in `Caustic.Utils`.
   """
 
   alias Caustic.Utils
@@ -20,7 +20,7 @@ defmodule Caustic.Alt do
     exps = Utils.binary_exponents p
     if length(exps) == 0 do
       if n == 0 do
-        raise ArithmeticError, "Division by zero"
+        raise(ArithmeticError, "Division by zero")
       else
         1
       end

@@ -3,7 +3,7 @@ defmodule Caustic.Explain do
   alias Caustic.Format
   
   @moduledoc """
-  Step-by-step explanation of the computation in Caustic.Utils.
+  Step-by-step explanation of the computation in `Caustic.Utils`.
   """
 
   def totient(1) do

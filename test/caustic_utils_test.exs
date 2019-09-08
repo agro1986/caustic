@@ -17,14 +17,14 @@ defmodule Caustic.UtilsTest do
   end
 
   test "primality testing" do
-    primes = Utils.primes_first_500()
+    primes = Utils.primes_first(500)
     last = primes |> List.last()
     primes_test = 1..last |> Enum.filter(&Utils.prime?/1)
     assert primes_test == primes
   end
 
   test "primality testing using sieve of Eratosthenes" do
-    primes = Utils.primes_first_500()
+    primes = Utils.primes_first(500)
     last = primes |> List.last()
     primes_test = 1..last |> Enum.filter(&Utils.prime?/1)
     assert primes_test == primes
@@ -49,14 +49,14 @@ defmodule Caustic.UtilsTest do
   test "positive divisor count" do
     1..5000
     |> Enum.each(fn n ->
-      assert Utils.positive_divisors_count(n) == Naive.positive_divisors_count(n)
+      assert Utils.divisors_count(n) == Naive.divisors_count(n)
     end)
   end
 
   test "positive divisor sum" do
     1..5000
     |> Enum.each(fn n ->
-      assert Utils.positive_divisors_sum(n) == Naive.positive_divisors_sum(n)
+      assert Utils.divisors_sum(n) == Naive.divisors_sum(n)
     end)
   end
 end
@@ -68,7 +68,7 @@ defmodule Caustic.Naive do
     0..(m - 1) |> Enum.filter(&(Utils.gcd(m, &1) == 1)) |> Enum.count()
   end
 
-  def positive_divisors_count(n), do: length(Utils.positive_divisors(n))
+  def divisors_count(n), do: length(Utils.divisors(n))
 
-  def positive_divisors_sum(n), do: Enum.reduce(Utils.positive_divisors(n), 0, &+/2)
+  def divisors_sum(n), do: Enum.reduce(Utils.divisors(n), 0, &+/2)
 end
