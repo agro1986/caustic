@@ -1456,15 +1456,6 @@ defmodule Caustic.Utils do
     _linear_congruence_solutions [n + m | ns], m, m_orig
   end
   
-  def multiplication_table_mod_print(m) do
-    table = multiplication_table_mod m
-    
-    row_labels = 0..(m - 1) |> Enum.to_list()
-    col_labels = row_labels
-    
-    print_table(table, row_labels, col_labels)
-  end
-  
   def multiplication_table_mod(m) when is_integer(m) and m > 0 do
     0..(m - 1)
     |> Enum.map(fn n ->
@@ -1491,81 +1482,6 @@ defmodule Caustic.Utils do
         e -> pow_mod(n, e, m)
       end)
     end)
-  end
-
-  def exponentiation_table_mod_print(m, opts \\ [relatively_prime_only: false]) do
-    rows = if opts[:relatively_prime_only] do
-      max = if m == 1, do: 1, else: m - 1
-      1..max |> Enum.filter(& gcd(&1, m) == 1) |> Enum.to_list()
-    else
-      0..(m - 1) |> Enum.to_list()
-    end
-
-    cols = if opts[:relatively_prime_only] do
-      1..totient(m) |> Enum.to_list()
-    else
-      max = if m == 1, do: 1, else: m - 1
-      0..max |> Enum.to_list()
-    end
-    
-    table = exponentiation_table_mod m, rows, cols
-    table = if opts[:relatively_prime_only] do
-      _mark_primitive_root table
-    else
-      table
-    end
-
-    print_table table, rows, cols ++ ["√"]
-  end
-  
-  defp _mark_primitive_root table do
-    table
-    |> Enum.map(fn row ->
-      one_count = row
-      |> Enum.filter(& &1 == 1)
-      |> Enum.count()
-      is_root = one_count == 1
-      row ++ [(if is_root, do: "*", else: " ")]
-    end)
-  end
-  
-  def print_fn(n, f) do
-    f_n = n |> Enum.map(& f.(&1))
-    n = if is_list(n), do: n, else: Enum.to_list(n)
-    print_table([f_n], ["f(n)"], n)
-  end
-
-  def print_fn(n, f, g) do
-    f_n = n |> Enum.map(& f.(&1))
-    g_n = n |> Enum.map(& g.(&1))
-    n = if is_list(n), do: n, else: Enum.to_list(n)
-    print_table([f_n, g_n], ["f(n)", "g(n)"], n)
-  end
-  
-  def print_table(table, row_labels, col_labels) do
-    table_with_row_label = Enum.zip(row_labels, table)
-    |> Enum.map(fn {row_label, row} -> [row_label | row] end)
-    
-    col_labels = ["" | col_labels]
-    table_with_label = [col_labels | table_with_row_label]
-    
-    col_widths = List.zip(table_with_label)
-    |> Enum.map(fn row ->
-      row
-      |> Tuple.to_list()
-      |> Enum.map(&String.length(to_string(&1)))
-      |> Enum.max()
-    end)
-    
-    table_str = table_with_label
-    |> Enum.map(fn row ->
-      Enum.zip(row, col_widths)
-      |> Enum.map(fn {col, width} -> String.pad_leading(to_string(col), width) end)
-      |> Enum.join(" | ")
-    end)
-    |> Enum.join("\n")
-    
-    IO.puts(table_str)
   end
   
   @doc """
@@ -1692,6 +1608,18 @@ defmodule Caustic.Utils do
     |> Enum.filter(&primitive_root?(&1, m))
   end
   
+  @doc """
+  Checks whether a number `n` is a primitive root modulo `m`.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.primitive_root?(1, 5)
+      false
+      iex> Caustic.Utils.primitive_root?(4, 5)
+      false
+      iex> Caustic.Utils.primitive_root?(2, 5)
+      true
+  """
   def primitive_root?(n, m) when is_integer(m) and m > 0 do
     _primitive_root?(n, m)
   end
