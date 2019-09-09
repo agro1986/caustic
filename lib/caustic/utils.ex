@@ -317,7 +317,7 @@ defmodule Caustic.Utils do
   @doc """
   Encodes a string into its MIME Base64 representation.
   
-  https://en.wikipedia.org/wiki/Base64 (see Variants summary table)
+  <https://en.wikipedia.org/wiki/Base64> (see Variants summary table)
   
   ## Examples
   
@@ -366,7 +366,7 @@ defmodule Caustic.Utils do
   @doc """
   Decodes a MIME Base64 encoded string.
   
-  https://en.wikipedia.org/wiki/Base64 (see Variants summary table)
+  <https://en.wikipedia.org/wiki/Base64> (see Variants summary table)
   
   ## Examples
   
@@ -719,6 +719,19 @@ defmodule Caustic.Utils do
     end
   end
   
+  @doc """
+  The base 2 logarithm of an integer and its remainder.
+  For example, 9 = 2^3 + 1, so log2i(9) = 3 with remainder 1.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.log2i(9)
+      {3, 1}
+      iex> Caustic.Utils.log2i(8)
+      {3, 0}
+      iex> Caustic.Utils.log2i(256)
+      {8, 0}
+  """
   def log2i(n) when is_integer(n) and n >=1 do
     res = _log2i(n, 0)
     {res, rem(n, pow(2, res))}
@@ -964,8 +977,9 @@ defmodule Caustic.Utils do
   it is faster by naive method by a factor of 150 on
   a particular benchmark machine.
 
-  https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-exponentiation
-  https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/fast-modular-exponentiation
+  <https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-exponentiation>
+  
+  <https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/fast-modular-exponentiation>
   
   ## Examples
   
@@ -1006,7 +1020,7 @@ defmodule Caustic.Utils do
   @doc """
   Find the greatest common divisor of two integers.
   
-  Proof: https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
+  Proof: <https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm>
   
   ## Examples
 
@@ -1095,7 +1109,7 @@ defmodule Caustic.Utils do
   @doc """
   Find the modular inverse (modular multiplicative inverse).
   
-  Using Euclidean Algorithm: https://www.math.utah.edu/~fguevara/ACCESS2013/Euclid.pdf
+  Using Euclidean Algorithm: <https://www.math.utah.edu/~fguevara/ACCESS2013/Euclid.pdf>
   
   ## Examples
   
@@ -1196,13 +1210,37 @@ defmodule Caustic.Utils do
   """
   def factorize(n) when n <= 1, do: []
   def factorize(n), do: _factorize(n, [])
-
+  
   defp _factorize(1, factors), do: factors |> Enum.reverse()
   defp _factorize(n, factors) do
     p = smallest_prime_divisor(n)
     _factorize(div(n, p), [p | factors])
   end
+
+  @doc """
+  Find the prime factors and their exponents of an integer.
   
+  ## Examples
+
+      iex> Caustic.Utils.factorize_grouped(9)
+      [{3, 2}]
+      iex> Caustic.Utils.factorize_grouped(72)
+      [{2, 3}, {3, 2}]
+      iex> Caustic.Utils.factorize_grouped(480)
+      [{2, 5}, {3, 1}, {5, 1}]
+      iex> Caustic.Utils.factorize_grouped(357171293798123)
+      [{7, 1}, {181, 1}, {1459, 1}, {193216691, 1}]
+      iex> Caustic.Utils.factorize_grouped(100000001)
+      [{17, 1}, {5882353, 1}]
+      iex> Caustic.Utils.factorize_grouped(9223372036854775807) # largest 64-bit integer
+      [{7, 2}, {73, 1}, {127, 1}, {337, 1}, {92737, 1}, {649657, 1}]
+      iex> Caustic.Utils.factorize_grouped(18446744073709551615) # largest 64-bit unsigned integer
+      [{3, 1}, {5, 1}, {17, 1}, {257, 1}, {641, 1}, {65537, 1}, {6700417, 1}]
+      iex> Caustic.Utils.factorize_grouped(18446744073709551615 * 3571 * 5901331)
+      [{3, 1}, {5, 1}, {17, 1}, {257, 1}, {641, 1}, {3571, 1}, {65537, 1}, {5901331, 1}, {6700417, 1}]
+      iex> Caustic.Utils.factorize(1)
+      []
+  """
   def factorize_grouped(n) do
     factorize(n)
     |> Enum.reduce([], fn
@@ -1323,7 +1361,8 @@ defmodule Caustic.Utils do
   end
   
   @doc """
-  The other number of an amicable pair, if any.
+  The other number of an amicable pair, if any. Returns `nil` if doesn't
+  have such pair.
   
   ## Examples
   
@@ -1445,8 +1484,10 @@ defmodule Caustic.Utils do
   end
   
   @doc """
-  https://oeis.org/A000043
-  https://en.wikipedia.org/wiki/Mersenne_prime
+  <https://oeis.org/A000043>
+  
+  <https://en.wikipedia.org/wiki/Mersenne_prime>
+  
   The first `n` Mersenne exponents, primes `p` such that `2^p - 1` is prime.
   
   ## Examples
@@ -1460,8 +1501,10 @@ defmodule Caustic.Utils do
   end
   
   @doc """
-  https://oeis.org/A000668
-  https://en.wikipedia.org/wiki/Mersenne_prime
+  <https://oeis.org/A000668>
+  
+  <https://en.wikipedia.org/wiki/Mersenne_prime>
+  
   The `i`-th Mersenne prime, starting at index 0.
   Primes of the form `2^p - 1` where `p` is a prime.
   
@@ -1560,8 +1603,8 @@ defmodule Caustic.Utils do
 
   @doc """
   Checks whether `a` divides `b`.
-  See https://math.stackexchange.com/questions/666103/why-would-some-elementary-number-theory-notes-exclude-00 and
-  https://math.stackexchange.com/questions/2174535/does-zero-divide-zero
+  See <https://math.stackexchange.com/questions/666103/why-would-some-elementary-number-theory-notes-exclude-00> and
+  <https://math.stackexchange.com/questions/2174535/does-zero-divide-zero>
 
   ## Examples
 
@@ -1664,7 +1707,7 @@ defmodule Caustic.Utils do
   end
   
   @doc """
-  Gets all the positive divisors of a number.
+  Gets all the positive divisors of an integer.
   
   ## Examples
   
@@ -1781,6 +1824,31 @@ defmodule Caustic.Utils do
   def divisors_sum(0), do: :infinity
   def divisors_sum(n) when n < 0 do
     divisors_sum(-n)
+  end
+  
+  @doc """
+  The sum of the `e`-th power of the positive divisors of an integer. `σ_e(n)`.
+  For example, the divisors of 15 are 1, 3, 5, and 15, so
+  `σ_2(15) = 1 + 3^2 + 5^2 + 15^2 = 260`
+  
+  ## Examples
+  
+      iex> Caustic.Utils.divisors_sum(5, 0)
+      2
+      iex> Caustic.Utils.divisors_sum(5, 1)
+      6
+      iex> Caustic.Utils.divisors_sum(5, 2)
+      26
+      iex> Caustic.Utils.divisors_sum(15, 2)
+      260
+  """
+  # TODO: make faster using formula in problem 7.19 of elementary number theory (dudley)
+  def divisors_sum(n, 0), do: divisors_count(n)
+  def divisors_sum(n, 1), do: divisors_sum(n)
+  def divisors_sum(n, e) when n > 0 do
+    divisors(n)
+    |> Enum.map(& pow(&1, e))
+    |> Enum.sum()
   end
   
   def proper_divisors_sum(n) when n > 0 do
@@ -1913,4 +1981,28 @@ defmodule Caustic.Utils do
     |> Enum.map(&(Task.async(fn -> func.(&1) end)))
     |> Enum.map(&Task.await/1)
   end
+  
+  @doc """
+  If `n` is a square number, return its root. Otherwise `nil`.
+  
+  ## Examples
+  
+      iex> Caustic.Utils.sqrti(1)
+      1
+      iex> Caustic.Utils.sqrti(4)
+      2
+      iex> Caustic.Utils.sqrti(5)
+      nil
+      iex> Caustic.Utils.sqrti(-1)
+      nil
+  """
+  def sqrti(n) when is_integer(n) and n >= 0 do
+    y = trunc(:math.sqrt(n))
+    if y * y === n do
+      y
+    else
+      nil
+    end
+  end
+  def sqrti(n) when is_integer(n), do: nil
 end
