@@ -49,6 +49,14 @@ defmodule Caustic.Benchmark do
     IO.puts("Naive: #{t3}")
   end
   
+  def benchmark_factorize(max \\ 5000000, times \\ 2) do
+    {t1, _} = :timer.tc(Benchmark, :_benchmark_range, [&Utils.factorize/1, 1, max, times])
+    IO.puts("Baseline: #{t1}")
+
+    {t2, _} = :timer.tc(Benchmark, :_benchmark_range, [&Utils.factorize2/1, 1, max, times])
+    IO.puts("Faster: #{t2}")
+  end
+  
   def _benchmark(f, times) do
     repeat(f, times)
   end
@@ -63,6 +71,13 @@ defmodule Caustic.Benchmark do
 
   def _benchmark(f, x, y, z, times) do
     repeat(fn -> f.(x, y, z) end, times)
+  end
+  
+  def _benchmark_range(f, min, max, times) do
+    repeat(fn ->
+      (min..max)
+      |> Enum.map(f)
+    end, times)
   end
 
   def pow_mod_fine(x, y, m) do

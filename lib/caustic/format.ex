@@ -36,6 +36,14 @@ defmodule Caustic.Format do
     print_table([f_n, g_n], ["f(n)", "g(n)"], n)
   end
 
+  def print_fn(ns, f, g, h) do
+    f_n = ns |> Enum.map(& f.(&1))
+    g_n = ns |> Enum.map(& g.(&1))
+    h_n = ns |> Enum.map(& h.(&1))
+    n = if is_list(ns), do: ns, else: Enum.to_list(ns)
+    print_table([f_n, g_n, h_n], ["f(n)", "g(n)", "h(n)"], n)
+  end
+
   @doc ~S"""
   ## Examples
   
