@@ -9,4 +9,6 @@ if [[ -n "$GIT_STATUS" ]]; then
   exit 1
 fi
 
-echo "All changes are committed. Continuing..."
+echo "No uncommitted changes. Continuing..."
+
+mix run scripts/precompute.exs

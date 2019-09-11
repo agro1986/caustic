@@ -2160,4 +2160,30 @@ defmodule Caustic.Utils do
       div(root - 1, 2)  
     end
   end
+
+  @doc """
+  Finds the first integer `n` where `n >= from` satisfying some property.
+  """
+  def next(from, filter, step \\ 1) do
+    if filter.(from) do
+      from
+    else
+      next(from + step, filter)
+    end
+  end
+
+  @doc """
+  Creates a lazy stream of integers satisfying some property.
+  """
+  def stream(start, filter, count \\ :infinity, step \\ 1) do
+    Stream.unfold(
+      {start, 0},
+      fn
+        {_, ^count} -> nil
+        {candidate, i} ->
+          res = next(candidate, filter, step)
+          {res, {res + 1, i + 1}}
+      end
+    )
+  end
 end
