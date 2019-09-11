@@ -51,10 +51,18 @@ defmodule Caustic.Benchmark do
   
   def benchmark_factorize(max \\ 5000000, times \\ 2) do
     {t1, _} = :timer.tc(Benchmark, :_benchmark_range, [&Utils.factorize/1, 1, max, times])
-    IO.puts("Baseline: #{t1}")
+    IO.puts("Optimized: #{t1}")
 
-    {t2, _} = :timer.tc(Benchmark, :_benchmark_range, [&Utils.factorize2/1, 1, max, times])
-    IO.puts("Faster: #{t2}")
+#    {t2, _} = :timer.tc(Benchmark, :_benchmark_range, [&Utils.factorize2/1, 1, max, times])
+#    IO.puts("Faster: #{t2}")
+  end
+  
+  def benchmark_prime?(max \\ 5000000, times \\ 2) do
+    {t1, _} = :timer.tc(Benchmark, :_benchmark_range, [&Utils.prime?/1, 1, max, times])
+    IO.puts("Optimized: #{t1}")
+
+    {t1, _} = :timer.tc(Benchmark, :_benchmark_range, [&Caustic.Alt.prime?/1, 1, max, times])
+    IO.puts("Naive: #{t1}")
   end
   
   def _benchmark(f, times) do

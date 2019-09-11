@@ -45,4 +45,15 @@ defmodule Caustic.Alt do
   defp _pow(exps, cur_exp, cur_factor, acc) do
     _pow(exps, cur_exp + 1, cur_factor * cur_factor, acc)
   end
+
+  # 1 is not a prime nor composite. It is a unit.
+  def prime?(n) when n <= 1, do: false
+  def prime?(n), do: _prime?(n, 2)
+
+  # if a number n is composite, then it is divisible by a prime
+  # less than or equal to sqrt(n).
+  # This is the most naive implementation.
+  defp _prime?(n, factor) when factor * factor > n, do: true
+  defp _prime?(n, factor) when rem(n, factor) == 0, do: false
+  defp _prime?(n, factor), do: _prime?(n, factor + 1)
 end

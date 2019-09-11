@@ -12,3 +12,4 @@ fi
 echo "No uncommitted changes. Continuing..."
 
 mix run scripts/precompute.exs
+mix test
