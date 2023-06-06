@@ -46,7 +46,7 @@ defmodule Caustic.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, "~> 0.19.1", only: :dev},
+      {:ex_doc, "~> 0.29.4", only: :dev},
       {:earmark, "~> 1.2.6", only: :dev},
       {:dialyxir, "~> 1.0.0-rc.6", only: :dev, runtime: false},
       {:stream_data, "~> 0.4.3", only: :test},
