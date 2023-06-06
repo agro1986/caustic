@@ -37,7 +37,7 @@ defmodule Caustic.MixProject do
   defp package do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
-      maintainers: ["Agro Rachmatullah"],
+      maintainers: ["agro1986"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/agro1986/caustic"}
     ]
