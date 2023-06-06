@@ -6,7 +6,7 @@ defmodule Caustic.MixProject do
       app: :caustic,
       name: "Caustic",
       source_url: "https://github.com/agro1986/caustic",
-      version: "0.1.24",
+      version: "0.1.25",
       elixir: "~> 1.7",
       description: description(),
       build_embedded: Mix.env == :prod,
